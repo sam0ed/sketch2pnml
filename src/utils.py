@@ -3,6 +3,10 @@ import cv2
 import inspect
 import numpy as np
 
+def get_variable_name(variable):
+    callers_local_vars = inspect.currentframe().f_back.f_locals.items()
+    return [var_name for var_name, var_val in callers_local_vars if var_val is variable][0]
+
 def rename_files_in_folder(folder_path, new_name):
     """
     Renames all files in the specified folder to new_name + sequential number.
