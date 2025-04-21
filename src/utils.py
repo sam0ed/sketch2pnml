@@ -161,3 +161,26 @@ def interactive_tuner_demo():
     
     interactive_tuner(hough_circle_visualizer, image)
 
+def rescale_image(image, target_size=640):
+    height, width = image.shape[:2]
+    if height > width:
+        new_height = target_size
+        new_width = int(width * (target_size / height))
+    else:
+        new_width = target_size
+        new_height = int(height * (target_size / width))
+    resized_image = cv2.resize(image, (new_width, new_height), interpolation=cv2.INTER_LINEAR)
+    return resized_image
+
+def upscale_image(image, target_size):
+    height, width = image.shape[:2]
+    
+    if height < width:  # Height is the smaller dimension
+        new_height = target_size
+        new_width = int(width * (target_size / height))
+    else:  # Width is the smaller dimension
+        new_width = target_size
+        new_height = int(height * (target_size / width))
+    
+    upscaled_image = cv2.resize(image, (new_width, new_height), interpolation=cv2.INTER_LINEAR)
+    return upscaled_image
