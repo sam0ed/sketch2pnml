@@ -2,6 +2,9 @@ import os
 import cv2
 import inspect
 import numpy as np
+import shutil
+from typing import Callable
+import matplotlib.pyplot as plt
 
 def get_variable_name(variable):
     callers_local_vars = inspect.currentframe().f_back.f_locals.items()
@@ -40,6 +43,42 @@ def rename_files_in_folder(folder_path, new_name):
         # Rename the file
         os.rename(src_path, dst_path)
         print(f"Renamed: {filename} -> {new_filename}")
+
+def move_filtered_files(source_dir: str, destination_dir: str, file_filter: Callable[[str], bool]):
+    """
+    Move files from source directory to destination directory based on a filter function.
+    
+    Args:
+        source_dir: Path to the source directory
+        destination_dir: Path to the destination directory
+        file_filter: Function that returns True for files to be moved
+    """
+    # Create the destination directory if it doesn't exist
+    if not os.path.exists(destination_dir):
+        os.makedirs(destination_dir)
+    
+    # Get all files in the source directory
+    try:
+        files = os.listdir(source_dir)
+    except FileNotFoundError:
+        print(f"Error: Source directory '{source_dir}' not found.")
+        return
+    
+    # Filter files according to the provided function
+    selected_files = [f for f in files if file_filter(f)]
+    
+    if not selected_files:
+        print(f"No matching files found in {source_dir}")
+        return
+    
+    # Move each file
+    for file in selected_files:
+        source_path = os.path.join(source_dir, file)
+        dest_path = os.path.join(destination_dir, file)
+        shutil.move(source_path, dest_path)
+        print(f"Moved {file} to {destination_dir}")
+    
+    print(f"Moved {len(selected_files)} files.")
 
 def interactive_tuner(func, image, param_ranges=None, window_name="Tuner"):
     """
@@ -172,15 +211,34 @@ def rescale_image(image, target_size=640):
     resized_image = cv2.resize(image, (new_width, new_height), interpolation=cv2.INTER_LINEAR)
     return resized_image
 
-def upscale_image(image, target_size):
-    height, width = image.shape[:2]
+def display_images(images, rows=1, figsize=(15, 10)):
+    """
+    Display multiple images in a grid without titles.
     
-    if height < width:  # Height is the smaller dimension
-        new_height = target_size
-        new_width = int(width * (target_size / height))
-    else:  # Width is the smaller dimension
-        new_width = target_size
-        new_height = int(height * (target_size / width))
+    Args:
+        images: List of images to display
+        rows: Number of rows in the grid
+        figsize: Figure size
+    """
+    cols = len(images) // rows + (1 if len(images) % rows != 0 else 0)
+    fig, axes = plt.subplots(rows, cols, figsize=figsize)
+    axes = axes.flatten() if rows * cols > 1 else [axes]
     
-    upscaled_image = cv2.resize(image, (new_width, new_height), interpolation=cv2.INTER_LINEAR)
-    return upscaled_image
+    for i, image in enumerate(images):
+        if len(image.shape) == 2:  # Grayscale
+            axes[i].imshow(image, cmap='gray')
+        else:  # Color
+            axes[i].imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+        axes[i].axis('off')
+    
+    # Hide any unused subplots
+    for i in range(len(images), len(axes)):
+        axes[i].axis('off')
+    
+    plt.tight_layout()
+    plt.show()
+
+if __name__ == "__main__":
+    pass
+    # Move files that have "_temp" from data/local to data/upscaled
+    # move_filtered_files("data/local", "data/upscaled", lambda filename: "_temp" in filename)
