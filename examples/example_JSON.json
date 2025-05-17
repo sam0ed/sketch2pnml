@@ -1,0 +1,366 @@
+{
+    "cellNamespace": {
+        "basic": {},
+        "standard": {},
+        "devs": {},
+        "logic": {},
+        "chess": {},
+        "erd": {},
+        "fsa": {},
+        "org": {},
+        "pn": {},
+        "uml": {}
+    },
+    "cells": [
+        {
+            "type": "pn.Link",
+            "source": {
+                "id": "81e01fc6-69fd-4571-a56c-5eb39e4e9a30",
+                "selector": ".root"
+            },
+            "target": {
+                "id": "7dac067d-9847-4407-8a71-7c4e366125e0",
+                "selector": ".root"
+            },
+            "connector": {
+                "name": "jumpover",
+                "args": {
+                    "size": 5
+                }
+            },
+            "z": -1,
+            "defaultLabel": {
+                "markup": [
+                    {
+                        "tagName": "text",
+                        "selector": "text"
+                    }
+                ],
+                "attrs": {
+                    "text": {
+                        "fill": "#000000",
+                        "fontSize": 10,
+                        "textAnchor": "middle",
+                        "textVerticalAnchor": "middle",
+                        "yAlignment": "bottom",
+                        "pointerEvents": "none"
+                    }
+                }
+            },
+            "labels": [
+                {
+                    "attrs": {
+                        "text": {
+                            "text": "1.00"
+                        }
+                    },
+                    "position": {
+                        "args": {
+                            "keepGradient": true,
+                            "ensureLegibility": true
+                        }
+                    }
+                }
+            ],
+            "id": "60d3bc4a-83b8-42d9-af76-1ac7669c35c6",
+            "attrs": {
+                "text": {
+                    "fill": "#000000",
+                    "fontSize": 10,
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle",
+                    "yAlignment": "bottom",
+                    "pointerEvents": "cell:pointerdblclick",
+                    "cursor": "move"
+                },
+                ".connection": {
+                    "fill": "none",
+                    "stroke-linejoin": "round",
+                    "stroke-width": "2",
+                    "stroke": "#4b4a67"
+                },
+                ".connection-wrap": {
+                    "fill": "none"
+                }
+            }
+        },
+        {
+            "type": "pn.Link",
+            "source": {
+                "id": "7dac067d-9847-4407-8a71-7c4e366125e0",
+                "selector": ".root"
+            },
+            "target": {
+                "id": "7e9383c4-aba6-4bc2-a133-b9b008ee74b3",
+                "selector": ".root"
+            },
+            "connector": {
+                "name": "jumpover",
+                "args": {
+                    "size": 5
+                }
+            },
+            "z": -1,
+            "defaultLabel": {
+                "markup": [
+                    {
+                        "tagName": "text",
+                        "selector": "text"
+                    }
+                ],
+                "attrs": {
+                    "text": {
+                        "fill": "#000000",
+                        "fontSize": 10,
+                        "textAnchor": "middle",
+                        "textVerticalAnchor": "middle",
+                        "yAlignment": "bottom",
+                        "pointerEvents": "none"
+                    }
+                }
+            },
+            "labels": [
+                {
+                    "attrs": {
+                        "text": {
+                            "text": "1.00"
+                        }
+                    },
+                    "position": {
+                        "args": {
+                            "keepGradient": true,
+                            "ensureLegibility": true
+                        }
+                    }
+                }
+            ],
+            "id": "8f09b0b4-197a-4cad-a830-54bd81d8b70b",
+            "attrs": {
+                "text": {
+                    "fill": "#000000",
+                    "fontSize": 10,
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle",
+                    "yAlignment": "bottom",
+                    "pointerEvents": "cell:pointerdblclick",
+                    "cursor": "move"
+                },
+                ".connection": {
+                    "fill": "none",
+                    "stroke-linejoin": "round",
+                    "stroke-width": "2",
+                    "stroke": "#4b4a67"
+                },
+                ".connection-wrap": {
+                    "fill": "none"
+                }
+            }
+        },
+        {
+            "type": "pn.Place",
+            "size": {
+                "width": 50,
+                "height": 50
+            },
+            "position": {
+                "x": 223,
+                "y": 114
+            },
+            "angle": 0,
+            "tokens": 3,
+            "id": "81e01fc6-69fd-4571-a56c-5eb39e4e9a30",
+            "z": 1,
+            "attrs": {
+                ".root": {
+                    "stroke": "#7c68fc",
+                    "stroke-width": 3
+                },
+                ".label": {
+                    "fill": "#7c68fc",
+                    "text": "P1"
+                },
+                ".tokens > circle": {
+                    "fill": "#7a7e9b"
+                },
+                ".alot > text": {
+                    "fill": "#fe854c",
+                    "font-family": "Courier New",
+                    "font-size": 20,
+                    "font-weight": "bold",
+                    "ref-x": 0.5,
+                    "ref-y": 0.5,
+                    "y-alignment": -0.5,
+                    "transform": null
+                }
+            }
+        },
+        {
+            "type": "pn.Place",
+            "size": {
+                "width": 50,
+                "height": 50
+            },
+            "position": {
+                "x": 521,
+                "y": 115
+            },
+            "angle": 0,
+            "tokens": 0,
+            "id": "7e9383c4-aba6-4bc2-a133-b9b008ee74b3",
+            "z": 2,
+            "attrs": {
+                ".root": {
+                    "stroke": "#7c68fc",
+                    "stroke-width": 3
+                },
+                ".label": {
+                    "fill": "#7c68fc",
+                    "text": "P2"
+                },
+                ".tokens > circle": {
+                    "fill": "#7a7e9b"
+                },
+                ".alot > text": {
+                    "fill": "#fe854c",
+                    "font-family": "Courier New",
+                    "font-size": 20,
+                    "font-weight": "bold",
+                    "ref-x": 0.5,
+                    "ref-y": 0.5,
+                    "y-alignment": -0.5,
+                    "transform": null
+                }
+            }
+        },
+        {
+            "type": "customTransition",
+            "size": {
+                "width": 124,
+                "height": 19
+            },
+            "position": {
+                "x": 336,
+                "y": 130
+            },
+            "angle": 0,
+            "markup": [
+                {
+                    "tagName": "rect",
+                    "selector": "body"
+                },
+                {
+                    "tagName": "text",
+                    "selector": "label"
+                },
+                {
+                    "tagName": "g",
+                    "selector": "portAddButton",
+                    "children": [
+                        {
+                            "tagName": "rect",
+                            "selector": "portAddButtonBody"
+                        },
+                        {
+                            "tagName": "path",
+                            "selector": "portAddButtonIcon"
+                        }
+                    ]
+                }
+            ],
+            "exectime": "3",
+            "eventAttrs": [],
+            "ports": {
+                "groups": {
+                    "conditions": {
+                        "attrs": {
+                            "portBody": {
+                                "width": "calc(w)",
+                                "height": "calc(h)",
+                                "x": "2",
+                                "y": "calc(-0.5*h)",
+                                "fill": "#333",
+                                "rx": 3,
+                                "ry": 3
+                            },
+                            "portRemoveButton": {
+                                "cursor": "pointer",
+                                "event": "element:port:remove",
+                                "transform": "translate(4,0)",
+                                "title": "Remove Condition"
+                            },
+                            "portRemoveButtonBody": {
+                                "width": 16,
+                                "height": 16,
+                                "x": 1,
+                                "y": -8,
+                                "fill": "#FFF",
+                                "rx": 16,
+                                "ry": 16
+                            },
+                            "portRemoveButtonIcon": {
+                                "d": "M 5 -4 13 4 M 5 4 13 -4",
+                                "stroke": "#333",
+                                "strokeWidth": 2
+                            },
+                            "portLabel": {
+                                "pointerEvents": "none",
+                                "fontFamily": "sans-serif",
+                                "fontWeight": 400,
+                                "fontSize": 10,
+                                "fill": "#FFF",
+                                "textAnchor": "start",
+                                "textVerticalAnchor": "middle",
+                                "textWrap": {
+                                    "width": -28,
+                                    "maxLineCount": 1,
+                                    "ellipsis": true
+                                },
+                                "x": 24
+                            }
+                        },
+                        "size": {
+                            "width": 120,
+                            "height": 23
+                        },
+                        "markup": [
+                            {
+                                "tagName": "rect",
+                                "selector": "portBody"
+                            },
+                            {
+                                "tagName": "text",
+                                "selector": "portLabel"
+                            },
+                            {
+                                "tagName": "g",
+                                "selector": "portRemoveButton",
+                                "children": [
+                                    {
+                                        "tagName": "rect",
+                                        "selector": "portRemoveButtonBody"
+                                    },
+                                    {
+                                        "tagName": "path",
+                                        "selector": "portRemoveButtonIcon"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "items": []
+            },
+            "id": "7dac067d-9847-4407-8a71-7c4e366125e0",
+            "z": 3,
+            "attrs": {
+                "label": {
+                    "text": "T1"
+                },
+                "portAddButton": {
+                    "fill": "#7c68fc"
+                }
+            }
+        }
+    ],
+    "caseAttributes": []
+}

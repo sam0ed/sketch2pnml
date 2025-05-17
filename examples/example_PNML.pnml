@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<pnml>
+    <net id="net" type="https://www.pnml.org">
+        <name>
+            <text>PetriNet</text>
+        </name>
+        <page id="Page0">
+            <name>
+                <text />
+            </name>
+            <place id="81e01fc6-69fd-4571-a56c-5eb39e4e9a30">
+                <name>
+                    <text>P1</text>
+                </name>
+                <toolspecific tool="ipypetrinet" />
+                <graphics>
+                    <position x="22.3" y="11.4" />
+                    <dimension x="50" y="50" />
+                </graphics>
+                <initialMarking>
+                    <text>3</text>
+                </initialMarking>
+            </place>
+            <place id="7e9383c4-aba6-4bc2-a133-b9b008ee74b3">
+                <name>
+                    <text>P2</text>
+                </name>
+                <toolspecific tool="ipypetrinet" />
+                <graphics>
+                    <position x="52.1" y="11.5" />
+                    <dimension x="50" y="50" />
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            <transition id="7dac067d-9847-4407-8a71-7c4e366125e0">
+                <name>
+                    <text>T1</text>
+                </name>
+                <toolspecific tool="ipypetrinet" exectime="3"></toolspecific>
+                <graphics>
+                    <position x="33.6" y="13" />
+                    <dimension x="124" y="19" />
+                    <fill color="#9586fd" />
+                </graphics>
+            </transition>
+            <arc id="60d3bc4a-83b8-42d9-af76-1ac7669c35c6"
+                source="81e01fc6-69fd-4571-a56c-5eb39e4e9a30"
+                target="7dac067d-9847-4407-8a71-7c4e366125e0">
+                <name>
+                    <text>1.00</text>
+                </name>
+                <toolspecific tool="ipypetrinet" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+            </arc>
+            <arc id="8f09b0b4-197a-4cad-a830-54bd81d8b70b"
+                source="7dac067d-9847-4407-8a71-7c4e366125e0"
+                target="7e9383c4-aba6-4bc2-a133-b9b008ee74b3">
+                <name>
+                    <text>1.00</text>
+                </name>
+                <toolspecific tool="ipypetrinet" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+            </arc>
+        </page>
+        <finalmarkings>
+            <marking></marking>
+        </finalmarkings>
+    </net>
+</pnml>
