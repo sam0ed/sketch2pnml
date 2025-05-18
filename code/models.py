@@ -6,6 +6,16 @@ import cv2
 # Epsilon for floating point comparisons if needed, though not used in current definitions
 EPS = 1e-6 
 
+def is_number(n):
+    is_number = True
+    try:
+        num = float(n)
+        # check for "nan" floats
+        is_number = num == num   # or use `math.isnan(num)`
+    except ValueError:
+        is_number = False
+    return is_number
+
 class Point:
     def __init__(self, x, y):
         self.x = int(x) # Ensure integer coordinates if they represent pixels
@@ -21,18 +31,11 @@ class Point:
     def is_inside_contour(self, contour):
         """Check if this point is inside a given contour using cv2.pointPolygonTest"""
         # Note: This requires cv2, which might be better placed in a different module
-        # if models.py should be kept free of heavy dependencies like OpenCV.
-        # For now, keeping the method signature as seen in the notebook.
-        # Actual implementation using cv2 would need import cv2.
-        # import cv2 
         point_tuple = (float(self.x), float(self.y)) # pointPolygonTest needs float tuple
         # Ensure contour is in the correct format (e.g., Nx1x2 or Nx2)
         try:
             # >= 0 means inside or on the boundary
             return cv2.pointPolygonTest(contour, point_tuple, False) >= 0 
-        except NameError:
-            print("Warning: cv2 not imported. is_inside_contour cannot function.")
-            return False
         except Exception as e:
             print(f"Error during pointPolygonTest: {e}")
             return False
@@ -116,18 +119,44 @@ class Line:
 
         if np.array_equal(p1_np, p2_np): # If the line is just a point
             return np.linalg.norm(p3_np - p1_np)
-        # Formula for distance from point to line (given by two points)
-        # Use np.cross for 2D vectors requires adding a z-component (0) or using the specific 2D formula
-        # 2D formula: abs((x2-x1)(y1-y0) - (x1-x0)(y2-y1)) / sqrt((x2-x1)^2 + (y2-y1)^2)
-        # Or using projection: norm(p3 - p1 - dot(p3-p1, p2-p1)/dot(p2-p1, p2-p1) * (p2-p1))
-        # Using numpy's cross product on 2D vectors directly isn't standard for this calc.
-        # Let's use the area of parallelogram / base length approach:
+
         numerator = np.abs(np.cross(p2_np - p1_np, p1_np - p3_np))
         denominator = np.linalg.norm(p2_np - p1_np)
         if denominator == 0:
             return np.linalg.norm(p3_np - p1_np) # Distance to the single point
         return numerator / denominator
+    
+    def distance_point_to_segment(self, point: Point) -> float:
+        """
+        Calculates the shortest distance from a query point to this line segment.
+        """
+        # Convert query point and segment endpoints to numpy arrays
+        p_np = point.get_numpy_array().astype(float)
+        a_np = self.point1.get_numpy_array().astype(float) # Segment start (self.point1)
+        b_np = self.point2.get_numpy_array().astype(float) # Segment end (self.point2)
 
+        # If the segment is essentially a point (point1 and point2 are the same)
+        if self.point1 == self.point2: # Relies on Point.__eq__
+            return point.get_distance_between_points(self.point1)
+
+        # Vector from A to B (segment vector)
+        vec_ab = b_np - a_np
+        # Vector from A to P (point relative to segment start)
+        vec_ap = p_np - a_np
+
+        t = np.dot(vec_ap, vec_ab) / np.dot(vec_ab, vec_ab)
+
+        if 0.0 <= t <= 1.0:
+            # The projection falls on the segment AB.
+            # The shortest distance is the perpendicular distance from P to the line AB.
+            # This can be calculated by self.distance_point_to_infinite_line(point).
+            return self.distance_point_to_infinite_line(point)
+        elif t < 0.0:
+            # The projection falls outside the segment, on the side of A.
+            # The closest point on the segment to P is A (self.point1).
+            return point.get_distance_between_points(self.point1)
+        else: # t > 1.0
+            return point.get_distance_between_points(self.point2)
 
     def __repr__(self):
         return f"Line(start={self.point1}, end={self.point2}, angle={self.angle:.2f}, length={self.length:.2f})"
@@ -160,10 +189,34 @@ class Place:
         self.text = [] # Placeholder for any text associated with this place
         self.original_detection_data = original_detection_data 
 
+        self.markers = 0 # Placeholder for markers associated with this place
+
     @classmethod
     def from_contour(cls, contour: np.ndarray):
         (x, y), radius = cv2.minEnclosingCircle(contour)
         return cls((x, y, radius), original_detection_data= contour)
+    
+    def update_markers_from_text(self):
+        """
+        Recalculates and updates self.markers by summing numeric values
+        from associated Text objects in self.text.
+        Only text values that consist purely of digits after stripping whitespace
+        are considered numeric.
+        """
+        current_sum_of_markers = 0
+        for text_obj in self.text: # self.text is a list of Text objects
+            value_str = text_obj.value.strip()
+            if is_number(value_str):
+                try:
+                    num_val = float(value_str)
+                    # Check for infinity, as int(inf) raises OverflowError
+                    if num_val != float('inf') and num_val != float('-inf'):
+                        current_sum_of_markers += int(num_val)
+                    # else: print(f"Info: Skipped infinite value '{value_str}' for markers.") # Optional logging
+                except ValueError:
+                    pass 
+        self.markers = current_sum_of_markers
+        
 
     def __repr__(self):
         return f"Place(center={self.center}, radius={self.radius})"
@@ -235,6 +288,10 @@ class Text:
         self.value = value
         self.pt1 = Point(geometry_abs[0][0], geometry_abs[0][1])
         self.pt2 = Point(geometry_abs[1][0], geometry_abs[1][1])
+        self.center = Point(
+            (self.pt1.x + self.pt2.x) // 2,
+            (self.pt1.y + self.pt2.y) // 2
+        )
         self.confidence = confidence
 
     def __repr__(self):
