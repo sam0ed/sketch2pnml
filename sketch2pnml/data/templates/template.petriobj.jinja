@@ -1,0 +1,29 @@
+
+public static PetriNet SketchToPetri() throws ExceptionInvalidNetStructure, ExceptionInvalidTimeDelay {
+	ArrayList<PetriP> d_P = new ArrayList<>();
+	ArrayList<PetriT> d_T = new ArrayList<>();
+	ArrayList<ArcIn> d_In = new ArrayList<>();
+	ArrayList<ArcOut> d_Out = new ArrayList<>();
+
+    {% for place in places -%}
+	d_P.add(new PetriP("{% if place.get_name() != "" %}{{ place.get_name() }}{% else %}P{{ loop.index }}{% endif %}",{{place.markers}}));
+    {%- endfor %}
+    {% for transition in transitions -%}
+	d_T.add(new PetriT("{% if transition.get_name() != "" %}{{ transition.get_name() }}{% else %}T{{ loop.index }}{% endif %}",0.0));
+    {%- endfor %}
+    {% for arc in arcs -%}
+    {% if arc.source.__class__.__name__ == 'Place' and arc.target.__class__.__name__ == 'Transition' -%}
+	d_In.add(new ArcIn(d_P.get({{ place_to_index[arc.source.id] }}), d_T.get({{ transition_to_index[arc.target.id] }}), {{ arc.weight }}));
+    {%- endif %}
+    {% if arc.source.__class__.__name__ == 'Transition' and arc.target.__class__.__name__ == 'Place' -%}
+	d_Out.add(new ArcOut(d_T.get({{ transition_to_index[arc.source.id] }}), d_P.get({{ place_to_index[arc.target.id] }}), {{ arc.weight }}));
+    {%- endif %}
+    {%- endfor %}
+	PetriNet d_Net = new PetriNet("Untitled",d_P,d_T,d_In,d_Out);
+	PetriP.initNext();
+	PetriT.initNext();
+	ArcIn.initNext();
+	ArcOut.initNext();
+
+	return d_Net;
+}

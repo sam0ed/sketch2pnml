@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<pnml>
+    <net id="net" type="https://www.pnml.org">
+        <name>
+            <text>PetriNet</text>
+        </name>
+        <page id="Page0">
+            <name>
+                <text />
+            </name>
+            
+            <place id="7ba851b4-4ca1-4328-b5e4-bfa75be92468">
+                <name>
+                    <text>P1</text>
+                </name>
+                <toolspecific tool="sketch2pnml" />
+                <graphics>
+                    <position x="1303" y="1178" />
+                    <dimension x="85.66439819335938" y="85.66439819335938" />
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            
+            <place id="e649bb01-87f3-45c0-8d6e-da5219d6863a">
+                <name>
+                    <text>P2</text>
+                </name>
+                <toolspecific tool="sketch2pnml" />
+                <graphics>
+                    <position x="1298" y="999" />
+                    <dimension x="84.70822143554688" y="84.70822143554688" />
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            
+            <place id="2e8b4bf6-edb3-48ee-b973-dfc2bc9ee659">
+                <name>
+                    <text>deadend</text>
+                </name>
+                <toolspecific tool="sketch2pnml" />
+                <graphics>
+                    <position x="1928" y="987" />
+                    <dimension x="84.66273498535156" y="84.66273498535156" />
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            
+            <place id="b0cfc67d-c927-4d60-bc0a-3f61c2316c88">
+                <name>
+                    <text>P4</text>
+                </name>
+                <toolspecific tool="sketch2pnml" />
+                <graphics>
+                    <position x="849" y="772" />
+                    <dimension x="85.68260192871094" y="85.68260192871094" />
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            
+            <place id="66ad2b8d-0609-4359-a508-f27541178848">
+                <name>
+                    <text>orders</text>
+                </name>
+                <toolspecific tool="sketch2pnml" />
+                <graphics>
+                    <position x="1506" y="764" />
+                    <dimension x="85.60266876220703" y="85.60266876220703" />
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            
+            <place id="66f3ae2a-041f-4cc2-9e4b-e6f49c13b663">
+                <name>
+                    <text>P1</text>
+                </name>
+                <toolspecific tool="sketch2pnml" />
+                <graphics>
+                    <position x="2052" y="744" />
+                    <dimension x="85.2280502319336" y="85.2280502319336" />
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            
+            <place id="6c4c0736-1ae9-4708-8991-773d407310dc">
+                <name>
+                    <text>customers</text>
+                </name>
+                <toolspecific tool="sketch2pnml" />
+                <graphics>
+                    <position x="396" y="643" />
+                    <dimension x="86.11500549316406" y="86.11500549316406" />
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            
+            <place id="d03aabcc-eea4-4710-adaa-f9730ea05c2f">
+                <name>
+                    <text>P1</text>
+                </name>
+                <toolspecific tool="sketch2pnml" />
+                <graphics>
+                    <position x="86" y="643" />
+                    <dimension x="85.16803741455078" y="85.16803741455078" />
+                </graphics>
+                <initialMarking>
+                    <text>1</text>
+                </initialMarking>
+            </place>
+            
+            <place id="9ff6a914-92ca-4288-96dc-c827f84c1020">
+                <name>
+                    <text>orders</text>
+                </name>
+                <toolspecific tool="sketch2pnml" />
+                <graphics>
+                    <position x="1505" y="559" />
+                    <dimension x="86.3625717163086" y="86.3625717163086" />
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            
+            <place id="3f991c0b-2dc9-45fa-9f3d-765fe70f3d09">
+                <name>
+                    <text>U</text>
+                </name>
+                <toolspecific tool="sketch2pnml" />
+                <graphics>
+                    <position x="795" y="471" />
+                    <dimension x="84.6255874633789" y="84.6255874633789" />
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            
+            <place id="2a3abb0f-24c8-4a07-b680-435e210c389d">
+                <name>
+                    <text>P11</text>
+                </name>
+                <toolspecific tool="sketch2pnml" />
+                <graphics>
+                    <position x="2047" y="454" />
+                    <dimension x="85.16751861572266" y="85.16751861572266" />
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            
+            <place id="414e0271-d49f-4505-9ce6-a3186954ff73">
+                <name>
+                    <text>size</text>
+                </name>
+                <toolspecific tool="sketch2pnml" />
+                <graphics>
+                    <position x="812" y="296" />
+                    <dimension x="87.03951263427734" y="87.03951263427734" />
+                </graphics>
+                <initialMarking>
+                    <text>72</text>
+                </initialMarking>
+            </place>
+            
+            <place id="47c08bec-1381-48fa-a7ed-d99b9499baf5">
+                <name>
+                    <text>P1</text>
+                </name>
+                <toolspecific tool="sketch2pnml" />
+                <graphics>
+                    <position x="1896" y="194" />
+                    <dimension x="85.26126098632812" y="85.26126098632812" />
+                </graphics>
+                <initialMarking>
+                    <text>1</text>
+                </initialMarking>
+            </place>
+            
+            <place id="159c9850-175b-4597-978b-11fd3448bd5e">
+                <name>
+                    <text>P1</text>
+                </name>
+                <toolspecific tool="sketch2pnml" />
+                <graphics>
+                    <position x="425" y="111" />
+                    <dimension x="85.17021179199219" y="85.17021179199219" />
+                </graphics>
+                <initialMarking>
+                    <text>1</text>
+                </initialMarking>
+            </place>
+            
+            <place id="0a063317-8422-47e1-8d8d-bb32db26f660">
+                <name>
+                    <text>P15</text>
+                </name>
+                <toolspecific tool="sketch2pnml" />
+                <graphics>
+                    <position x="1186" y="104" />
+                    <dimension x="84.57133483886719" y="84.57133483886719" />
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            
+            <place id="36f65f09-72c4-4ef0-9207-b040efe25d94">
+                <name>
+                    <text>P16</text>
+                </name>
+                <toolspecific tool="sketch2pnml" />
+                <graphics>
+                    <position x="765" y="105" />
+                    <dimension x="85.80501556396484" y="85.80501556396484" />
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            
+            <place id="bd41aad2-600b-4107-b923-8dc3dc56e968">
+                <name>
+                    <text>P17</text>
+                </name>
+                <toolspecific tool="sketch2pnml" />
+                <graphics>
+                    <position x="1651" y="103" />
+                    <dimension x="85.30777740478516" y="85.30777740478516" />
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            
+            
+            <transition id="1e0a5c6e-fcb0-49d5-8d1c-f58e4953f27b">
+                <name>
+                    <text></text>
+                </name>
+                <toolspecific tool="sketch2pnml"></toolspecific>
+                <graphics>
+                    <position x="1058" y="1003" />
+                    <dimension x="20.0" y="108.0" />
+                </graphics>
+            </transition>
+            
+            <transition id="966f9454-bba2-4577-82a9-6987ec4ac7fe">
+                <name>
+                    <text></text>
+                </name>
+                <toolspecific tool="sketch2pnml"></toolspecific>
+                <graphics>
+                    <position x="1787" y="995" />
+                    <dimension x="20.0" y="106.0" />
+                </graphics>
+            </transition>
+            
+            <transition id="81252213-8ad4-4fa8-b027-819732d8c104">
+                <name>
+                    <text>t=0.0</text>
+                </name>
+                <toolspecific tool="sketch2pnml"></toolspecific>
+                <graphics>
+                    <position x="603" y="773" />
+                    <dimension x="18.0" y="106.0" />
+                </graphics>
+            </transition>
+            
+            <transition id="7d8da37d-3853-4df6-8ee1-4914c63ff9b5">
+                <name>
+                    <text>t-é0.0</text>
+                </name>
+                <toolspecific tool="sketch2pnml"></toolspecific>
+                <graphics>
+                    <position x="1099" y="764" />
+                    <dimension x="18.0" y="106.0" />
+                </graphics>
+            </transition>
+            
+            <transition id="96fd7a4f-7247-4526-b3a1-77ded1c918a6">
+                <name>
+                    <text></text>
+                </name>
+                <toolspecific tool="sketch2pnml"></toolspecific>
+                <graphics>
+                    <position x="1893" y="745" />
+                    <dimension x="18.0" y="106.0" />
+                </graphics>
+            </transition>
+            
+            <transition id="138e3ffb-0dfc-4bb0-a948-9fde48aa712d">
+                <name>
+                    <text>T1</text>
+                </name>
+                <toolspecific tool="sketch2pnml"></toolspecific>
+                <graphics>
+                    <position x="241" y="643" />
+                    <dimension x="18.999996185302734" y="107.99998474121094" />
+                </graphics>
+            </transition>
+            
+            <transition id="9dbb7dcb-33fc-4e17-b51e-5669eeceb84f">
+                <name>
+                    <text>order</text>
+                </name>
+                <toolspecific tool="sketch2pnml"></toolspecific>
+                <graphics>
+                    <position x="1229" y="524" />
+                    <dimension x="20.0" y="106.0" />
+                </graphics>
+            </transition>
+            
+            <transition id="d8914aa3-037e-41b6-b155-1bffd000e38c">
+                <name>
+                    <text></text>
+                </name>
+                <toolspecific tool="sketch2pnml"></toolspecific>
+                <graphics>
+                    <position x="600" y="483" />
+                    <dimension x="20.0" y="106.0" />
+                </graphics>
+            </transition>
+            
+            <transition id="f6cb4642-5048-426b-a357-66297d08d25c">
+                <name>
+                    <text></text>
+                </name>
+                <toolspecific tool="sketch2pnml"></toolspecific>
+                <graphics>
+                    <position x="1901" y="351" />
+                    <dimension x="20.0" y="108.0" />
+                </graphics>
+            </transition>
+            
+            <transition id="e2477316-5490-47f9-b2ef-7b881a65addb">
+                <name>
+                    <text></text>
+                </name>
+                <toolspecific tool="sketch2pnml"></toolspecific>
+                <graphics>
+                    <position x="1233" y="307" />
+                    <dimension x="28.0" y="106.0" />
+                </graphics>
+            </transition>
+            
+            <transition id="e607bf0b-aa65-4dce-86d9-7f8efe79cb2e">
+                <name>
+                    <text></text>
+                </name>
+                <toolspecific tool="sketch2pnml"></toolspecific>
+                <graphics>
+                    <position x="1375" y="107" />
+                    <dimension x="20.0" y="106.0" />
+                </graphics>
+            </transition>
+            
+            <transition id="4a37815e-f81c-4d35-b1fb-82ef99a21286">
+                <name>
+                    <text>T1</text>
+                </name>
+                <toolspecific tool="sketch2pnml"></toolspecific>
+                <graphics>
+                    <position x="579" y="106" />
+                    <dimension x="20.0" y="106.0" />
+                </graphics>
+            </transition>
+            
+            <transition id="f55fd390-04f9-4358-ad4a-ddf43bf47eff">
+                <name>
+                    <text>size</text>
+                </name>
+                <toolspecific tool="sketch2pnml"></toolspecific>
+                <graphics>
+                    <position x="1005" y="103" />
+                    <dimension x="39.0" y="108.0" />
+                </graphics>
+            </transition>
+            
+            <transition id="d7834177-b02b-4aa3-b2f7-4c921f70a0f6">
+                <name>
+                    <text></text>
+                </name>
+                <toolspecific tool="sketch2pnml"></toolspecific>
+                <graphics>
+                    <position x="2046" y="97" />
+                    <dimension x="18.0" y="106.0" />
+                </graphics>
+            </transition>
+            
+            
+            <arc id="4a031e58-3940-45d8-8230-ce3ec5e6e2dc" source="47c08bec-1381-48fa-a7ed-d99b9499baf5" target="d7834177-b02b-4aa3-b2f7-4c921f70a0f6">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="85038a87-f391-4360-abdd-0805ac1e336b" source="e2477316-5490-47f9-b2ef-7b881a65addb" target="9ff6a914-92ca-4288-96dc-c827f84c1020">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>cancelled,</text>
+                </inscription>
+            </arc>
+            
+            <arc id="64441841-a60d-43c9-a995-3d015b713f18" source="2a3abb0f-24c8-4a07-b680-435e210c389d" target="e2477316-5490-47f9-b2ef-7b881a65addb">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>te0:0-</text>
+                </inscription>
+            </arc>
+            
+            <arc id="e7f090d8-5b7b-4435-ab9f-9ba0b1ee1c63" source="6c4c0736-1ae9-4708-8991-773d407310dc" target="d8914aa3-037e-41b6-b155-1bffd000e38c">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="9f1de73a-40c9-4cae-b005-1f5effa50585" source="d7834177-b02b-4aa3-b2f7-4c921f70a0f6" target="2a3abb0f-24c8-4a07-b680-435e210c389d">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>t-0.0 b=p</text>
+                </inscription>
+            </arc>
+            
+            <arc id="5d379346-7101-4833-9c56-f9d8b21198b3" source="966f9454-bba2-4577-82a9-6987ec4ac7fe" target="2e8b4bf6-edb3-48ee-b973-dfc2bc9ee659">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="d8ac6df6-9a79-47d0-924f-5800b5fec952" source="66f3ae2a-041f-4cc2-9e4b-e6f49c13b663" target="96fd7a4f-7247-4526-b3a1-77ded1c918a6">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="42948b62-9bea-4993-9614-fa99db6d6433" source="1e0a5c6e-fcb0-49d5-8d1c-f58e4953f27b" target="e649bb01-87f3-45c0-8d6e-da5219d6863a">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="3e3b90c7-2968-4f04-98be-ee2b4d36b762" source="36f65f09-72c4-4ef0-9207-b040efe25d94" target="e607bf0b-aa65-4dce-86d9-7f8efe79cb2e">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="db834f0e-5052-433f-9fbf-dc0f589343db" source="0a063317-8422-47e1-8d8d-bb32db26f660" target="e607bf0b-aa65-4dce-86d9-7f8efe79cb2e">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="f2c42d1f-ca5a-4e74-a5c3-0d8f4ddbb190" source="6c4c0736-1ae9-4708-8991-773d407310dc" target="81252213-8ad4-4fa8-b027-819732d8c104">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>fridgépot_avaliable</text>
+                </inscription>
+            </arc>
+            
+            <arc id="85c88c7d-54bf-45e8-8c67-8f80aa6ddef8" source="4a37815e-f81c-4d35-b1fb-82ef99a21286" target="36f65f09-72c4-4ef0-9207-b040efe25d94">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>72</text>
+                </inscription>
+            </arc>
+            
+            <arc id="f67332e7-48d5-4903-8ba1-857b476a0552" source="36f65f09-72c4-4ef0-9207-b040efe25d94" target="9dbb7dcb-33fc-4e17-b51e-5669eeceb84f">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>create_shep</text>
+                </inscription>
+            </arc>
+            
+            <arc id="bf1e8601-eb60-42e4-9884-7af65488cdcf" source="9dbb7dcb-33fc-4e17-b51e-5669eeceb84f" target="66ad2b8d-0609-4359-a508-f27541178848">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>purchace</text>
+                </inscription>
+            </arc>
+            
+            <arc id="61167551-6dc8-4233-a083-5837d6a3a3ae" source="f6cb4642-5048-426b-a357-66297d08d25c" target="47c08bec-1381-48fa-a7ed-d99b9499baf5">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>T5</text>
+                </inscription>
+            </arc>
+            
+            <arc id="0896fc5c-9ade-4692-b736-640b8e8795c1" source="81252213-8ad4-4fa8-b027-819732d8c104" target="b0cfc67d-c927-4d60-bc0a-3f61c2316c88">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="7f663e23-58eb-405e-8d22-9a930045c0da" source="bd41aad2-600b-4107-b923-8dc3dc56e968" target="d7834177-b02b-4aa3-b2f7-4c921f70a0f6">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>19</text>
+                </inscription>
+            </arc>
+            
+            <arc id="822cac3f-b51f-4baf-b799-0e960ff1261e" source="7d8da37d-3853-4df6-8ee1-4914c63ff9b5" target="bd41aad2-600b-4107-b923-8dc3dc56e968">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>t-00 b=0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="c6dd1121-9fe5-4bd3-9d40-0cd26b258807" source="414e0271-d49f-4505-9ce6-a3186954ff73" target="d8914aa3-037e-41b6-b155-1bffd000e38c">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="2e2c4306-43dc-4e5b-88b0-ea8f0ccfab76" source="f55fd390-04f9-4358-ad4a-ddf43bf47eff" target="414e0271-d49f-4505-9ce6-a3186954ff73">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="2c214f7c-952d-43e9-841b-b1ce0477e9fa" source="e607bf0b-aa65-4dce-86d9-7f8efe79cb2e" target="bd41aad2-600b-4107-b923-8dc3dc56e968">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="ccac5aaa-b1c6-4987-8243-96efbb739686" source="96fd7a4f-7247-4526-b3a1-77ded1c918a6" target="66f3ae2a-041f-4cc2-9e4b-e6f49c13b663">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="92aa5cb5-cd36-4776-9a30-a12e435e3c55" source="1e0a5c6e-fcb0-49d5-8d1c-f58e4953f27b" target="7ba851b4-4ca1-4328-b5e4-bfa75be92468">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>lostcustomers</text>
+                </inscription>
+            </arc>
+            
+            <arc id="9d5958ce-7354-43ef-85ed-b0ee94a7a4ca" source="e649bb01-87f3-45c0-8d6e-da5219d6863a" target="966f9454-bba2-4577-82a9-6987ec4ac7fe">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="2a34a437-2f74-4e30-bdd3-f523216a617c" source="b0cfc67d-c927-4d60-bc0a-3f61c2316c88" target="1e0a5c6e-fcb0-49d5-8d1c-f58e4953f27b">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>go.to_omer_store</text>
+                </inscription>
+            </arc>
+            
+            <arc id="8b1d1121-11b7-4c2c-8172-8e3d040dc0d1" source="138e3ffb-0dfc-4bb0-a948-9fde48aa712d" target="d03aabcc-eea4-4710-adaa-f9730ea05c2f">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="6259a32e-1ee5-4b5a-8378-ef4496892567" source="b0cfc67d-c927-4d60-bc0a-3f61c2316c88" target="7d8da37d-3853-4df6-8ee1-4914c63ff9b5">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="45c6d3d1-63ca-46f6-9131-c942d128aded" source="f6cb4642-5048-426b-a357-66297d08d25c" target="2a3abb0f-24c8-4a07-b680-435e210c389d">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>is_cancelled</text>
+                </inscription>
+            </arc>
+            
+            <arc id="c6c52112-e2ff-4419-8dd2-b71984539c06" source="66ad2b8d-0609-4359-a508-f27541178848" target="96fd7a4f-7247-4526-b3a1-77ded1c918a6">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="58e824fa-38af-457f-8f2a-0ef0fce782a3" source="f55fd390-04f9-4358-ad4a-ddf43bf47eff" target="0a063317-8422-47e1-8d8d-bb32db26f660">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="5322378d-069b-4e6b-a8f0-0f46f1d3c4c3" source="d8914aa3-037e-41b6-b155-1bffd000e38c" target="3f991c0b-2dc9-45fa-9f3d-765fe70f3d09">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="128f2336-9a12-4bf9-8347-1143fe96a86d" source="36f65f09-72c4-4ef0-9207-b040efe25d94" target="f55fd390-04f9-4358-ad4a-ddf43bf47eff">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="e194d1ed-69bf-4c6b-aa06-2295d2fc722b" source="138e3ffb-0dfc-4bb0-a948-9fde48aa712d" target="6c4c0736-1ae9-4708-8991-773d407310dc">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="1e5fe18d-356c-4f48-8070-359bd304c19e" source="4a37815e-f81c-4d35-b1fb-82ef99a21286" target="159c9850-175b-4597-978b-11fd3448bd5e">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="8229e464-e36f-4057-9adc-bcec067c1d71" source="159c9850-175b-4597-978b-11fd3448bd5e" target="4a37815e-f81c-4d35-b1fb-82ef99a21286">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="9c366625-2252-424a-9f51-2e8b3127fec8" source="9ff6a914-92ca-4288-96dc-c827f84c1020" target="96fd7a4f-7247-4526-b3a1-77ded1c918a6">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="0f9c82eb-ba29-4926-bd13-61e47d4d62df" source="d03aabcc-eea4-4710-adaa-f9730ea05c2f" target="138e3ffb-0dfc-4bb0-a948-9fde48aa712d">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="cb5d5b07-2433-4ddc-a70d-ea60c7fe2f94" source="7d8da37d-3853-4df6-8ee1-4914c63ff9b5" target="66ad2b8d-0609-4359-a508-f27541178848">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+            <arc id="b8910a85-7e2e-42d4-9aa9-9daa8abc93f1" source="bd41aad2-600b-4107-b923-8dc3dc56e968" target="966f9454-bba2-4577-82a9-6987ec4ac7fe">
+                <toolspecific tool="sketch2pnml" />
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>0</text>
+                </inscription>
+            </arc>
+            
+        </page>
+        <finalmarkings>
+            <marking></marking>
+        </finalmarkings>
+    </net>
+</pnml>
