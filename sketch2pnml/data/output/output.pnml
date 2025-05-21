@@ -9,7 +9,7 @@
                 <text />
             </name>
             
-            <place id="bb79fa1b-32b3-438c-9277-aa2c06ded1b1">
+            <place id="91641540-9c16-45ec-8133-ec7e0c2112c4">
                 <name>
                     <text>P1</text>
                 </name>
@@ -23,7 +23,7 @@
                 </initialMarking>
             </place>
             
-            <place id="90d0472c-c878-40e4-9887-59a1fff5d68c">
+            <place id="ebc6e951-81fa-4449-aed3-bc57856ed5c1">
                 <name>
                     <text>P2</text>
                 </name>
@@ -37,7 +37,7 @@
                 </initialMarking>
             </place>
             
-            <place id="d123a787-4366-4f27-844f-7e59b1f4513e">
+            <place id="996e49fb-2653-40a2-8659-cdb24591fd5b">
                 <name>
                     <text>deadend</text>
                 </name>
@@ -51,7 +51,7 @@
                 </initialMarking>
             </place>
             
-            <place id="224fc7e2-93ab-4944-961a-96ab4f89b1bf">
+            <place id="7e123f3a-1bbe-49ef-b60c-d6b461730408">
                 <name>
                     <text>P4</text>
                 </name>
@@ -65,7 +65,7 @@
                 </initialMarking>
             </place>
             
-            <place id="db286a26-24b4-4fb6-b7bf-0e4ee258718f">
+            <place id="b79b136e-d1c3-4762-9bd0-48923ae061cb">
                 <name>
                     <text>orders</text>
                 </name>
@@ -79,7 +79,7 @@
                 </initialMarking>
             </place>
             
-            <place id="c3b66bdf-18f2-4438-89e0-805e9bf78089">
+            <place id="d58fc742-7d00-4d56-b017-d9556fa5e6e9">
                 <name>
                     <text>P1</text>
                 </name>
@@ -93,7 +93,7 @@
                 </initialMarking>
             </place>
             
-            <place id="a19df9f3-6be9-4277-afd7-0ccbe18c96aa">
+            <place id="dff75150-49f4-4172-88b7-d4379db01dc5">
                 <name>
                     <text>customers</text>
                 </name>
@@ -107,7 +107,7 @@
                 </initialMarking>
             </place>
             
-            <place id="d5ed8085-6160-4bb1-9323-46890d10e91f">
+            <place id="1ddaf159-585b-4715-b7b3-d48a5d120b55">
                 <name>
                     <text>P1</text>
                 </name>
@@ -121,7 +121,7 @@
                 </initialMarking>
             </place>
             
-            <place id="c333348b-e763-4375-83ad-453d637e6afb">
+            <place id="0bfc664f-40a7-49e6-b8ff-158c9ce4e062">
                 <name>
                     <text>orders</text>
                 </name>
@@ -135,7 +135,7 @@
                 </initialMarking>
             </place>
             
-            <place id="aed64a32-d904-4f68-a9a8-fce73b0237e6">
+            <place id="20618418-88db-4b7b-bb92-0f5bb8ab77e5">
                 <name>
                     <text>U</text>
                 </name>
@@ -149,7 +149,7 @@
                 </initialMarking>
             </place>
             
-            <place id="6d2e8493-fa19-46fb-a045-29502022c44b">
+            <place id="6873dd23-802a-4747-8094-c05b82325df0">
                 <name>
                     <text>P11</text>
                 </name>
@@ -163,7 +163,7 @@
                 </initialMarking>
             </place>
             
-            <place id="f9b45368-e2d3-4e88-9b69-df67c5a9d0a3">
+            <place id="f2d9d915-8a55-4973-8204-ee75eafa2851">
                 <name>
                     <text>size</text>
                 </name>
@@ -177,7 +177,7 @@
                 </initialMarking>
             </place>
             
-            <place id="9d5fff59-e67d-4cc7-a101-dda54db536f5">
+            <place id="d1936a8b-25f5-47ca-bc9d-3eddb7ebbade">
                 <name>
                     <text>P1</text>
                 </name>
@@ -191,7 +191,7 @@
                 </initialMarking>
             </place>
             
-            <place id="181a5b3c-f93d-47be-a637-deba309de1d1">
+            <place id="0f997acf-35b5-400d-9bdb-115d7284e3cc">
                 <name>
                     <text>P1</text>
                 </name>
@@ -205,7 +205,7 @@
                 </initialMarking>
             </place>
             
-            <place id="7824c1ab-fd78-48cb-91a4-a9620b1ff7fb">
+            <place id="ff0041c6-6967-4e14-bf79-a82988fbd0d3">
                 <name>
                     <text>P15</text>
                 </name>
@@ -219,7 +219,7 @@
                 </initialMarking>
             </place>
             
-            <place id="7e925f2d-1aff-471b-825b-54249b763620">
+            <place id="cf1b212f-1eee-483a-a25b-c42dca6cb7c4">
                 <name>
                     <text>P16</text>
                 </name>
@@ -233,7 +233,7 @@
                 </initialMarking>
             </place>
             
-            <place id="932cdd7e-891b-4b2a-9717-9295f7ca6eac">
+            <place id="9e5552a0-8b2c-48a8-8682-08262debcb86">
                 <name>
                     <text>P17</text>
                 </name>
@@ -248,7 +248,7 @@
             </place>
             
             
-            <transition id="7ee230e3-8cf9-4970-903a-86396e06ddea">
+            <transition id="6770eb76-293c-4148-82c6-a86fb5eec083">
                 <name>
                     <text>T1</text>
                 </name>
@@ -259,7 +259,7 @@
                 </graphics>
             </transition>
             
-            <transition id="5293491a-d53d-4b71-88b1-299215b08f43">
+            <transition id="bc30d15b-4beb-4579-a41d-570fc9d7f1ea">
                 <name>
                     <text>T2</text>
                 </name>
@@ -270,7 +270,7 @@
                 </graphics>
             </transition>
             
-            <transition id="02927426-4936-4596-8240-ec8366c770c6">
+            <transition id="61443a8a-7e67-4885-8ca7-7ede6240620e">
                 <name>
                     <text>t=0.0</text>
                 </name>
@@ -281,7 +281,7 @@
                 </graphics>
             </transition>
             
-            <transition id="a0085d9d-6878-4ec8-91df-0d4e184a74ae">
+            <transition id="52040ef8-9d55-472e-8800-8c936c554af2">
                 <name>
                     <text>t-é0.0</text>
                 </name>
@@ -292,7 +292,7 @@
                 </graphics>
             </transition>
             
-            <transition id="a8cf6cee-7ee2-43b9-ac7a-73d0bc524ba5">
+            <transition id="3b41d171-8085-4bfb-b31a-70363efa150d">
                 <name>
                     <text>T5</text>
                 </name>
@@ -303,7 +303,7 @@
                 </graphics>
             </transition>
             
-            <transition id="1dae2d79-e081-4f9c-a2d3-82d20cca283c">
+            <transition id="2e4f0354-c5ee-47a1-bb45-110f764a2a5a">
                 <name>
                     <text>T1</text>
                 </name>
@@ -314,7 +314,7 @@
                 </graphics>
             </transition>
             
-            <transition id="d0876e7d-da22-469e-9372-0fbe2c1ea934">
+            <transition id="28e9fb17-de2b-46fe-9161-cce058d8e868">
                 <name>
                     <text>order</text>
                 </name>
@@ -325,7 +325,7 @@
                 </graphics>
             </transition>
             
-            <transition id="29fc71d8-667c-4e40-8130-0b67de2ef7dd">
+            <transition id="993309dd-602d-458d-b8fe-22f5615827ff">
                 <name>
                     <text>T8</text>
                 </name>
@@ -336,7 +336,7 @@
                 </graphics>
             </transition>
             
-            <transition id="513631e5-bab0-4ed5-a496-191e8e32ebca">
+            <transition id="a1cb656f-44f2-467a-9520-ae85ebf19f80">
                 <name>
                     <text>T9</text>
                 </name>
@@ -347,7 +347,7 @@
                 </graphics>
             </transition>
             
-            <transition id="29f130a7-f7fe-4aef-8b2a-a64a54b4cbbb">
+            <transition id="c6849014-aab6-4a6c-ad95-d307c142e0d3">
                 <name>
                     <text>T10</text>
                 </name>
@@ -358,7 +358,7 @@
                 </graphics>
             </transition>
             
-            <transition id="cdc23f0e-89d1-4e0c-9f84-816259573eb0">
+            <transition id="f845ff10-02df-45e9-8d27-6447c6cf67d7">
                 <name>
                     <text>T11</text>
                 </name>
@@ -369,7 +369,7 @@
                 </graphics>
             </transition>
             
-            <transition id="e1a5aff2-1463-4b0b-8fcc-d38fa510d35e">
+            <transition id="db49d7ec-b69d-47b1-b406-c46678bcc903">
                 <name>
                     <text>T1</text>
                 </name>
@@ -380,7 +380,7 @@
                 </graphics>
             </transition>
             
-            <transition id="9b06c897-c1d0-4518-8cda-b09e7ea1b3f5">
+            <transition id="a6e35c1e-e6d4-4e08-b8f4-aee722852c59">
                 <name>
                     <text>size</text>
                 </name>
@@ -391,7 +391,7 @@
                 </graphics>
             </transition>
             
-            <transition id="e36f3523-e6cb-4663-aa69-6205fa47a72c">
+            <transition id="340aec9f-9e1f-4de8-a4d7-8e7c6eb4acf9">
                 <name>
                     <text>T14</text>
                 </name>
@@ -403,7 +403,7 @@
             </transition>
             
             
-            <arc id="2639f137-03b4-4762-88ff-9bf5e1d19b9e" source="9d5fff59-e67d-4cc7-a101-dda54db536f5" target="e36f3523-e6cb-4663-aa69-6205fa47a72c">
+            <arc id="0c45628e-32c0-4b8d-b771-eb0e2adba5a6" source="d1936a8b-25f5-47ca-bc9d-3eddb7ebbade" target="340aec9f-9e1f-4de8-a4d7-8e7c6eb4acf9">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T1</text>
@@ -416,7 +416,7 @@
                 </inscription>
             </arc>
             
-            <arc id="f8b58105-1cc1-434d-9d54-c3ee5641f885" source="29f130a7-f7fe-4aef-8b2a-a64a54b4cbbb" target="c333348b-e763-4375-83ad-453d637e6afb">
+            <arc id="2daae3e1-2450-42e6-bc35-08fecc6952fc" source="c6849014-aab6-4a6c-ad95-d307c142e0d3" target="0bfc664f-40a7-49e6-b8ff-158c9ce4e062">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>cancelled,</text>
@@ -429,7 +429,7 @@
                 </inscription>
             </arc>
             
-            <arc id="87952d2b-7091-4e98-aa55-b5e4c62dd646" source="6d2e8493-fa19-46fb-a045-29502022c44b" target="29f130a7-f7fe-4aef-8b2a-a64a54b4cbbb">
+            <arc id="d0ca7bb9-d084-440b-aa3f-4a56ad5f1927" source="6873dd23-802a-4747-8094-c05b82325df0" target="c6849014-aab6-4a6c-ad95-d307c142e0d3">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>te0:0-</text>
@@ -442,7 +442,7 @@
                 </inscription>
             </arc>
             
-            <arc id="e2a397d1-6294-4b44-be29-61be53ca3a00" source="a19df9f3-6be9-4277-afd7-0ccbe18c96aa" target="29fc71d8-667c-4e40-8130-0b67de2ef7dd">
+            <arc id="785fa230-0463-4719-9c79-4fc6ca3b08b4" source="dff75150-49f4-4172-88b7-d4379db01dc5" target="993309dd-602d-458d-b8fe-22f5615827ff">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T4</text>
@@ -455,7 +455,7 @@
                 </inscription>
             </arc>
             
-            <arc id="074e0df5-c560-4606-a858-5702ddeed981" source="e36f3523-e6cb-4663-aa69-6205fa47a72c" target="6d2e8493-fa19-46fb-a045-29502022c44b">
+            <arc id="7fb40ed2-d2d1-4cea-b988-d6289790ce18" source="340aec9f-9e1f-4de8-a4d7-8e7c6eb4acf9" target="6873dd23-802a-4747-8094-c05b82325df0">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>t-0.0 b=p</text>
@@ -468,7 +468,7 @@
                 </inscription>
             </arc>
             
-            <arc id="8b0853c0-25a6-45e7-b1ab-347ab145c0ff" source="5293491a-d53d-4b71-88b1-299215b08f43" target="d123a787-4366-4f27-844f-7e59b1f4513e">
+            <arc id="0601464e-f580-4f04-b996-91d8cd8043cb" source="bc30d15b-4beb-4579-a41d-570fc9d7f1ea" target="996e49fb-2653-40a2-8659-cdb24591fd5b">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T6</text>
@@ -481,7 +481,7 @@
                 </inscription>
             </arc>
             
-            <arc id="a8e2d0da-577f-43fa-bd80-333a26c63328" source="c3b66bdf-18f2-4438-89e0-805e9bf78089" target="a8cf6cee-7ee2-43b9-ac7a-73d0bc524ba5">
+            <arc id="2fb06974-8925-4c30-8c3e-310213c06b3c" source="d58fc742-7d00-4d56-b017-d9556fa5e6e9" target="3b41d171-8085-4bfb-b31a-70363efa150d">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T7</text>
@@ -494,7 +494,7 @@
                 </inscription>
             </arc>
             
-            <arc id="265ae9f0-77cc-47e0-a80e-2c818af60fd0" source="7ee230e3-8cf9-4970-903a-86396e06ddea" target="90d0472c-c878-40e4-9887-59a1fff5d68c">
+            <arc id="748ac03e-413c-4d5a-9fc3-b4725306f172" source="6770eb76-293c-4148-82c6-a86fb5eec083" target="ebc6e951-81fa-4449-aed3-bc57856ed5c1">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T8</text>
@@ -507,7 +507,7 @@
                 </inscription>
             </arc>
             
-            <arc id="b639e4aa-3b7a-4c8d-a6a5-ee9b6cb70dd2" source="7e925f2d-1aff-471b-825b-54249b763620" target="cdc23f0e-89d1-4e0c-9f84-816259573eb0">
+            <arc id="40a4646e-711e-4044-8220-68e6b1bf696a" source="cf1b212f-1eee-483a-a25b-c42dca6cb7c4" target="f845ff10-02df-45e9-8d27-6447c6cf67d7">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T9</text>
@@ -520,7 +520,7 @@
                 </inscription>
             </arc>
             
-            <arc id="7a404bde-00db-4fb2-9634-34ae7adc34cb" source="7824c1ab-fd78-48cb-91a4-a9620b1ff7fb" target="cdc23f0e-89d1-4e0c-9f84-816259573eb0">
+            <arc id="12deb306-0787-4df3-979f-940eff5c12c0" source="ff0041c6-6967-4e14-bf79-a82988fbd0d3" target="f845ff10-02df-45e9-8d27-6447c6cf67d7">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T10</text>
@@ -533,7 +533,7 @@
                 </inscription>
             </arc>
             
-            <arc id="96917898-facc-4e65-a321-e546c0d71890" source="a19df9f3-6be9-4277-afd7-0ccbe18c96aa" target="02927426-4936-4596-8240-ec8366c770c6">
+            <arc id="f97447de-9dc5-463a-ac55-aa2055983e88" source="dff75150-49f4-4172-88b7-d4379db01dc5" target="61443a8a-7e67-4885-8ca7-7ede6240620e">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>fridgépot_avaliable</text>
@@ -546,7 +546,7 @@
                 </inscription>
             </arc>
             
-            <arc id="6b829248-8abe-4aa5-8032-b67a2c61e395" source="e1a5aff2-1463-4b0b-8fcc-d38fa510d35e" target="7e925f2d-1aff-471b-825b-54249b763620">
+            <arc id="321073ed-b92f-4fbd-afa1-6f8810e4afe8" source="db49d7ec-b69d-47b1-b406-c46678bcc903" target="cf1b212f-1eee-483a-a25b-c42dca6cb7c4">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T12</text>
@@ -559,7 +559,7 @@
                 </inscription>
             </arc>
             
-            <arc id="114362f7-c675-4700-8d1e-7477b82d1450" source="7e925f2d-1aff-471b-825b-54249b763620" target="d0876e7d-da22-469e-9372-0fbe2c1ea934">
+            <arc id="52aa1196-476f-4566-9f66-6b15ab49fb6b" source="cf1b212f-1eee-483a-a25b-c42dca6cb7c4" target="28e9fb17-de2b-46fe-9161-cce058d8e868">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>create_shep</text>
@@ -572,7 +572,7 @@
                 </inscription>
             </arc>
             
-            <arc id="cba030d4-5e1b-4450-8db4-19f11fd52408" source="d0876e7d-da22-469e-9372-0fbe2c1ea934" target="db286a26-24b4-4fb6-b7bf-0e4ee258718f">
+            <arc id="347d76b8-9766-4a71-bc23-747cd06f5c41" source="28e9fb17-de2b-46fe-9161-cce058d8e868" target="b79b136e-d1c3-4762-9bd0-48923ae061cb">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>purchace</text>
@@ -585,7 +585,7 @@
                 </inscription>
             </arc>
             
-            <arc id="9cf7dc4a-9334-4ef5-9b13-2071481cc837" source="9d5fff59-e67d-4cc7-a101-dda54db536f5" target="513631e5-bab0-4ed5-a496-191e8e32ebca">
+            <arc id="efff1781-40c7-45cd-95ed-4367f5372fe6" source="d1936a8b-25f5-47ca-bc9d-3eddb7ebbade" target="a1cb656f-44f2-467a-9520-ae85ebf19f80">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T5</text>
@@ -598,7 +598,7 @@
                 </inscription>
             </arc>
             
-            <arc id="52372a98-5396-4f2c-9768-e92ab1b9cd81" source="02927426-4936-4596-8240-ec8366c770c6" target="224fc7e2-93ab-4944-961a-96ab4f89b1bf">
+            <arc id="47e883d1-db74-43b2-bc51-1007c42739b3" source="61443a8a-7e67-4885-8ca7-7ede6240620e" target="7e123f3a-1bbe-49ef-b60c-d6b461730408">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T16</text>
@@ -611,7 +611,7 @@
                 </inscription>
             </arc>
             
-            <arc id="02269961-0969-4f82-8467-62c1e0e8d560" source="932cdd7e-891b-4b2a-9717-9295f7ca6eac" target="e36f3523-e6cb-4663-aa69-6205fa47a72c">
+            <arc id="58628bde-b483-4d64-a276-fcb11ca7d6a4" source="9e5552a0-8b2c-48a8-8682-08262debcb86" target="340aec9f-9e1f-4de8-a4d7-8e7c6eb4acf9">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T17</text>
@@ -624,7 +624,7 @@
                 </inscription>
             </arc>
             
-            <arc id="05945cd2-5236-4617-9245-46e47fcfb307" source="a0085d9d-6878-4ec8-91df-0d4e184a74ae" target="932cdd7e-891b-4b2a-9717-9295f7ca6eac">
+            <arc id="7913471a-41e0-41f3-85f3-15217336e780" source="52040ef8-9d55-472e-8800-8c936c554af2" target="9e5552a0-8b2c-48a8-8682-08262debcb86">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>t-00 b=0</text>
@@ -637,7 +637,7 @@
                 </inscription>
             </arc>
             
-            <arc id="9278c84c-1e69-466a-af3d-60c09e5b7981" source="f9b45368-e2d3-4e88-9b69-df67c5a9d0a3" target="29fc71d8-667c-4e40-8130-0b67de2ef7dd">
+            <arc id="94c06003-5993-440d-8c30-d1e6675185cf" source="f2d9d915-8a55-4973-8204-ee75eafa2851" target="993309dd-602d-458d-b8fe-22f5615827ff">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T19</text>
@@ -650,7 +650,7 @@
                 </inscription>
             </arc>
             
-            <arc id="1618766e-716b-48b7-9378-37041a0b6313" source="9b06c897-c1d0-4518-8cda-b09e7ea1b3f5" target="f9b45368-e2d3-4e88-9b69-df67c5a9d0a3">
+            <arc id="64941f68-9ce0-4b90-8a1a-a322558e5367" source="a6e35c1e-e6d4-4e08-b8f4-aee722852c59" target="f2d9d915-8a55-4973-8204-ee75eafa2851">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T20</text>
@@ -663,7 +663,7 @@
                 </inscription>
             </arc>
             
-            <arc id="dd379a8b-853d-4717-aa28-db73e16320d6" source="cdc23f0e-89d1-4e0c-9f84-816259573eb0" target="932cdd7e-891b-4b2a-9717-9295f7ca6eac">
+            <arc id="7d08725c-1f94-47e5-a8b7-261ab4cdae4e" source="f845ff10-02df-45e9-8d27-6447c6cf67d7" target="9e5552a0-8b2c-48a8-8682-08262debcb86">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T21</text>
@@ -676,7 +676,7 @@
                 </inscription>
             </arc>
             
-            <arc id="1282398a-4927-4a8e-9197-2e822e0b831a" source="a8cf6cee-7ee2-43b9-ac7a-73d0bc524ba5" target="c3b66bdf-18f2-4438-89e0-805e9bf78089">
+            <arc id="b23ba192-7622-463f-b958-d3d435c99cf4" source="3b41d171-8085-4bfb-b31a-70363efa150d" target="d58fc742-7d00-4d56-b017-d9556fa5e6e9">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T22</text>
@@ -689,7 +689,7 @@
                 </inscription>
             </arc>
             
-            <arc id="b01ec0aa-d9e5-49e3-b55c-7e003ec6dabd" source="7ee230e3-8cf9-4970-903a-86396e06ddea" target="bb79fa1b-32b3-438c-9277-aa2c06ded1b1">
+            <arc id="3206ac45-db84-490a-9d09-d22db663a2c5" source="6770eb76-293c-4148-82c6-a86fb5eec083" target="91641540-9c16-45ec-8133-ec7e0c2112c4">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>lostcustomers</text>
@@ -702,7 +702,7 @@
                 </inscription>
             </arc>
             
-            <arc id="282ade2c-a132-4977-8ec9-8b12a19f2a7a" source="90d0472c-c878-40e4-9887-59a1fff5d68c" target="5293491a-d53d-4b71-88b1-299215b08f43">
+            <arc id="9be85b34-a2b4-4542-8929-09c2ea2d8131" source="ebc6e951-81fa-4449-aed3-bc57856ed5c1" target="bc30d15b-4beb-4579-a41d-570fc9d7f1ea">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T24</text>
@@ -715,7 +715,7 @@
                 </inscription>
             </arc>
             
-            <arc id="d621cd48-9ce2-4f70-93c9-e02bbc8aca51" source="224fc7e2-93ab-4944-961a-96ab4f89b1bf" target="7ee230e3-8cf9-4970-903a-86396e06ddea">
+            <arc id="e598bbbd-b951-4eda-89cb-331d020d0e04" source="7e123f3a-1bbe-49ef-b60c-d6b461730408" target="6770eb76-293c-4148-82c6-a86fb5eec083">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>go.to_omer_store</text>
@@ -728,7 +728,7 @@
                 </inscription>
             </arc>
             
-            <arc id="30b0e7c5-1bf3-4b4d-8caa-d28296ef89f1" source="1dae2d79-e081-4f9c-a2d3-82d20cca283c" target="d5ed8085-6160-4bb1-9323-46890d10e91f">
+            <arc id="e5adbe0b-d731-47c9-8a40-ca4d033158b1" source="2e4f0354-c5ee-47a1-bb45-110f764a2a5a" target="1ddaf159-585b-4715-b7b3-d48a5d120b55">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T26</text>
@@ -741,7 +741,7 @@
                 </inscription>
             </arc>
             
-            <arc id="77e02f29-a743-46ec-ad9c-4fe80fd772e9" source="224fc7e2-93ab-4944-961a-96ab4f89b1bf" target="a0085d9d-6878-4ec8-91df-0d4e184a74ae">
+            <arc id="faed8e69-8a8a-4eb9-8e79-4be2026c24cb" source="7e123f3a-1bbe-49ef-b60c-d6b461730408" target="52040ef8-9d55-472e-8800-8c936c554af2">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T27</text>
@@ -754,7 +754,7 @@
                 </inscription>
             </arc>
             
-            <arc id="f1e62603-3c6e-4d70-8e4e-dfdd0dfea805" source="513631e5-bab0-4ed5-a496-191e8e32ebca" target="6d2e8493-fa19-46fb-a045-29502022c44b">
+            <arc id="e8bda775-6563-44ab-a519-5eaaeec0644a" source="a1cb656f-44f2-467a-9520-ae85ebf19f80" target="6873dd23-802a-4747-8094-c05b82325df0">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>is_cancelled</text>
@@ -767,7 +767,7 @@
                 </inscription>
             </arc>
             
-            <arc id="326b4a3f-eccc-416c-8109-bf3040e7876d" source="db286a26-24b4-4fb6-b7bf-0e4ee258718f" target="a8cf6cee-7ee2-43b9-ac7a-73d0bc524ba5">
+            <arc id="a04781f8-8563-4fe8-8562-9375c26441ee" source="b79b136e-d1c3-4762-9bd0-48923ae061cb" target="3b41d171-8085-4bfb-b31a-70363efa150d">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T29</text>
@@ -780,7 +780,7 @@
                 </inscription>
             </arc>
             
-            <arc id="1d461ca5-0747-4964-a5ce-ca43623aa722" source="9b06c897-c1d0-4518-8cda-b09e7ea1b3f5" target="7824c1ab-fd78-48cb-91a4-a9620b1ff7fb">
+            <arc id="b9c44a3b-8569-45c3-b3b8-444feb914970" source="a6e35c1e-e6d4-4e08-b8f4-aee722852c59" target="ff0041c6-6967-4e14-bf79-a82988fbd0d3">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T30</text>
@@ -793,7 +793,7 @@
                 </inscription>
             </arc>
             
-            <arc id="3bad30d9-d77f-4246-9e6f-37fe7144a6d8" source="29fc71d8-667c-4e40-8130-0b67de2ef7dd" target="aed64a32-d904-4f68-a9a8-fce73b0237e6">
+            <arc id="46bb7cad-1364-49dc-a18c-45cb3d3cfe03" source="993309dd-602d-458d-b8fe-22f5615827ff" target="20618418-88db-4b7b-bb92-0f5bb8ab77e5">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T31</text>
@@ -806,7 +806,7 @@
                 </inscription>
             </arc>
             
-            <arc id="f133f7eb-881a-403c-bfef-3798e33aa49e" source="7e925f2d-1aff-471b-825b-54249b763620" target="9b06c897-c1d0-4518-8cda-b09e7ea1b3f5">
+            <arc id="a2422053-a0eb-49ed-8a0d-6cf88dbdfd6a" source="cf1b212f-1eee-483a-a25b-c42dca6cb7c4" target="a6e35c1e-e6d4-4e08-b8f4-aee722852c59">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T32</text>
@@ -819,7 +819,7 @@
                 </inscription>
             </arc>
             
-            <arc id="2bfecba3-e872-4ddc-a63a-e21ff9d17730" source="1dae2d79-e081-4f9c-a2d3-82d20cca283c" target="a19df9f3-6be9-4277-afd7-0ccbe18c96aa">
+            <arc id="4b32aec0-394c-46ee-9b89-00182b7a9eae" source="2e4f0354-c5ee-47a1-bb45-110f764a2a5a" target="dff75150-49f4-4172-88b7-d4379db01dc5">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T33</text>
@@ -832,7 +832,7 @@
                 </inscription>
             </arc>
             
-            <arc id="dbdbf321-8fda-49d0-ad92-36ffa11bcb8b" source="e1a5aff2-1463-4b0b-8fcc-d38fa510d35e" target="181a5b3c-f93d-47be-a637-deba309de1d1">
+            <arc id="451fbe58-3817-41c4-8c9b-3e98ed74aced" source="db49d7ec-b69d-47b1-b406-c46678bcc903" target="0f997acf-35b5-400d-9bdb-115d7284e3cc">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T34</text>
@@ -845,7 +845,7 @@
                 </inscription>
             </arc>
             
-            <arc id="ba27b928-431e-4383-afe6-08dfdc36971e" source="181a5b3c-f93d-47be-a637-deba309de1d1" target="e1a5aff2-1463-4b0b-8fcc-d38fa510d35e">
+            <arc id="3f2c52e1-d8c9-491e-bb29-72fff19038f3" source="0f997acf-35b5-400d-9bdb-115d7284e3cc" target="db49d7ec-b69d-47b1-b406-c46678bcc903">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T35</text>
@@ -858,7 +858,7 @@
                 </inscription>
             </arc>
             
-            <arc id="92f881a0-3c4d-4109-befb-f3230e55772b" source="c333348b-e763-4375-83ad-453d637e6afb" target="a8cf6cee-7ee2-43b9-ac7a-73d0bc524ba5">
+            <arc id="dc5de36f-2027-4987-b5e7-234c7a9bcc93" source="0bfc664f-40a7-49e6-b8ff-158c9ce4e062" target="3b41d171-8085-4bfb-b31a-70363efa150d">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T36</text>
@@ -871,7 +871,7 @@
                 </inscription>
             </arc>
             
-            <arc id="1747cde1-c8c8-460a-9609-797614bd653a" source="d5ed8085-6160-4bb1-9323-46890d10e91f" target="1dae2d79-e081-4f9c-a2d3-82d20cca283c">
+            <arc id="100f7d15-83f6-4978-81f1-c957928a8fd2" source="1ddaf159-585b-4715-b7b3-d48a5d120b55" target="2e4f0354-c5ee-47a1-bb45-110f764a2a5a">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T37</text>
@@ -884,7 +884,7 @@
                 </inscription>
             </arc>
             
-            <arc id="1a457a52-aa61-4a3a-9cd9-acdf32067086" source="a0085d9d-6878-4ec8-91df-0d4e184a74ae" target="db286a26-24b4-4fb6-b7bf-0e4ee258718f">
+            <arc id="f66cdf0d-22ec-47f6-8efa-b21c86fa6394" source="52040ef8-9d55-472e-8800-8c936c554af2" target="b79b136e-d1c3-4762-9bd0-48923ae061cb">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T38</text>
@@ -897,7 +897,7 @@
                 </inscription>
             </arc>
             
-            <arc id="e5edcbb7-2541-47dc-9eda-814c94659b5a" source="932cdd7e-891b-4b2a-9717-9295f7ca6eac" target="5293491a-d53d-4b71-88b1-299215b08f43">
+            <arc id="e453cdb7-031b-4f4c-aac1-953c167198ea" source="9e5552a0-8b2c-48a8-8682-08262debcb86" target="bc30d15b-4beb-4579-a41d-570fc9d7f1ea">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T39</text>

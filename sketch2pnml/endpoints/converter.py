@@ -58,11 +58,11 @@ def process_elements(places: List[Place], transitions: List[Transition], arcs: L
 
 def fix_petri_net():
     """Method that checks for all the errors in the petri net, logs the errors and applies fixes, if readily available."""
-    with open(here("../data/output/places.pkl"), "rb") as f:
+    with open(here("../data/output/pipeline/places.pkl"), "rb") as f:
         places = pickle.load(f)
-    with open(here("../data/output/transitions.pkl"), "rb") as f:
+    with open(here("../data/output/pipeline/transitions.pkl"), "rb") as f:
         transitions = pickle.load(f)
-    with open(here("../data/output/arcs.pkl"), "rb") as f:
+    with open(here("../data/output/pipeline/arcs.pkl"), "rb") as f:
         arcs = pickle.load(f)
 
     ### Remove duplicate ids across places, transitions and arcs
@@ -132,20 +132,18 @@ def fix_petri_net():
     ### save results as pickles 
     output_dir = here("../data/output")
     os.makedirs(output_dir, exist_ok=True)
-    with open(here("../data/output/places_fixed.pkl"), "wb") as f:
+    with open(here("../data/output/pipeline/places_fixed.pkl"), "wb") as f:
         pickle.dump(places, f)
-    with open(here("../data/output/transitions_fixed.pkl"), "wb") as f:
+    with open(here("../data/output/pipeline/transitions_fixed.pkl"), "wb") as f:
         pickle.dump(transitions, f)
-    with open(here("../data/output/arcs_fixed.pkl"), "wb") as f:
+    with open(here("../data/output/pipeline/arcs_fixed.pkl"), "wb") as f:
         pickle.dump(arcs, f)
     
 
 
 
 
-def save_pipeline():
-    config_path = here("../data/config.yaml")
-    image_path = here("../data/local/mid_petri_2.png")
+def run_and_save_pipeline(config_path: str, image_path: str):
     result = recognize_graph(image_path, config_path)
     
     # Access the results
@@ -157,12 +155,12 @@ def save_pipeline():
     output_dir = here("../data/output")
     os.makedirs(output_dir, exist_ok=True)
     for name, img in result["visualizations"].items():
-        img.save(f"{output_dir}/{name}.png")
-    with open(here("../data/output/places.pkl"), "wb") as f:
+        img.save(f"{output_dir}/visualizations/{name}.png")
+    with open(f"{output_dir}/pipeline/places.pkl", "wb") as f:
         pickle.dump(places, f)
-    with open(here("../data/output/transitions.pkl"), "wb") as f:
+    with open(f"{output_dir}/pipeline/transitions.pkl", "wb") as f:
         pickle.dump(transitions, f)
-    with open(here("../data/output/arcs.pkl"), "wb") as f:
+    with open(f"{output_dir}/pipeline/arcs.pkl", "wb") as f:
         pickle.dump(arcs, f)
 
     print(f"Recognition complete. Found {len(places)} places, {len(transitions)} transitions, and {len(arcs)} arcs.")
@@ -180,11 +178,11 @@ def render_diagram_to(file_type: str):
     str
         The string representing the final pnml model
     """
-    with open(here("../data/output/places_fixed.pkl"), "rb") as f:
+    with open(here("../data/output/pipeline/places_fixed.pkl"), "rb") as f:
         places = pickle.load(f)
-    with open(here("../data/output/transitions_fixed.pkl"), "rb") as f:
+    with open(here("../data/output/pipeline/transitions_fixed.pkl"), "rb") as f:
         transitions = pickle.load(f)
-    with open(here("../data/output/arcs_fixed.pkl"), "rb") as f:
+    with open(here("../data/output/pipeline/arcs_fixed.pkl"), "rb") as f:
         arcs = pickle.load(f)
 
     template_loader = jinja2.FileSystemLoader(
@@ -209,7 +207,7 @@ def render_diagram_to(file_type: str):
 
         output_text = template.render({"places": places, "transitions": transitions, "arcs": arcs, "place_to_index": place_to_index, "transition_to_index": transition_to_index})
 
-        output_file_path = here(f"../data/output/output_fixed.{file_type}")
+        output_file_path = here(f"../data/output/output.{file_type}")
         with open(output_file_path, "w", encoding="utf-8") as f:
             f.write(output_text)
 
@@ -232,8 +230,9 @@ def render_to_json():
     def encode_image(image_path):
         with open(image_path, "rb") as image_file:
             return base64.b64encode(image_file.read()).decode('utf-8')
+    
+    image_path = here("../data/working_image.png")
 
-    image_path = here("../data/local/mid_petri_1.png")
     base64_image = encode_image(image_path)
 
     client = Groq(api_key="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")
@@ -274,7 +273,8 @@ def render_to_json():
 
 
 if __name__ == "__main__":
-    save_pipeline()
+    # run_and_save_pipeline(config_path=here("../data/config.yaml"), image_path=here("../data/local/mid_petri_2.png"))
+
     fix_petri_net()
     ## the next steps should be done in parallel
     render_diagram_to("pnml")
