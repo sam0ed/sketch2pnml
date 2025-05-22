@@ -1,9 +1,8 @@
-## copied from demo_4_config.yaml
 image_processing:
   min_dimension_threshold: 800
   upscale_factor: 2
 text_detection:
-  bin_thresh: 0.2
+  bin_thresh: 0.3
   box_thresh: 0.1
 text_removal:
   doctr_score_thresh: 0.7
@@ -11,7 +10,7 @@ text_removal:
 shape_detection:
   verbose: true
   fill_circle_enclosing_threshold: 0.8
-  fill_rect_enclosing_threshold: 0.8
+  fill_rect_enclosing_threshold: 0.95
   erosion_kernel_size:
   - 3
   - 3

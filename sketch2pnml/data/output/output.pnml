@@ -9,404 +9,371 @@
                 <text />
             </name>
             
-            <place id="91641540-9c16-45ec-8133-ec7e0c2112c4">
-                <name>
-                    <text>P1</text>
-                </name>
-                <toolspecific tool="sketch2pnml" />
-                <graphics>
-                    <position x="1303" y="1178" />
-                    <dimension x="85.66439819335938" y="85.66439819335938" />
-                </graphics>
-                <initialMarking>
-                    <text>0</text>
-                </initialMarking>
-            </place>
-            
-            <place id="ebc6e951-81fa-4449-aed3-bc57856ed5c1">
+            <place id="74e52f1e-7815-4652-b440-e082dfd42714">
                 <name>
                     <text>P2</text>
                 </name>
                 <toolspecific tool="sketch2pnml" />
                 <graphics>
-                    <position x="1298" y="999" />
-                    <dimension x="84.70822143554688" y="84.70822143554688" />
+                    <position x="1614" y="1439" />
+                    <dimension x="88.15773010253906" y="88.15773010253906" />
                 </graphics>
                 <initialMarking>
                     <text>0</text>
                 </initialMarking>
             </place>
             
-            <place id="996e49fb-2653-40a2-8659-cdb24591fd5b">
-                <name>
-                    <text>deadend</text>
-                </name>
-                <toolspecific tool="sketch2pnml" />
-                <graphics>
-                    <position x="1928" y="987" />
-                    <dimension x="84.66273498535156" y="84.66273498535156" />
-                </graphics>
-                <initialMarking>
-                    <text>0</text>
-                </initialMarking>
-            </place>
-            
-            <place id="7e123f3a-1bbe-49ef-b60c-d6b461730408">
+            <place id="861fa67c-5331-460d-9ebb-eda1e0c035b8">
                 <name>
                     <text>P4</text>
                 </name>
                 <toolspecific tool="sketch2pnml" />
                 <graphics>
-                    <position x="849" y="772" />
-                    <dimension x="85.68260192871094" y="85.68260192871094" />
+                    <position x="2373" y="1402" />
+                    <dimension x="87.675048828125" y="87.675048828125" />
                 </graphics>
                 <initialMarking>
                     <text>0</text>
                 </initialMarking>
             </place>
             
-            <place id="b79b136e-d1c3-4762-9bd0-48923ae061cb">
+            <place id="b5496690-a756-43c0-aaf1-901428f788cd">
                 <name>
-                    <text>orders</text>
+                    <text>P3</text>
                 </name>
                 <toolspecific tool="sketch2pnml" />
                 <graphics>
-                    <position x="1506" y="764" />
-                    <dimension x="85.60266876220703" y="85.60266876220703" />
-                </graphics>
-                <initialMarking>
-                    <text>0</text>
-                </initialMarking>
-            </place>
-            
-            <place id="d58fc742-7d00-4d56-b017-d9556fa5e6e9">
-                <name>
-                    <text>P1</text>
-                </name>
-                <toolspecific tool="sketch2pnml" />
-                <graphics>
-                    <position x="2052" y="744" />
-                    <dimension x="85.2280502319336" y="85.2280502319336" />
-                </graphics>
-                <initialMarking>
-                    <text>0</text>
-                </initialMarking>
-            </place>
-            
-            <place id="dff75150-49f4-4172-88b7-d4379db01dc5">
-                <name>
-                    <text>customers</text>
-                </name>
-                <toolspecific tool="sketch2pnml" />
-                <graphics>
-                    <position x="396" y="643" />
-                    <dimension x="86.11500549316406" y="86.11500549316406" />
-                </graphics>
-                <initialMarking>
-                    <text>0</text>
-                </initialMarking>
-            </place>
-            
-            <place id="1ddaf159-585b-4715-b7b3-d48a5d120b55">
-                <name>
-                    <text>P1</text>
-                </name>
-                <toolspecific tool="sketch2pnml" />
-                <graphics>
-                    <position x="86" y="643" />
-                    <dimension x="85.16803741455078" y="85.16803741455078" />
+                    <position x="2402" y="1262" />
+                    <dimension x="86.55313110351562" y="86.55313110351562" />
                 </graphics>
                 <initialMarking>
                     <text>1</text>
                 </initialMarking>
             </place>
             
-            <place id="0bfc664f-40a7-49e6-b8ff-158c9ce4e062">
+            <place id="0a333b31-eff5-4969-86f6-8e8ce7d0a6a0">
                 <name>
-                    <text>orders</text>
+                    <text>P2</text>
                 </name>
                 <toolspecific tool="sketch2pnml" />
                 <graphics>
-                    <position x="1505" y="559" />
-                    <dimension x="86.3625717163086" y="86.3625717163086" />
+                    <position x="1215" y="1119" />
+                    <dimension x="88.86412048339844" y="88.86412048339844" />
                 </graphics>
                 <initialMarking>
                     <text>0</text>
                 </initialMarking>
             </place>
             
-            <place id="20618418-88db-4b7b-bb92-0f5bb8ab77e5">
+            <place id="54846c04-9f25-480b-906d-f1554b42746d">
                 <name>
-                    <text>U</text>
+                    <text>P4</text>
                 </name>
                 <toolspecific tool="sketch2pnml" />
                 <graphics>
-                    <position x="795" y="471" />
-                    <dimension x="84.6255874633789" y="84.6255874633789" />
+                    <position x="1624" y="1114" />
+                    <dimension x="86.55276489257812" y="86.55276489257812" />
                 </graphics>
                 <initialMarking>
                     <text>0</text>
                 </initialMarking>
             </place>
             
-            <place id="6873dd23-802a-4747-8094-c05b82325df0">
+            <place id="d456ebac-b1c9-4fc0-9e33-c3c2684b4bb6">
                 <name>
-                    <text>P11</text>
+                    <text>P3</text>
                 </name>
                 <toolspecific tool="sketch2pnml" />
                 <graphics>
-                    <position x="2047" y="454" />
-                    <dimension x="85.16751861572266" y="85.16751861572266" />
-                </graphics>
-                <initialMarking>
-                    <text>0</text>
-                </initialMarking>
-            </place>
-            
-            <place id="f2d9d915-8a55-4973-8204-ee75eafa2851">
-                <name>
-                    <text>size</text>
-                </name>
-                <toolspecific tool="sketch2pnml" />
-                <graphics>
-                    <position x="812" y="296" />
-                    <dimension x="87.03951263427734" y="87.03951263427734" />
-                </graphics>
-                <initialMarking>
-                    <text>72</text>
-                </initialMarking>
-            </place>
-            
-            <place id="d1936a8b-25f5-47ca-bc9d-3eddb7ebbade">
-                <name>
-                    <text>P1</text>
-                </name>
-                <toolspecific tool="sketch2pnml" />
-                <graphics>
-                    <position x="1896" y="194" />
-                    <dimension x="85.26126098632812" y="85.26126098632812" />
+                    <position x="1543" y="990" />
+                    <dimension x="88.30223083496094" y="88.30223083496094" />
                 </graphics>
                 <initialMarking>
                     <text>1</text>
                 </initialMarking>
             </place>
             
-            <place id="0f997acf-35b5-400d-9bdb-115d7284e3cc">
+            <place id="9a9f7743-0d57-4457-b0c8-4d1202af3caa">
                 <name>
-                    <text>P1</text>
+                    <text>P4</text>
                 </name>
                 <toolspecific tool="sketch2pnml" />
                 <graphics>
-                    <position x="425" y="111" />
-                    <dimension x="85.17021179199219" y="85.17021179199219" />
+                    <position x="1076" y="866" />
+                    <dimension x="87.77268981933594" y="87.77268981933594" />
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            
+            <place id="c2e93540-3828-4ee1-8fa1-18c2af2b9737">
+                <name>
+                    <text>P3</text>
+                </name>
+                <toolspecific tool="sketch2pnml" />
+                <graphics>
+                    <position x="1220" y="786" />
+                    <dimension x="86.9387435913086" y="86.9387435913086" />
                 </graphics>
                 <initialMarking>
                     <text>1</text>
                 </initialMarking>
             </place>
             
-            <place id="ff0041c6-6967-4e14-bf79-a82988fbd0d3">
+            <place id="074a25fb-06a5-451d-9b21-97e36297c541">
                 <name>
-                    <text>P15</text>
+                    <text>P2 o)</text>
                 </name>
                 <toolspecific tool="sketch2pnml" />
                 <graphics>
-                    <position x="1186" y="104" />
-                    <dimension x="84.57133483886719" y="84.57133483886719" />
+                    <position x="748" y="727" />
+                    <dimension x="87.70835876464844" y="87.70835876464844" />
                 </graphics>
                 <initialMarking>
                     <text>0</text>
                 </initialMarking>
             </place>
             
-            <place id="cf1b212f-1eee-483a-a25b-c42dca6cb7c4">
+            <place id="de4cdc15-0c71-446f-ac4e-b688b041c0e5">
                 <name>
-                    <text>P16</text>
+                    <text>P10</text>
                 </name>
                 <toolspecific tool="sketch2pnml" />
                 <graphics>
-                    <position x="765" y="105" />
-                    <dimension x="85.80501556396484" y="85.80501556396484" />
+                    <position x="2318" y="708" />
+                    <dimension x="86.55313110351562" y="86.55313110351562" />
                 </graphics>
                 <initialMarking>
                     <text>0</text>
                 </initialMarking>
             </place>
             
-            <place id="9e5552a0-8b2c-48a8-8682-08262debcb86">
+            <place id="79202427-ad04-4caa-b7ed-5ab794fdfce0">
                 <name>
-                    <text>P17</text>
+                    <text>P3 P4</text>
                 </name>
                 <toolspecific tool="sketch2pnml" />
                 <graphics>
-                    <position x="1651" y="103" />
-                    <dimension x="85.30777740478516" y="85.30777740478516" />
+                    <position x="2297" y="596" />
+                    <dimension x="88.30242156982422" y="88.30242156982422" />
+                </graphics>
+                <initialMarking>
+                    <text>1</text>
+                </initialMarking>
+            </place>
+            
+            <place id="4a7f910e-1faa-479a-88e5-db7bcf26bb8f">
+                <name>
+                    <text>P4</text>
+                </name>
+                <toolspecific tool="sketch2pnml" />
+                <graphics>
+                    <position x="712" y="578" />
+                    <dimension x="87.7955093383789" y="87.7955093383789" />
                 </graphics>
                 <initialMarking>
                     <text>0</text>
                 </initialMarking>
             </place>
             
+            <place id="6141ebbc-0264-4d89-a8a1-ba1923752745">
+                <name>
+                    <text>P2</text>
+                </name>
+                <toolspecific tool="sketch2pnml" />
+                <graphics>
+                    <position x="435" y="490" />
+                    <dimension x="88.00309753417969" y="88.00309753417969" />
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
             
-            <transition id="6770eb76-293c-4148-82c6-a86fb5eec083">
+            <place id="ca3a7368-2919-4631-a55a-4c1671552ed3">
+                <name>
+                    <text>P1</text>
+                </name>
+                <toolspecific tool="sketch2pnml" />
+                <graphics>
+                    <position x="82" y="472" />
+                    <dimension x="86.55278778076172" y="86.55278778076172" />
+                </graphics>
+                <initialMarking>
+                    <text>1</text>
+                </initialMarking>
+            </place>
+            
+            <place id="16ca19bf-73d8-446e-b198-3f99a761bf10">
+                <name>
+                    <text>P5</text>
+                </name>
+                <toolspecific tool="sketch2pnml" />
+                <graphics>
+                    <position x="1442" y="467" />
+                    <dimension x="88.63484954833984" y="88.63484954833984" />
+                </graphics>
+                <initialMarking>
+                    <text>5</text>
+                </initialMarking>
+            </place>
+            
+            <place id="f778296e-cc27-4ae1-9d5a-02b59b664a9a">
+                <name>
+                    <text>P2</text>
+                </name>
+                <toolspecific tool="sketch2pnml" />
+                <graphics>
+                    <position x="1932" y="449" />
+                    <dimension x="87.99964904785156" y="87.99964904785156" />
+                </graphics>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            
+            <place id="7d6bce72-6e26-46c4-bf07-44b141db8b59">
+                <name>
+                    <text>P3</text>
+                </name>
+                <toolspecific tool="sketch2pnml" />
+                <graphics>
+                    <position x="761" y="356" />
+                    <dimension x="88.11365509033203" y="88.11365509033203" />
+                </graphics>
+                <initialMarking>
+                    <text>1</text>
+                </initialMarking>
+            </place>
+            
+            
+            <transition id="92896258-813a-4f24-a1b2-d67df6798951">
                 <name>
                     <text>T1</text>
                 </name>
                 <toolspecific tool="sketch2pnml"></toolspecific>
                 <graphics>
-                    <position x="1058" y="1003" />
-                    <dimension x="20.0" y="108.0" />
+                    <position x="1463" y="1356" />
+                    <dimension x="18.999996185302734" y="108.99998474121094" />
                 </graphics>
             </transition>
             
-            <transition id="bc30d15b-4beb-4579-a41d-570fc9d7f1ea">
+            <transition id="f1fa750c-5a54-40ef-acb1-5f99ea1dd5d8">
                 <name>
                     <text>T2</text>
                 </name>
                 <toolspecific tool="sketch2pnml"></toolspecific>
                 <graphics>
-                    <position x="1787" y="995" />
-                    <dimension x="20.0" y="106.0" />
+                    <position x="2145" y="1286" />
+                    <dimension x="18.999996185302734" y="108.99998474121094" />
                 </graphics>
             </transition>
             
-            <transition id="61443a8a-7e67-4885-8ca7-7ede6240620e">
+            <transition id="ed900e66-5c4d-42a6-b539-519fceda3e2a">
                 <name>
-                    <text>t=0.0</text>
+                    <text>T3</text>
                 </name>
                 <toolspecific tool="sketch2pnml"></toolspecific>
                 <graphics>
-                    <position x="603" y="773" />
-                    <dimension x="18.0" y="106.0" />
+                    <position x="1919" y="1194" />
+                    <dimension x="18.999996185302734" y="108.99998474121094" />
                 </graphics>
             </transition>
             
-            <transition id="52040ef8-9d55-472e-8800-8c936c554af2">
+            <transition id="c804ea82-3d09-4fca-ae61-404fd2632b74">
                 <name>
-                    <text>t-é0.0</text>
+                    <text>T4</text>
                 </name>
                 <toolspecific tool="sketch2pnml"></toolspecific>
                 <graphics>
-                    <position x="1099" y="764" />
-                    <dimension x="18.0" y="106.0" />
+                    <position x="1399" y="1098" />
+                    <dimension x="18.999996185302734" y="108.99998474121094" />
                 </graphics>
             </transition>
             
-            <transition id="3b41d171-8085-4bfb-b31a-70363efa150d">
-                <name>
-                    <text>T5</text>
-                </name>
-                <toolspecific tool="sketch2pnml"></toolspecific>
-                <graphics>
-                    <position x="1893" y="745" />
-                    <dimension x="18.0" y="106.0" />
-                </graphics>
-            </transition>
-            
-            <transition id="2e4f0354-c5ee-47a1-bb45-110f764a2a5a">
+            <transition id="7d12683c-0ff9-4c19-ad95-6dbdfb83a2fa">
                 <name>
                     <text>T1</text>
                 </name>
                 <toolspecific tool="sketch2pnml"></toolspecific>
                 <graphics>
-                    <position x="241" y="643" />
-                    <dimension x="18.999996185302734" y="107.99998474121094" />
+                    <position x="1065" y="1034" />
+                    <dimension x="18.999996185302734" y="108.99998474121094" />
                 </graphics>
             </transition>
             
-            <transition id="28e9fb17-de2b-46fe-9161-cce058d8e868">
+            <transition id="f1470bcf-8c7c-44c2-a9df-a05355aecba1">
                 <name>
-                    <text>order</text>
+                    <text>T2</text>
                 </name>
                 <toolspecific tool="sketch2pnml"></toolspecific>
                 <graphics>
-                    <position x="1229" y="524" />
-                    <dimension x="20.0" y="106.0" />
+                    <position x="945" y="730" />
+                    <dimension x="18.999996185302734" y="108.99998474121094" />
                 </graphics>
             </transition>
             
-            <transition id="993309dd-602d-458d-b8fe-22f5615827ff">
-                <name>
-                    <text>T8</text>
-                </name>
-                <toolspecific tool="sketch2pnml"></toolspecific>
-                <graphics>
-                    <position x="600" y="483" />
-                    <dimension x="20.0" y="106.0" />
-                </graphics>
-            </transition>
-            
-            <transition id="a1cb656f-44f2-467a-9520-ae85ebf19f80">
-                <name>
-                    <text>T9</text>
-                </name>
-                <toolspecific tool="sketch2pnml"></toolspecific>
-                <graphics>
-                    <position x="1901" y="351" />
-                    <dimension x="20.0" y="108.0" />
-                </graphics>
-            </transition>
-            
-            <transition id="c6849014-aab6-4a6c-ad95-d307c142e0d3">
-                <name>
-                    <text>T10</text>
-                </name>
-                <toolspecific tool="sketch2pnml"></toolspecific>
-                <graphics>
-                    <position x="1233" y="307" />
-                    <dimension x="28.0" y="106.0" />
-                </graphics>
-            </transition>
-            
-            <transition id="f845ff10-02df-45e9-8d27-6447c6cf67d7">
-                <name>
-                    <text>T11</text>
-                </name>
-                <toolspecific tool="sketch2pnml"></toolspecific>
-                <graphics>
-                    <position x="1375" y="107" />
-                    <dimension x="20.0" y="106.0" />
-                </graphics>
-            </transition>
-            
-            <transition id="db49d7ec-b69d-47b1-b406-c46678bcc903">
+            <transition id="509a47ea-8340-454a-afab-2a37971424e6">
                 <name>
                     <text>T1</text>
                 </name>
                 <toolspecific tool="sketch2pnml"></toolspecific>
                 <graphics>
-                    <position x="579" y="106" />
-                    <dimension x="20.0" y="106.0" />
+                    <position x="633" y="718" />
+                    <dimension x="18.999996185302734" y="108.99998474121094" />
                 </graphics>
             </transition>
             
-            <transition id="a6e35c1e-e6d4-4e08-b8f4-aee722852c59">
+            <transition id="2fc67f59-b6e8-4fb8-a798-d3bbca45220f">
                 <name>
-                    <text>size</text>
+                    <text>T2</text>
                 </name>
                 <toolspecific tool="sketch2pnml"></toolspecific>
                 <graphics>
-                    <position x="1005" y="103" />
-                    <dimension x="39.0" y="108.0" />
+                    <position x="2173" y="688" />
+                    <dimension x="18.999996185302734" y="108.99998474121094" />
                 </graphics>
             </transition>
             
-            <transition id="340aec9f-9e1f-4de8-a4d7-8e7c6eb4acf9">
+            <transition id="2ca599a2-30e5-4d8a-8b50-c2398a122bfc">
                 <name>
-                    <text>T14</text>
+                    <text>T1</text>
                 </name>
                 <toolspecific tool="sketch2pnml"></toolspecific>
                 <graphics>
-                    <position x="2046" y="97" />
-                    <dimension x="18.0" y="106.0" />
+                    <position x="303" y="474" />
+                    <dimension x="18.999996185302734" y="108.99998474121094" />
+                </graphics>
+            </transition>
+            
+            <transition id="e32bb90d-e721-4f17-a9fa-a750ed7b6373">
+                <name>
+                    <text>T2</text>
+                </name>
+                <toolspecific tool="sketch2pnml"></toolspecific>
+                <graphics>
+                    <position x="617" y="470" />
+                    <dimension x="18.999996185302734" y="108.99998474121094" />
+                </graphics>
+            </transition>
+            
+            <transition id="679978b5-5563-44a7-8621-14b8d504eba2">
+                <name>
+                    <text>T3</text>
+                </name>
+                <toolspecific tool="sketch2pnml"></toolspecific>
+                <graphics>
+                    <position x="959" y="112" />
+                    <dimension x="18.999996185302734" y="108.99998474121094" />
                 </graphics>
             </transition>
             
             
-            <arc id="0c45628e-32c0-4b8d-b771-eb0e2adba5a6" source="d1936a8b-25f5-47ca-bc9d-3eddb7ebbade" target="340aec9f-9e1f-4de8-a4d7-8e7c6eb4acf9">
+            <arc id="9bc28dc8-6dde-46f1-b7d9-eb5bd85e056b" source="e32bb90d-e721-4f17-a9fa-a750ed7b6373" target="16ca19bf-73d8-446e-b198-3f99a761bf10">
                 <toolspecific tool="sketch2pnml" />
                 <name>
-                    <text>T1</text>
+                    <text>*</text>
                 </name>
                 <arctype>
                     <text>normal</text>
@@ -416,10 +383,10 @@
                 </inscription>
             </arc>
             
-            <arc id="2daae3e1-2450-42e6-bc35-08fecc6952fc" source="c6849014-aab6-4a6c-ad95-d307c142e0d3" target="0bfc664f-40a7-49e6-b8ff-158c9ce4e062">
+            <arc id="b3b74d9a-98f7-4482-887a-021604e66070" source="16ca19bf-73d8-446e-b198-3f99a761bf10" target="e32bb90d-e721-4f17-a9fa-a750ed7b6373">
                 <toolspecific tool="sketch2pnml" />
                 <name>
-                    <text>cancelled,</text>
+                    <text>T2</text>
                 </name>
                 <arctype>
                     <text>normal</text>
@@ -429,10 +396,10 @@
                 </inscription>
             </arc>
             
-            <arc id="d0ca7bb9-d084-440b-aa3f-4a56ad5f1927" source="6873dd23-802a-4747-8094-c05b82325df0" target="c6849014-aab6-4a6c-ad95-d307c142e0d3">
+            <arc id="70af083e-7a3c-491a-b413-df26279bba1e" source="7d12683c-0ff9-4c19-ad95-6dbdfb83a2fa" target="0a333b31-eff5-4969-86f6-8e8ce7d0a6a0">
                 <toolspecific tool="sketch2pnml" />
                 <name>
-                    <text>te0:0-</text>
+                    <text>*</text>
                 </name>
                 <arctype>
                     <text>normal</text>
@@ -442,7 +409,7 @@
                 </inscription>
             </arc>
             
-            <arc id="785fa230-0463-4719-9c79-4fc6ca3b08b4" source="dff75150-49f4-4172-88b7-d4379db01dc5" target="993309dd-602d-458d-b8fe-22f5615827ff">
+            <arc id="bc7608f8-3a8d-404a-9124-fbc91948e8a5" source="e32bb90d-e721-4f17-a9fa-a750ed7b6373" target="4a7f910e-1faa-479a-88e5-db7bcf26bb8f">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T4</text>
@@ -451,14 +418,27 @@
                     <text>normal</text>
                 </arctype>
                 <inscription>
-                    <text>1</text>
+                    <text>4</text>
                 </inscription>
             </arc>
             
-            <arc id="7fb40ed2-d2d1-4cea-b988-d6289790ce18" source="340aec9f-9e1f-4de8-a4d7-8e7c6eb4acf9" target="6873dd23-802a-4747-8094-c05b82325df0">
+            <arc id="ef21ee3c-0bd6-4ef4-ae64-dcc87e49fc2f" source="c804ea82-3d09-4fca-ae61-404fd2632b74" target="16ca19bf-73d8-446e-b198-3f99a761bf10">
                 <toolspecific tool="sketch2pnml" />
                 <name>
-                    <text>t-0.0 b=p</text>
+                    <text>TI</text>
+                </name>
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>4</text>
+                </inscription>
+            </arc>
+            
+            <arc id="c18afea7-b812-40e6-a778-32b29fa3907b" source="2fc67f59-b6e8-4fb8-a798-d3bbca45220f" target="79202427-ad04-4caa-b7ed-5ab794fdfce0">
+                <toolspecific tool="sketch2pnml" />
+                <name>
+                    <text>A</text>
                 </name>
                 <arctype>
                     <text>normal</text>
@@ -468,10 +448,10 @@
                 </inscription>
             </arc>
             
-            <arc id="0601464e-f580-4f04-b996-91d8cd8043cb" source="bc30d15b-4beb-4579-a41d-570fc9d7f1ea" target="996e49fb-2653-40a2-8659-cdb24591fd5b">
+            <arc id="9fcf0099-5fde-4816-9fc7-53ffa8710566" source="2fc67f59-b6e8-4fb8-a798-d3bbca45220f" target="de4cdc15-0c71-446f-ac4e-b688b041c0e5">
                 <toolspecific tool="sketch2pnml" />
                 <name>
-                    <text>T6</text>
+                    <text>- *</text>
                 </name>
                 <arctype>
                     <text>normal</text>
@@ -481,20 +461,7 @@
                 </inscription>
             </arc>
             
-            <arc id="2fb06974-8925-4c30-8c3e-310213c06b3c" source="d58fc742-7d00-4d56-b017-d9556fa5e6e9" target="3b41d171-8085-4bfb-b31a-70363efa150d">
-                <toolspecific tool="sketch2pnml" />
-                <name>
-                    <text>T7</text>
-                </name>
-                <arctype>
-                    <text>normal</text>
-                </arctype>
-                <inscription>
-                    <text>1</text>
-                </inscription>
-            </arc>
-            
-            <arc id="748ac03e-413c-4d5a-9fc3-b4725306f172" source="6770eb76-293c-4148-82c6-a86fb5eec083" target="ebc6e951-81fa-4449-aed3-bc57856ed5c1">
+            <arc id="49baf6e8-98c3-4f2d-ba70-be0a3670cadb" source="f1fa750c-5a54-40ef-acb1-5f99ea1dd5d8" target="861fa67c-5331-460d-9ebb-eda1e0c035b8">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T8</text>
@@ -507,7 +474,7 @@
                 </inscription>
             </arc>
             
-            <arc id="40a4646e-711e-4044-8220-68e6b1bf696a" source="cf1b212f-1eee-483a-a25b-c42dca6cb7c4" target="f845ff10-02df-45e9-8d27-6447c6cf67d7">
+            <arc id="a2e2a63f-5dce-4739-8c96-0ddc3cb05426" source="0a333b31-eff5-4969-86f6-8e8ce7d0a6a0" target="c804ea82-3d09-4fca-ae61-404fd2632b74">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T9</text>
@@ -520,7 +487,7 @@
                 </inscription>
             </arc>
             
-            <arc id="12deb306-0787-4df3-979f-940eff5c12c0" source="ff0041c6-6967-4e14-bf79-a82988fbd0d3" target="f845ff10-02df-45e9-8d27-6447c6cf67d7">
+            <arc id="e1c4af38-58c4-4f74-b308-7eb2aa0011a0" source="74e52f1e-7815-4652-b440-e082dfd42714" target="f1fa750c-5a54-40ef-acb1-5f99ea1dd5d8">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T10</text>
@@ -533,10 +500,10 @@
                 </inscription>
             </arc>
             
-            <arc id="f97447de-9dc5-463a-ac55-aa2055983e88" source="dff75150-49f4-4172-88b7-d4379db01dc5" target="61443a8a-7e67-4885-8ca7-7ede6240620e">
+            <arc id="2b7ebc15-535e-4bbf-bb5a-6fb7ff7fc9e8" source="6141ebbc-0264-4d89-a8a1-ba1923752745" target="509a47ea-8340-454a-afab-2a37971424e6">
                 <toolspecific tool="sketch2pnml" />
                 <name>
-                    <text>fridgépot_avaliable</text>
+                    <text>T11</text>
                 </name>
                 <arctype>
                     <text>normal</text>
@@ -546,23 +513,10 @@
                 </inscription>
             </arc>
             
-            <arc id="321073ed-b92f-4fbd-afa1-6f8810e4afe8" source="db49d7ec-b69d-47b1-b406-c46678bcc903" target="cf1b212f-1eee-483a-a25b-c42dca6cb7c4">
+            <arc id="21469384-6951-45c6-bada-9761821b5368" source="679978b5-5563-44a7-8621-14b8d504eba2" target="6141ebbc-0264-4d89-a8a1-ba1923752745">
                 <toolspecific tool="sketch2pnml" />
                 <name>
-                    <text>T12</text>
-                </name>
-                <arctype>
-                    <text>normal</text>
-                </arctype>
-                <inscription>
-                    <text>72</text>
-                </inscription>
-            </arc>
-            
-            <arc id="52aa1196-476f-4566-9f66-6b15ab49fb6b" source="cf1b212f-1eee-483a-a25b-c42dca6cb7c4" target="28e9fb17-de2b-46fe-9161-cce058d8e868">
-                <toolspecific tool="sketch2pnml" />
-                <name>
-                    <text>create_shep</text>
+                    <text>A</text>
                 </name>
                 <arctype>
                     <text>normal</text>
@@ -572,10 +526,10 @@
                 </inscription>
             </arc>
             
-            <arc id="347d76b8-9766-4a71-bc23-747cd06f5c41" source="28e9fb17-de2b-46fe-9161-cce058d8e868" target="b79b136e-d1c3-4762-9bd0-48923ae061cb">
+            <arc id="5fe56a13-1090-4f3d-a479-ca01342cbce0" source="16ca19bf-73d8-446e-b198-3f99a761bf10" target="f1fa750c-5a54-40ef-acb1-5f99ea1dd5d8">
                 <toolspecific tool="sketch2pnml" />
                 <name>
-                    <text>purchace</text>
+                    <text>* -</text>
                 </name>
                 <arctype>
                     <text>normal</text>
@@ -585,10 +539,10 @@
                 </inscription>
             </arc>
             
-            <arc id="efff1781-40c7-45cd-95ed-4367f5372fe6" source="d1936a8b-25f5-47ca-bc9d-3eddb7ebbade" target="a1cb656f-44f2-467a-9520-ae85ebf19f80">
+            <arc id="98000260-935c-4921-8a2d-c317611ed4f9" source="c804ea82-3d09-4fca-ae61-404fd2632b74" target="d456ebac-b1c9-4fc0-9e33-c3c2684b4bb6">
                 <toolspecific tool="sketch2pnml" />
                 <name>
-                    <text>T5</text>
+                    <text>T14</text>
                 </name>
                 <arctype>
                     <text>normal</text>
@@ -598,10 +552,10 @@
                 </inscription>
             </arc>
             
-            <arc id="47e883d1-db74-43b2-bc51-1007c42739b3" source="61443a8a-7e67-4885-8ca7-7ede6240620e" target="7e123f3a-1bbe-49ef-b60c-d6b461730408">
+            <arc id="456b02ee-bc7b-4154-a9f7-0b9f961b0f13" source="c804ea82-3d09-4fca-ae61-404fd2632b74" target="54846c04-9f25-480b-906d-f1554b42746d">
                 <toolspecific tool="sketch2pnml" />
                 <name>
-                    <text>T16</text>
+                    <text>*</text>
                 </name>
                 <arctype>
                     <text>normal</text>
@@ -611,7 +565,20 @@
                 </inscription>
             </arc>
             
-            <arc id="58628bde-b483-4d64-a276-fcb11ca7d6a4" source="9e5552a0-8b2c-48a8-8682-08262debcb86" target="340aec9f-9e1f-4de8-a4d7-8e7c6eb4acf9">
+            <arc id="1156a4d8-a3d5-4563-8e2c-01eb1773bc94" source="f1470bcf-8c7c-44c2-a9df-a05355aecba1" target="c2e93540-3828-4ee1-8fa1-18c2af2b9737">
+                <toolspecific tool="sketch2pnml" />
+                <name>
+                    <text>*</text>
+                </name>
+                <arctype>
+                    <text>normal</text>
+                </arctype>
+                <inscription>
+                    <text>1</text>
+                </inscription>
+            </arc>
+            
+            <arc id="84ffc24c-03f4-4b32-af87-24ede05b59f6" source="c2e93540-3828-4ee1-8fa1-18c2af2b9737" target="f1470bcf-8c7c-44c2-a9df-a05355aecba1">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T17</text>
@@ -620,14 +587,14 @@
                     <text>normal</text>
                 </arctype>
                 <inscription>
-                    <text>19</text>
+                    <text>1</text>
                 </inscription>
             </arc>
             
-            <arc id="7913471a-41e0-41f3-85f3-15217336e780" source="52040ef8-9d55-472e-8800-8c936c554af2" target="9e5552a0-8b2c-48a8-8682-08262debcb86">
+            <arc id="891553ff-0b58-4113-adb5-60bd4aee64a9" source="f1fa750c-5a54-40ef-acb1-5f99ea1dd5d8" target="b5496690-a756-43c0-aaf1-901428f788cd">
                 <toolspecific tool="sketch2pnml" />
                 <name>
-                    <text>t-00 b=0</text>
+                    <text>T18</text>
                 </name>
                 <arctype>
                     <text>normal</text>
@@ -637,7 +604,7 @@
                 </inscription>
             </arc>
             
-            <arc id="94c06003-5993-440d-8c30-d1e6675185cf" source="f2d9d915-8a55-4973-8204-ee75eafa2851" target="993309dd-602d-458d-b8fe-22f5615827ff">
+            <arc id="4234ea69-aed3-4ab8-b149-ce37ec7c3ad9" source="b5496690-a756-43c0-aaf1-901428f788cd" target="f1fa750c-5a54-40ef-acb1-5f99ea1dd5d8">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T19</text>
@@ -650,10 +617,10 @@
                 </inscription>
             </arc>
             
-            <arc id="64941f68-9ce0-4b90-8a1a-a322558e5367" source="a6e35c1e-e6d4-4e08-b8f4-aee722852c59" target="f2d9d915-8a55-4973-8204-ee75eafa2851">
+            <arc id="1829962b-cef9-480b-b792-03bb61bc8891" source="ca3a7368-2919-4631-a55a-4c1671552ed3" target="2ca599a2-30e5-4d8a-8b50-c2398a122bfc">
                 <toolspecific tool="sketch2pnml" />
                 <name>
-                    <text>T20</text>
+                    <text>- -</text>
                 </name>
                 <arctype>
                     <text>normal</text>
@@ -663,7 +630,7 @@
                 </inscription>
             </arc>
             
-            <arc id="7d08725c-1f94-47e5-a8b7-261ab4cdae4e" source="f845ff10-02df-45e9-8d27-6447c6cf67d7" target="9e5552a0-8b2c-48a8-8682-08262debcb86">
+            <arc id="fbcebe81-1ba3-48b3-af7c-db50cd15f712" source="2ca599a2-30e5-4d8a-8b50-c2398a122bfc" target="ca3a7368-2919-4631-a55a-4c1671552ed3">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T21</text>
@@ -676,7 +643,7 @@
                 </inscription>
             </arc>
             
-            <arc id="b23ba192-7622-463f-b958-d3d435c99cf4" source="3b41d171-8085-4bfb-b31a-70363efa150d" target="d58fc742-7d00-4d56-b017-d9556fa5e6e9">
+            <arc id="f978852e-17eb-457c-b4d9-6b96bd886219" source="0a333b31-eff5-4969-86f6-8e8ce7d0a6a0" target="92896258-813a-4f24-a1b2-d67df6798951">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T22</text>
@@ -689,10 +656,10 @@
                 </inscription>
             </arc>
             
-            <arc id="3206ac45-db84-490a-9d09-d22db663a2c5" source="6770eb76-293c-4148-82c6-a86fb5eec083" target="91641540-9c16-45ec-8133-ec7e0c2112c4">
+            <arc id="d686b7f2-37a5-4a75-83c5-ac058d7db1df" source="509a47ea-8340-454a-afab-2a37971424e6" target="074a25fb-06a5-451d-9b21-97e36297c541">
                 <toolspecific tool="sketch2pnml" />
                 <name>
-                    <text>lostcustomers</text>
+                    <text>T23</text>
                 </name>
                 <arctype>
                     <text>normal</text>
@@ -702,7 +669,7 @@
                 </inscription>
             </arc>
             
-            <arc id="9be85b34-a2b4-4542-8929-09c2ea2d8131" source="ebc6e951-81fa-4449-aed3-bc57856ed5c1" target="bc30d15b-4beb-4579-a41d-570fc9d7f1ea">
+            <arc id="5a5e7d22-37ae-49cd-b52b-9025b01e5e99" source="074a25fb-06a5-451d-9b21-97e36297c541" target="7d12683c-0ff9-4c19-ad95-6dbdfb83a2fa">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T24</text>
@@ -711,24 +678,24 @@
                     <text>normal</text>
                 </arctype>
                 <inscription>
-                    <text>1</text>
+                    <text>4</text>
                 </inscription>
             </arc>
             
-            <arc id="e598bbbd-b951-4eda-89cb-331d020d0e04" source="7e123f3a-1bbe-49ef-b60c-d6b461730408" target="6770eb76-293c-4148-82c6-a86fb5eec083">
+            <arc id="54dc6b6b-b130-4fc6-bf2f-fa96e29d6e16" source="2fc67f59-b6e8-4fb8-a798-d3bbca45220f" target="16ca19bf-73d8-446e-b198-3f99a761bf10">
                 <toolspecific tool="sketch2pnml" />
                 <name>
-                    <text>go.to_omer_store</text>
+                    <text>T25</text>
                 </name>
                 <arctype>
                     <text>normal</text>
                 </arctype>
                 <inscription>
-                    <text>1</text>
+                    <text>4</text>
                 </inscription>
             </arc>
             
-            <arc id="e5adbe0b-d731-47c9-8a40-ca4d033158b1" source="2e4f0354-c5ee-47a1-bb45-110f764a2a5a" target="1ddaf159-585b-4715-b7b3-d48a5d120b55">
+            <arc id="2573c6e2-e418-451d-93a7-5901162ca6c8" source="f778296e-cc27-4ae1-9d5a-02b59b664a9a" target="2fc67f59-b6e8-4fb8-a798-d3bbca45220f">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T26</text>
@@ -741,7 +708,7 @@
                 </inscription>
             </arc>
             
-            <arc id="faed8e69-8a8a-4eb9-8e79-4be2026c24cb" source="7e123f3a-1bbe-49ef-b60c-d6b461730408" target="52040ef8-9d55-472e-8800-8c936c554af2">
+            <arc id="72ed6198-bcaf-472a-88b8-d4211f2126fb" source="74e52f1e-7815-4652-b440-e082dfd42714" target="ed900e66-5c4d-42a6-b539-519fceda3e2a">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T27</text>
@@ -754,20 +721,20 @@
                 </inscription>
             </arc>
             
-            <arc id="e8bda775-6563-44ab-a519-5eaaeec0644a" source="a1cb656f-44f2-467a-9520-ae85ebf19f80" target="6873dd23-802a-4747-8094-c05b82325df0">
+            <arc id="992d618c-c311-466d-8c48-aa185f399cc9" source="ed900e66-5c4d-42a6-b539-519fceda3e2a" target="f778296e-cc27-4ae1-9d5a-02b59b664a9a">
                 <toolspecific tool="sketch2pnml" />
                 <name>
-                    <text>is_cancelled</text>
+                    <text>Ti</text>
                 </name>
                 <arctype>
                     <text>normal</text>
                 </arctype>
                 <inscription>
-                    <text>1</text>
+                    <text>4</text>
                 </inscription>
             </arc>
             
-            <arc id="a04781f8-8563-4fe8-8562-9375c26441ee" source="b79b136e-d1c3-4762-9bd0-48923ae061cb" target="3b41d171-8085-4bfb-b31a-70363efa150d">
+            <arc id="a25120a9-83e3-4dbc-a1bd-64ccd61dd2e5" source="f1470bcf-8c7c-44c2-a9df-a05355aecba1" target="9a9f7743-0d57-4457-b0c8-4d1202af3caa">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T29</text>
@@ -780,7 +747,7 @@
                 </inscription>
             </arc>
             
-            <arc id="b9c44a3b-8569-45c3-b3b8-444feb914970" source="a6e35c1e-e6d4-4e08-b8f4-aee722852c59" target="ff0041c6-6967-4e14-bf79-a82988fbd0d3">
+            <arc id="1ea75d8b-ce3a-4899-a4bc-601a6c356c02" source="92896258-813a-4f24-a1b2-d67df6798951" target="74e52f1e-7815-4652-b440-e082dfd42714">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T30</text>
@@ -793,7 +760,7 @@
                 </inscription>
             </arc>
             
-            <arc id="46bb7cad-1364-49dc-a18c-45cb3d3cfe03" source="993309dd-602d-458d-b8fe-22f5615827ff" target="20618418-88db-4b7b-bb92-0f5bb8ab77e5">
+            <arc id="18545d27-a992-48a9-9ac5-b2d510f5e03b" source="6141ebbc-0264-4d89-a8a1-ba1923752745" target="e32bb90d-e721-4f17-a9fa-a750ed7b6373">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T31</text>
@@ -806,10 +773,10 @@
                 </inscription>
             </arc>
             
-            <arc id="a2422053-a0eb-49ed-8a0d-6cf88dbdfd6a" source="cf1b212f-1eee-483a-a25b-c42dca6cb7c4" target="a6e35c1e-e6d4-4e08-b8f4-aee722852c59">
+            <arc id="5ade9e3d-659f-4492-8f46-a13227cdcbb4" source="f1470bcf-8c7c-44c2-a9df-a05355aecba1" target="16ca19bf-73d8-446e-b198-3f99a761bf10">
                 <toolspecific tool="sketch2pnml" />
                 <name>
-                    <text>T32</text>
+                    <text>M</text>
                 </name>
                 <arctype>
                     <text>normal</text>
@@ -819,7 +786,7 @@
                 </inscription>
             </arc>
             
-            <arc id="4b32aec0-394c-46ee-9b89-00182b7a9eae" source="2e4f0354-c5ee-47a1-bb45-110f764a2a5a" target="dff75150-49f4-4172-88b7-d4379db01dc5">
+            <arc id="96edba01-ced1-48d7-8314-ec4904a66bbd" source="074a25fb-06a5-451d-9b21-97e36297c541" target="f1470bcf-8c7c-44c2-a9df-a05355aecba1">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T33</text>
@@ -832,7 +799,7 @@
                 </inscription>
             </arc>
             
-            <arc id="451fbe58-3817-41c4-8c9b-3e98ed74aced" source="db49d7ec-b69d-47b1-b406-c46678bcc903" target="0f997acf-35b5-400d-9bdb-115d7284e3cc">
+            <arc id="ef1da7fc-d2c9-4e5a-9fa8-9770e66c30e8" source="f778296e-cc27-4ae1-9d5a-02b59b664a9a" target="679978b5-5563-44a7-8621-14b8d504eba2">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T34</text>
@@ -845,7 +812,7 @@
                 </inscription>
             </arc>
             
-            <arc id="3f2c52e1-d8c9-491e-bb29-72fff19038f3" source="0f997acf-35b5-400d-9bdb-115d7284e3cc" target="db49d7ec-b69d-47b1-b406-c46678bcc903">
+            <arc id="60a8d9f1-7ddc-49cd-9c20-b7ecdc023439" source="e32bb90d-e721-4f17-a9fa-a750ed7b6373" target="7d6bce72-6e26-46c4-bf07-44b141db8b59">
                 <toolspecific tool="sketch2pnml" />
                 <name>
                     <text>T35</text>
@@ -858,49 +825,10 @@
                 </inscription>
             </arc>
             
-            <arc id="dc5de36f-2027-4987-b5e7-234c7a9bcc93" source="0bfc664f-40a7-49e6-b8ff-158c9ce4e062" target="3b41d171-8085-4bfb-b31a-70363efa150d">
+            <arc id="11c91871-024e-46de-ad60-b6857334ca26" source="2ca599a2-30e5-4d8a-8b50-c2398a122bfc" target="6141ebbc-0264-4d89-a8a1-ba1923752745">
                 <toolspecific tool="sketch2pnml" />
                 <name>
-                    <text>T36</text>
-                </name>
-                <arctype>
-                    <text>normal</text>
-                </arctype>
-                <inscription>
-                    <text>1</text>
-                </inscription>
-            </arc>
-            
-            <arc id="100f7d15-83f6-4978-81f1-c957928a8fd2" source="1ddaf159-585b-4715-b7b3-d48a5d120b55" target="2e4f0354-c5ee-47a1-bb45-110f764a2a5a">
-                <toolspecific tool="sketch2pnml" />
-                <name>
-                    <text>T37</text>
-                </name>
-                <arctype>
-                    <text>normal</text>
-                </arctype>
-                <inscription>
-                    <text>1</text>
-                </inscription>
-            </arc>
-            
-            <arc id="f66cdf0d-22ec-47f6-8efa-b21c86fa6394" source="52040ef8-9d55-472e-8800-8c936c554af2" target="b79b136e-d1c3-4762-9bd0-48923ae061cb">
-                <toolspecific tool="sketch2pnml" />
-                <name>
-                    <text>T38</text>
-                </name>
-                <arctype>
-                    <text>normal</text>
-                </arctype>
-                <inscription>
-                    <text>1</text>
-                </inscription>
-            </arc>
-            
-            <arc id="e453cdb7-031b-4f4c-aac1-953c167198ea" source="9e5552a0-8b2c-48a8-8682-08262debcb86" target="bc30d15b-4beb-4579-a41d-570fc9d7f1ea">
-                <toolspecific tool="sketch2pnml" />
-                <name>
-                    <text>T39</text>
+                    <text>-</text>
                 </name>
                 <arctype>
                     <text>normal</text>

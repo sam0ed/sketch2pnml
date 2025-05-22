@@ -4,6 +4,7 @@ import cv2
 from PIL import Image
 from typing import Dict, List, Tuple, Any
 import os
+import supervision as sv
 
 from .data_loading import load_and_preprocess_image
 from .recognize_text import detect_text, get_img_no_text, link_text_to_elements
@@ -134,6 +135,21 @@ def recognize_graph(
         lines, places, transitions, config
     )
     entry_points = get_entry_points_from_lines(processed_lines)
+
+    # Visualize extended boxes used in proximity node assignment
+    proximity_thres_place = config.get('connection_processing', {}).get('proximity_thres_place', 1.5)
+    proximity_thres_trans_width = config.get('connection_processing', {}).get('proximity_thres_trans_width', 3)
+    proximity_thres_trans_height = config.get('connection_processing', {}).get('proximity_thres_trans_height', 1.2)
+    extended_boxes_visualization = cv2.cvtColor(img_no_shapes.copy(), cv2.COLOR_GRAY2BGR) # Convert to BGR for drawing
+    for place in places: 
+        cv2.circle(extended_boxes_visualization, (place.center.x, place.center.y), int(proximity_thres_place * place.radius), (0, 255, 0), 2) 
+    for transition in transitions:
+        expanded_height = transition.height * proximity_thres_trans_height
+        expanded_width = transition.width * proximity_thres_trans_width
+        expanded_bbox_contour = cv2.boxPoints(((float(transition.center.x), float(transition.center.y)),
+                                                                    (expanded_height, expanded_width), transition.angle))
+        cv2.drawContours(extended_boxes_visualization, [expanded_bbox_contour.astype(np.int32)], -1, (0, 255, 0), 2) # Draw transitions in green
+    result["visualizations"]["extended_boxes"] = Image.fromarray(extended_boxes_visualization)
     
     # Visualize processed lines and entry points
     proximity_visualization = cv2.cvtColor(img_no_shapes.copy(), cv2.COLOR_GRAY2BGR)
@@ -189,16 +205,13 @@ def recognize_graph(
     arrowhead_result = detect_arrowheads(image=img_color_resized, config=config)
     paths_with_arrows, rejected_arrows_count = assign_arrowheads(found_paths_result, arrowhead_result, config)
     
-    # Visualize paths with arrows
-    arrows_visualization = cv2.cvtColor(np.zeros_like(img_no_shapes), cv2.COLOR_GRAY2BGR)
-    for path in paths_with_arrows:
-        color = (np.random.randint(0, 256), np.random.randint(0, 256), np.random.randint(0, 256))
-        for line in path["lines"]:
-            cv2.line(arrows_visualization, 
-                    (line.point1.x, line.point1.y), 
-                    (line.point2.x, line.point2.y), 
-                    color, 2)
-    result["visualizations"]["paths_with_arrows"] = Image.fromarray(arrows_visualization)
+    # # Visualize paths with arrows
+    arrows_visualization = img_color_resized.copy()
+    detections = sv.Detections.from_inference(arrowhead_result)
+    bounding_box_annotator = sv.BoxAnnotator()
+    arrows_visualization = bounding_box_annotator.annotate(
+        scene=arrows_visualization, detections=detections)
+    result["visualizations"]["arrows_bboxes"] = Image.fromarray(arrows_visualization)
     
     # Step 11: Generate arcs
     arcs = get_arcs(paths_with_arrows)

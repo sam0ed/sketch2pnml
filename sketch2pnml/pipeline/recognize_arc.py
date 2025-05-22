@@ -394,8 +394,6 @@ def assign_arrowheads(found_paths_original: list[Line], arrowhead_result: dict, 
             if distance < closest_distance and distance < arrowhead_proximity_thres:
                 closest_distance = distance
                 closest_point = endpoint
-                ### remove endpoint from endpoints to avoid reusing
-                path_endpoints.remove(endpoint)
         
         ### check if the closest point is None and throw error
         if closest_point is None:
@@ -403,6 +401,8 @@ def assign_arrowheads(found_paths_original: list[Line], arrowhead_result: dict, 
             rejected_arrowhead_count += 1
         else: 
             closest_point.is_arrow = True
+            ### remove endpoint from endpoints to avoid reusing
+            path_endpoints.remove(closest_point)
 
     return found_paths_copy, rejected_arrowhead_count
 
