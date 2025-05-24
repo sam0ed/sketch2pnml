@@ -8,6 +8,9 @@ from datetime import datetime
 from typing import Dict, Any, List, Optional
 from pathlib import Path
 
+# Make sure we can import from the current directory structure
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 # Import all necessary modules from the three applications
 from endpoints.converter import fix_petri_net, render_diagram_to, render_to_graphviz, render_to_json, run_and_save_pipeline, here
 from pipeline.commons import here
@@ -21,6 +24,7 @@ DATA_DIR = here("data")
 DEMO_IMAGES_DIR = os.path.join(DATA_DIR, "demos")
 OUTPUT_DIR = os.path.join(DATA_DIR, "output")
 VISUALIZATIONS_DIR = os.path.join(OUTPUT_DIR, "visualizations")
+WORKING_DIR = os.path.join(DATA_DIR, "working")
 WORKING_IMAGE_PATH = os.path.join(DATA_DIR, "working_image.png")
 
 # Ensure directories exist
@@ -28,6 +32,7 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(VISUALIZATIONS_DIR, exist_ok=True)
 os.makedirs(os.path.join(OUTPUT_DIR, "pipeline"), exist_ok=True)
 os.makedirs(DEMO_IMAGES_DIR, exist_ok=True)
+os.makedirs(WORKING_DIR, exist_ok=True)
 
 # Get list of demo images (with fallback if empty)
 try:
@@ -132,7 +137,7 @@ def save_as_working_image(image_path):
     """Save the selected image as the working image"""
     # Ensure the extension is preserved when copying
     _, ext = os.path.splitext(image_path)
-    working_image_path = os.path.join(DATA_DIR, f"working_image{ext}")
+    working_image_path = os.path.join(WORKING_DIR, f"working_image{ext}")
     
     shutil.copy(image_path, working_image_path)
     return working_image_path
@@ -140,7 +145,7 @@ def save_as_working_image(image_path):
 def save_as_working_yaml(yaml_path):
     """Save the uploaded YAML as the working configuration"""
     _, ext = os.path.splitext(yaml_path)
-    working_yaml_path = os.path.join(DATA_DIR, f"working_config{ext}")
+    working_yaml_path = os.path.join(WORKING_DIR, f"working_config{ext}")
     
     shutil.copy(yaml_path, working_yaml_path)
     return working_yaml_path
@@ -197,7 +202,7 @@ def upload_image(file_obj, current_yaml=None, working_yaml=None):
     if file_obj is not None:
         # Save the uploaded file to working image
         _, ext = os.path.splitext(file_obj.name)
-        working_image_path = os.path.join(DATA_DIR, f"working_image{ext}")
+        working_image_path = os.path.join(WORKING_DIR, f"working_image{ext}")
         shutil.copy(file_obj.name, working_image_path)
         
         status = "Custom image uploaded."
@@ -647,19 +652,19 @@ with gr.Blocks(title="Petri Net Converter Suite") as app:
             
             with gr.Tabs():
                 with gr.TabItem("PNML"):
-                    pnml_output = gr.Textbox(label="PNML Output", lines=20, interactive=True)
+                    pnml_output = gr.Code(label="PNML Output", lines=20, max_lines=25, interactive=True, language="html")
                     with gr.Row():
                         pnml_download_btn = gr.Button("Download PNML", variant="secondary")
                         pnml_download = gr.File(label="Download PNML File", visible=False, interactive=False)
                 
                 with gr.TabItem("PetriObj"):
-                    petriobj_output = gr.Textbox(label="PetriObj Output", lines=20, interactive=True)
+                    petriobj_output = gr.Code(label="PetriObj Output", lines=20, max_lines=25, interactive=True, language="c")
                     with gr.Row():
                         petriobj_download_btn = gr.Button("Download PetriObj", variant="secondary")
                         petriobj_download = gr.File(label="Download PetriObj File", visible=False, interactive=False)
                 
                 with gr.TabItem("JSON"):
-                    json_output = gr.Textbox(label="JSON Output", lines=20, interactive=True)
+                    json_output = gr.Code(label="JSON Output", lines=20, max_lines=25, interactive=True, language="json")
                     with gr.Row():
                         json_download_btn = gr.Button("Download JSON", variant="secondary")
                         json_download = gr.File(label="Download JSON File", visible=False, interactive=False)
@@ -669,7 +674,7 @@ with gr.Blocks(title="Petri Net Converter Suite") as app:
                     png_download = gr.File(label="Download PNG File", interactive=False)
                 
                 with gr.TabItem("GraphViz"):
-                    gv_output = gr.Textbox(label="GraphViz Output", lines=20, interactive=True)
+                    gv_output = gr.Code(label="GraphViz Output", lines=20, max_lines=25, interactive=True, language="markdown")
                     with gr.Row():
                         gv_download_btn = gr.Button("Download GraphViz", variant="secondary")
                         gv_download = gr.File(label="Download GraphViz File", visible=False, interactive=False)
