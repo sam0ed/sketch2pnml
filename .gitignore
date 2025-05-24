@@ -1,7 +1,8 @@
 docs/
 models/
 legacy/
-/examples/
+extra/
+examples/
 .cursor/
 .vscode/
 .env/
