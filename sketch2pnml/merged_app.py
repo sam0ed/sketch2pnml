@@ -268,6 +268,44 @@ def process_and_display():
         empty_path = ""
         return f"Error: {error_message}", f"Error: {error_message}", f"Error: {error_message}", None, f"Error: {error_message}", empty_path, empty_path, empty_path, empty_path, empty_path
 
+def create_download_file(content: str, filename: str, file_extension: str) -> str:
+    """Create a temporary file with the given content for download"""
+    try:
+        # Ensure output directory exists
+        output_dir = here("data/output")
+        os.makedirs(output_dir, exist_ok=True)
+        
+        # Create filename with proper extension
+        if not filename.endswith(file_extension):
+            filename = f"{filename}{file_extension}"
+        
+        file_path = os.path.join(output_dir, filename)
+        
+        # Write content to file
+        with open(file_path, "w", encoding="utf-8") as f:
+            f.write(content)
+        
+        return file_path
+    except Exception as e:
+        print(f"Error creating download file: {e}")
+        return ""
+
+def download_pnml(content: str) -> str:
+    """Create downloadable PNML file from current content"""
+    return create_download_file(content, "edited_output.pnml", ".pnml")
+
+def download_petriobj(content: str) -> str:
+    """Create downloadable PetriObj file from current content"""
+    return create_download_file(content, "edited_output.petriobj", ".petriobj")
+
+def download_json(content: str) -> str:
+    """Create downloadable JSON file from current content"""
+    return create_download_file(content, "edited_output.json", ".json")
+
+def download_gv(content: str) -> str:
+    """Create downloadable GraphViz file from current content"""
+    return create_download_file(content, "edited_output.gv", ".gv")
+
 #############################################################
 # Parameters for Configuration UI (from config_ui_optimized.py)
 #############################################################
@@ -609,24 +647,32 @@ with gr.Blocks(title="Petri Net Converter Suite") as app:
             
             with gr.Tabs():
                 with gr.TabItem("PNML"):
-                    pnml_output = gr.Textbox(label="PNML Output", lines=20)
-                    pnml_download = gr.File(label="Download PNML File", interactive=False)
+                    pnml_output = gr.Textbox(label="PNML Output", lines=20, interactive=True)
+                    with gr.Row():
+                        pnml_download_btn = gr.Button("Download PNML", variant="secondary")
+                        pnml_download = gr.File(label="Download PNML File", visible=False, interactive=False)
                 
                 with gr.TabItem("PetriObj"):
-                    petriobj_output = gr.Textbox(label="PetriObj Output", lines=20)
-                    petriobj_download = gr.File(label="Download PetriObj File", interactive=False)
+                    petriobj_output = gr.Textbox(label="PetriObj Output", lines=20, interactive=True)
+                    with gr.Row():
+                        petriobj_download_btn = gr.Button("Download PetriObj", variant="secondary")
+                        petriobj_download = gr.File(label="Download PetriObj File", visible=False, interactive=False)
                 
                 with gr.TabItem("JSON"):
-                    json_output = gr.Textbox(label="JSON Output", lines=20)
-                    json_download = gr.File(label="Download JSON File", interactive=False)
+                    json_output = gr.Textbox(label="JSON Output", lines=20, interactive=True)
+                    with gr.Row():
+                        json_download_btn = gr.Button("Download JSON", variant="secondary")
+                        json_download = gr.File(label="Download JSON File", visible=False, interactive=False)
                 
                 with gr.TabItem("Visualization"):
                     image_output = gr.Image(label="Petri Net Visualization", type="filepath")
                     png_download = gr.File(label="Download PNG File", interactive=False)
                 
                 with gr.TabItem("GraphViz"):
-                    gv_output = gr.Textbox(label="GraphViz Output", lines=20)
-                    gv_download = gr.File(label="Download GraphViz File", interactive=False)
+                    gv_output = gr.Textbox(label="GraphViz Output", lines=20, interactive=True)
+                    with gr.Row():
+                        gv_download_btn = gr.Button("Download GraphViz", variant="secondary")
+                        gv_download = gr.File(label="Download GraphViz File", visible=False, interactive=False)
             
             # Connect the button to the processing function
             translate_button.click(
@@ -637,24 +683,49 @@ with gr.Blocks(title="Petri Net Converter Suite") as app:
                 ]
             ).then(
                 lambda path: path,
-                inputs=pnml_path_comp,
-                outputs=pnml_download
-            ).then(
-                lambda path: path,
-                inputs=petriobj_path_comp,
-                outputs=petriobj_download
-            ).then(
-                lambda path: path,
-                inputs=json_path_comp,
-                outputs=json_download
-            ).then(
-                lambda path: path,
-                inputs=gv_path_comp,
-                outputs=gv_download
-            ).then(
-                lambda path: path,
                 inputs=png_path_comp,
                 outputs=png_download
+            )
+            
+            # Connect download buttons to download functions
+            pnml_download_btn.click(
+                fn=download_pnml,
+                inputs=[pnml_output],
+                outputs=[pnml_download]
+            ).then(
+                lambda path: gr.update(visible=True, value=path) if path else gr.update(visible=False),
+                inputs=[pnml_download],
+                outputs=[pnml_download]
+            )
+            
+            petriobj_download_btn.click(
+                fn=download_petriobj,
+                inputs=[petriobj_output],
+                outputs=[petriobj_download]
+            ).then(
+                lambda path: gr.update(visible=True, value=path) if path else gr.update(visible=False),
+                inputs=[petriobj_download],
+                outputs=[petriobj_download]
+            )
+            
+            json_download_btn.click(
+                fn=download_json,
+                inputs=[json_output],
+                outputs=[json_download]
+            ).then(
+                lambda path: gr.update(visible=True, value=path) if path else gr.update(visible=False),
+                inputs=[json_download],
+                outputs=[json_download]
+            )
+            
+            gv_download_btn.click(
+                fn=download_gv,
+                inputs=[gv_output],
+                outputs=[gv_download]
+            ).then(
+                lambda path: gr.update(visible=True, value=path) if path else gr.update(visible=False),
+                inputs=[gv_download],
+                outputs=[gv_download]
             )
 
 if __name__ == "__main__":

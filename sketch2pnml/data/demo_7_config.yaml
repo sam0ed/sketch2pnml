@@ -1,3 +1,4 @@
+## copied from demo_1_config.yaml
 image_processing:
   min_dimension_threshold: 800
   upscale_factor: 2
@@ -52,7 +53,7 @@ connection_processing:
 
   # Linking nodes to lines
   proximity_thres_place: 1.5 # Multiplied by place radius (heuristic)
-  proximity_thres_trans_height: 1.5 ### CHANGED
+  proximity_thres_trans_height: 1.4
   proximity_thres_trans_width: 3
 
   # Path Finding (find_line_paths)
@@ -63,5 +64,5 @@ connection_processing:
     endpoint_distance_weight: 0.2
 
   # Linking arrowheads to path endpoints
-  arrowhead_proximity_threshold: 40 
+  arrowhead_proximity_threshold: 40 # Multiplied by place radius (heuristic)
   text_linking_threshold: 30.0 ### CHANGED 25.0

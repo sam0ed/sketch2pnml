@@ -262,6 +262,13 @@ def recognize_graph(
     
     return result
 
+# def update_markers_from_image(image: Image.Image, places: List[Place], config: Dict[str, Any]):
+
+#     for place in places:
+#         ### create a mask of the place
+
+
+
 # Example usage:
 if __name__ == "__main__":
     config_path = here("config.yaml")
