@@ -5,6 +5,6 @@ extra/
 examples/
 .cursor/
 .vscode/
-.env/
+.env
 
 
