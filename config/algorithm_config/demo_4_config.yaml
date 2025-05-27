@@ -30,11 +30,7 @@ connection_processing:
   hough_max_line_gap: 25
   hough_bundler_min_distance: 10
   hough_bundler_min_angle: 3
-  arrowhead_api:
-    project_id: arrow-detection-mqgkz
-    version: 1
-    api_key: bikKvtWNa4RnRcDGmXEH
-    confidence_threshold_percent: 10
+  arrowhead_confidence_threshold_percent: 10
   proximity_thres_place: 1.5
   proximity_thres_trans_height: 1.4
   proximity_thres_trans_width: 3

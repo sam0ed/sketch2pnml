@@ -1,68 +1,43 @@
-## copied from demo_1_config.yaml
 image_processing:
   min_dimension_threshold: 800
   upscale_factor: 2
-
-# --- Text Detection (doctr) ---
 text_detection:
-  bin_thresh: 0.2 ### CHANGED ##0.3
+  bin_thresh: 0.3
   box_thresh: 0.1
-
-# --- Text Removal ---
 text_removal:
-  doctr_score_thresh: 0.7 # Used in recognize_text.py for filtering initial doctr results
-  remove_contour_overlap_thresh: 0.5 # Used in recognize_text.py for linking text to contours
-
-# --- Shape Detection (Nodes) ---
+  doctr_score_thresh: 0.7
+  remove_contour_overlap_thresh: 0.5
 shape_detection:
-  verbose: true # Controls print statements in recognize_node functions
-  # Parameters for fill_empty_nodes
+  verbose: true
   fill_circle_enclosing_threshold: 0.8
-  fill_rect_enclosing_threshold: 0.9 ### CHANGED 0.95 ##0.78 #### 0.7 was here
-  # Parameters for get_nodes_mask
-  erosion_kernel_size: [3, 3]
+  fill_rect_enclosing_threshold: 0.95
+  erosion_kernel_size:
+  - 3
+  - 3
   min_stable_length: 3
   max_erosion_iterations: 30
-  # dilation_iterations_match_erosion: True # This can be implicitly handled or added if needed
-  # Parameters for detect_shapes (classification)
-  classify_circle_overlap_threshold: 0.8 # Place detection
-  classify_rect_overlap_threshold: 0.85 # Transition detection
-  # Parameters for remove_nodes
-  remove_nodes_dilation_kernel_size: [3, 3]
+  classify_circle_overlap_threshold: 0.8
+  classify_rect_overlap_threshold: 0.85
+  remove_nodes_dilation_kernel_size:
+  - 3
+  - 3
   remove_nodes_dilation_iterations: 3
-
-# --- Connection Processing (Arcs) ---
 connection_processing:
-  # Hough Line Transform (cv2.HoughLinesP)
   hough_rho: 1
-  hough_theta_degrees: 1 # Corresponds to np.pi/180
+  hough_theta_degrees: 1
   hough_threshold: 15
   hough_min_line_length: 10
   hough_max_line_gap: 25
-
-  # Hough Bundler
   hough_bundler_min_distance: 10
-  hough_bundler_min_angle: 5
-
-  # Arrowhead Detection (Roboflow API)
-  arrowhead_api:
-    project_id: "arrow-detection-mqgkz" # Replace with env var or secure method
-    version: 1
-    api_key: "bikKvtWNa4RnRcDGmXEH" # IMPORTANT: Replace with env var or secure method
-    confidence_threshold_percent: 10.0 # Confidence is 0-100 for Roboflow API
-
-  # Linking nodes to lines
-  proximity_thres_place: 1.5 # Multiplied by place radius (heuristic)
+  hough_bundler_min_angle: 3
+  arrowhead_confidence_threshold_percent: 10
+  proximity_thres_place: 1.5
   proximity_thres_trans_height: 1.4
   proximity_thres_trans_width: 3
-
-  # Path Finding (find_line_paths)
   path_finding:
-    proximity_threshold: 30.0
+    proximity_threshold: 30
     dot_product_weight: 0.6
     distance_to_line_weight: 0.2
     endpoint_distance_weight: 0.2
-
-  # Linking arrowheads to path endpoints
-  arrowhead_proximity_threshold: 40 # Multiplied by place radius (heuristic)
-  text_linking_threshold: 30.0 ### CHANGED 25.0
+  arrowhead_proximity_threshold: 40
+  text_linking_threshold: 25

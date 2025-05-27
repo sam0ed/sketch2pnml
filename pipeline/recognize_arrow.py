@@ -15,24 +15,22 @@ def detect_arrowheads(
 ) -> dict:
     """
     Detects objects (arrowheads) in an image using the Roboflow API.
-    Configuration for the API (project_id, version, api_key, confidence)
-    is expected to be in the passed config dictionary.
+    The project_id and version are hardcoded for consistency.
+    Only confidence_threshold_percent can be configured via config.
     """
 
-    api_config = config.get('connection_processing', {}).get('arrowhead_api', {})
-    project_id = api_config.get('project_id')
-    version = api_config.get('version')
+    # Hardcoded API configuration for consistency
+    project_id = "arrow-detection-mqgkz"
+    version = 1
     
-    # Load API key from environment variable instead of config
+    # Load API key from environment variable
     api_key = os.getenv('ROBOFLOW_API_KEY')
     if not api_key:
         raise ValueError("ROBOFLOW_API_KEY environment variable is not set. Please check your .env file.")
     
-    # Roboflow API expects confidence as a percentage (0-100)
-    confidence = api_config.get('confidence_threshold_percent', 10.0) # Default if not found
-
-    if not all([project_id, version]):
-        raise ValueError("Missing Roboflow API configuration (project_id or version) in config.")
+    # Get confidence threshold from config (now directly under connection_processing)
+    connection_config = config.get('connection_processing', {})
+    confidence = connection_config.get('arrowhead_confidence_threshold_percent', 10.0) # Default if not found
 
     # Encode the image
     # The original code had a commented-out section for reading from image_path.

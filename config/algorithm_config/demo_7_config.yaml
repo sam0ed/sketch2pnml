@@ -45,11 +45,9 @@ connection_processing:
   hough_bundler_min_angle: 5
 
   # Arrowhead Detection (Roboflow API)
-  arrowhead_api:
-    project_id: "arrow-detection-mqgkz" # Replace with env var or secure method
-    version: 1
-    api_key: "bikKvtWNa4RnRcDGmXEH" # IMPORTANT: Replace with env var or secure method
-    confidence_threshold_percent: 10.0 # Confidence is 0-100 for Roboflow API
+  # Note: project_id and version are hardcoded in the pipeline for consistency
+  # API key is loaded from ROBOFLOW_API_KEY environment variable
+  arrowhead_confidence_threshold_percent: 10.0 # Confidence is 0-100 for Roboflow API
 
   # Linking nodes to lines
   proximity_thres_place: 1.5 # Multiplied by place radius (heuristic)

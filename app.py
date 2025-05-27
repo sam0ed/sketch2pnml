@@ -348,10 +348,7 @@ PARAMS = [
     {"section": "Connection Processing", "subsection": "Bundler Settings", "name": "hough_bundler_min_angle", "path": "connection_processing.hough_bundler_min_angle", "type": "number", "label": "Bundler Min Angle", "default": 5.0, "precision": 1},
     
     # Connection Processing - Arrowhead Detection
-    {"section": "Connection Processing", "subsection": "Arrowhead Detection", "name": "arrow_project_id", "path": "connection_processing.arrowhead_api.project_id", "type": "text", "label": "Roboflow Project ID", "default": ""},
-    {"section": "Connection Processing", "subsection": "Arrowhead Detection", "name": "arrow_version", "path": "connection_processing.arrowhead_api.version", "type": "number", "label": "Roboflow Version", "default": 1, "precision": 0},
-    {"section": "Connection Processing", "subsection": "Arrowhead Detection", "name": "arrow_api_key", "path": "connection_processing.arrowhead_api.api_key", "type": "password", "label": "Roboflow API Key", "default": ""},
-    {"section": "Connection Processing", "subsection": "Arrowhead Detection", "name": "arrow_conf_threshold", "path": "connection_processing.arrowhead_api.confidence_threshold_percent", "type": "number", "label": "Confidence Threshold (%)", "default": 10.0, "precision": 1},
+    {"section": "Connection Processing", "subsection": "Arrowhead Detection", "name": "arrow_conf_threshold", "path": "connection_processing.arrowhead_confidence_threshold_percent", "type": "number", "label": "Confidence Threshold (%)", "default": 10.0, "precision": 1},
     
     # Connection Processing - Path Finding
     {"section": "Connection Processing", "subsection": "Path Finding", "name": "path_proximity_threshold", "path": "connection_processing.path_finding.proximity_threshold", "type": "number", "label": "Proximity Threshold", "default": 30.0, "precision": 1},
