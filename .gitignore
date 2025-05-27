@@ -6,5 +6,7 @@ examples/
 .cursor/
 .vscode/
 .env
+data/output/
+data/working/
 
 
