@@ -93,7 +93,7 @@ def fix_petri_net():
     for arc in arcs:
         if arc.weight < 1:
             print(f"Arc found with weight less than 1: {arc}")
-            print(f"Applying fix to set the weight to 1")
+            print("Applying fix to set the weight to 1")
             arc.weight = 1
 
     ### find arcs in arcs list, that have same source and the same target, and merge them into one arc, with the sum of the weights
@@ -128,12 +128,6 @@ def fix_petri_net():
     print(f"len(places): {len(places)}")
     print(f"len(transitions): {len(transitions)}")
     print(f"len(arcs): {len(arcs)}")
-    # for place in places:
-    #     print(place)
-    # for transition in transitions:
-    #     print(transition)
-    # for arc in arcs:
-    #     print(arc)
 
 
     ### save results as pickles 
@@ -228,8 +222,6 @@ def render_to_graphviz():
     pn_visualizer.save(gviz, OUTPUT_GV_PATH)
 
     pm4py.save_vis_petri_net(net, im, fm, OUTPUT_PNG_PATH)
-    # pm4py.view_petri_net(net, im, fm, format='../data/output/converted_petri_net.gv')
-    # # pm4py.view_petri_net(net, im, fm, format='gv')
 
 def render_to_json():
     def encode_image(image_path):

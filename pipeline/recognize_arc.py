@@ -12,16 +12,16 @@ def get_hough_lines(img, config):
     """
     # Default values, will be overridden by config if available
     rho = config.get('connection_processing', {}).get('hough_rho', 1)
-    theta = config.get('connection_processing', {}).get('hough_theta', np.pi / 180)
+    theta = config.get('connection_processing', {}).get('hough_theta_degrees', 1) * np.pi / 180
     threshold = config.get('connection_processing', {}).get('hough_threshold', 10)
-    min_line_length = config.get('connection_processing', {}).get('min_line_length', 10)
-    max_line_gap = config.get('connection_processing', {}).get('max_line_gap', 20)
+    min_line_length = config.get('connection_processing', {}).get('hough_min_line_length', 10)
+    max_line_gap = config.get('connection_processing', {}).get('hough_max_line_gap', 20)
     min_line_length = max(min_line_length, 1)  # Ensure it's at least 1
     
 
         # Skeletonize the image
     skeleton = skeletonize(img / 255).astype(np.uint8)*255
-    hough_lines = cv2.HoughLinesP(skeleton, rho, np.pi/180, threshold, minLineLength=min_line_length, maxLineGap=max_line_gap)
+    hough_lines = cv2.HoughLinesP(skeleton, rho, theta, threshold, minLineLength=min_line_length, maxLineGap=max_line_gap)
     return hough_lines
 
 class HoughBundler:     

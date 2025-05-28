@@ -27,7 +27,7 @@ def create_app():
     with gr.Blocks(title="Petri Net Converter Suite") as app:
         gr.Markdown("# Petri Net Converter Suite")
         
-        with gr.Tabs() as tabs:
+        with gr.Tabs():
             # Create each tab using the modular components
             config_editor.create_interface()
             image_processor.create_interface()

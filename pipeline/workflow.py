@@ -58,17 +58,21 @@ def recognize_graph(
     result["visualizations"]["original"] = Image.fromarray(img_color_resized)
     
     # Step 2: Detect and remove text
-    detected_text_list = detect_text(img_color_resized, config)
+    detected_text_list = detect_text(img_color_resized, config) ### TODO: make use of doctr_score_thresh and remove_contour_overlap_thresh
     img_no_text = get_img_no_text(preprocessed_img, detected_text_list)
     result["visualizations"]["no_text"] = Image.fromarray(img_no_text)
     
     # Step 3: Detect shapes (circles and rectangles)
-    circles, rectangles = detect_shapes(img_no_text, config)
+    circle_enclosing_threshold = config.get('shape_detection', {}).get('fill_circle_enclosing_threshold', 0.8) ### TODO: CHANGED 0.8
+    rect_enclosing_threshold = config.get('shape_detection', {}).get('fill_rect_enclosing_threshold', 0.95) ### TODO: CHANGED 0.95
+    circles, rectangles = detect_shapes(img_no_text, circle_enclosing_threshold, rect_enclosing_threshold)
     img_empty_nodes_filled = fill_contours(img_no_text, circles + rectangles)
     
     # Get isolated nodes mask
     nodes_mask = get_nodes_mask(img_empty_nodes_filled, config)
-    detected_circles, detected_rectangles = detect_shapes(nodes_mask, config)
+    circle_overlap_threshold = config.get('shape_detection', {}).get('classify_circle_overlap_threshold', 0.8) ### TODO: CHANGED 0.8
+    rect_overlap_threshold = config.get('shape_detection', {}).get('classify_rect_overlap_threshold', 0.95) ### TODO: CHANGED 0.95
+    detected_circles, detected_rectangles = detect_shapes(nodes_mask, circle_overlap_threshold, rect_overlap_threshold)
     
     # Step 4: Process node shapes
     dilated_circles = [dilate_contour(c, img_no_text.shape, config) for c in detected_circles]
@@ -182,12 +186,13 @@ def recognize_graph(
     result["visualizations"]["filtered_lines"] = Image.fromarray(filtered_lines_visualization)
     
     # Step 9: Find line paths
+    path_config = config.get('connection_processing', {}).get('path_finding', {})
     found_paths_result = find_line_paths(
         filtered_lines,
-        proximity_threshold=100.0,
-        dot_product_weight=0.5,
-        distance_to_line_weight=0.25,
-        endpoint_distance_weight=0.25
+        proximity_threshold=path_config.get('proximity_threshold', 30.0), ## TODO: CHANGED 100.0
+        dot_product_weight=path_config.get('dot_product_weight', 0.6), ## TODO: CHANGED 0.5
+        distance_to_line_weight=path_config.get('distance_to_line_weight', 0.2), ## TODO: CHANGED 0.25
+        endpoint_distance_weight=path_config.get('endpoint_distance_weight', 0.2) ## TODO: CHANGED 0.25
     )
     
     # Visualize found paths
@@ -254,7 +259,7 @@ def recognize_graph(
         mask = np.zeros_like(preprocessed_img)
         cv2.drawContours(mask, [place.original_detection_data.squeeze()], 0, (255, 255, 255), -1)
         masked_image = cv2.bitwise_and(preprocessed_img, mask)
-        circles, _ = detect_shapes(masked_image, config)
+        circles, _ = detect_shapes(masked_image, circle_enclosing_threshold, rect_enclosing_threshold)
         place.markers += len(circles)-2 ### magic number -2 because the outer circle is also included.
     for arc in filtered_arcs:
         arc.update_weight_from_text()

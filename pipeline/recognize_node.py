@@ -6,7 +6,7 @@ EPS = 1e-6
 
 def get_circle_overlap(contour):
     """Checks if a contour is roughly circular based on the ratio of its area to its minimum enclosing circle."""
-    (x, y), radius = cv2.minEnclosingCircle(contour)
+    (_, _), radius = cv2.minEnclosingCircle(contour)
     enclosing_area = np.pi * (radius ** 2) + EPS
     contour_area = cv2.contourArea(contour)
     
@@ -20,12 +20,9 @@ def get_rectangle_overlap(contour):
         
     return contour_area / box_area 
 
-def detect_shapes(preprocessed_img, config):
-
-    circle_threshold = config.get('shape_detection', {}).get('fill_circle_enclosing_threshold', 0.8)
-    rect_threshold = config.get('shape_detection', {}).get('fill_rect_enclosing_threshold', 0.95)
+def detect_shapes(preprocessed_img, circle_threshold, rect_threshold): ### TODO: critical bug here
     
-    contours_list, hierarchy = cv2.findContours(preprocessed_img, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE) 
+    contours_list, _ = cv2.findContours(preprocessed_img, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE) 
 
     circles = []
     rectangles = []

@@ -67,7 +67,6 @@ def show_arrows(img, arrowhead_result):
 
     # create supervision annotators
     bounding_box_annotator = sv.BoxAnnotator()
-    label_annotator = sv.LabelAnnotator()
 
     # annotate the image with our inference results
     annotated_image = bounding_box_annotator.annotate(
