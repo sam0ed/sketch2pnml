@@ -18,10 +18,6 @@ PARAMS = [
     {"section": "Text Detection", "name": "bin_thresh", "path": "text_detection.bin_thresh", "type": "slider", "label": "Binary Threshold", "default": 0.3, "min": 0.0, "max": 1.0, "step": 0.05},
     {"section": "Text Detection", "name": "box_thresh", "path": "text_detection.box_thresh", "type": "slider", "label": "Box Threshold", "default": 0.1, "min": 0.0, "max": 1.0, "step": 0.05},
     
-    # Text Removal
-    {"section": "Text Removal", "name": "doctr_score_thresh", "path": "text_removal.doctr_score_thresh", "type": "slider", "label": "Doctr Score Threshold", "default": 0.7, "min": 0.0, "max": 1.0, "step": 0.05},
-    {"section": "Text Removal", "name": "remove_contour_overlap_thresh", "path": "text_removal.remove_contour_overlap_thresh", "type": "slider", "label": "Contour Overlap Threshold", "default": 0.5, "min": 0.0, "max": 1.0, "step": 0.05},
-    
     # Shape Detection
     {"section": "Shape Detection", "name": "verbose", "path": "shape_detection.verbose", "type": "checkbox", "label": "Verbose", "default": True},
     {"section": "Shape Detection", "name": "fill_circle_thresh", "path": "shape_detection.fill_circle_enclosing_threshold", "type": "slider", "label": "Fill Circle Enclosing Threshold", "default": 0.8, "min": 0.0, "max": 1.0, "step": 0.05},

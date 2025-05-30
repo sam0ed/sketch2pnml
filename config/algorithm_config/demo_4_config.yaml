@@ -4,9 +4,6 @@ image_processing:
 text_detection:
   bin_thresh: 0.3
   box_thresh: 0.1
-text_removal:
-  doctr_score_thresh: 0.7
-  remove_contour_overlap_thresh: 0.5
 shape_detection:
   verbose: true
   fill_circle_enclosing_threshold: 0.8

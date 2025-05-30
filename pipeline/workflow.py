@@ -58,7 +58,7 @@ def recognize_graph(
     result["visualizations"]["original"] = Image.fromarray(img_color_resized)
     
     # Step 2: Detect and remove text
-    detected_text_list = detect_text(img_color_resized, config) ### TODO: make use of doctr_score_thresh and remove_contour_overlap_thresh
+    detected_text_list = detect_text(img_color_resized, config)
     img_no_text = get_img_no_text(preprocessed_img, detected_text_list)
     result["visualizations"]["no_text"] = Image.fromarray(img_no_text)
     
