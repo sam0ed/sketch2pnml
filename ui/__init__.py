@@ -1,18 +1,15 @@
 """
-UI package for the Petri Net Converter Suite.
-
-This package contains modular UI components that were extracted from the original
-monolithic app.py file to improve maintainability and separation of concerns.
+UI module containing all user interface components for the Petri Net application.
 """
 
 from .base import BaseUI
-from .config_editor import ConfigEditor
 from .image_processor import ImageProcessor
+from .config_editor import ConfigEditor
 from .petri_converter import PetriConverter
 
 __all__ = [
     'BaseUI',
-    'ConfigEditor', 
-    'ImageProcessor',
-    'PetriConverter'
+    'ImageProcessor', 
+    'ConfigEditor',
+    'PetriConverter',
 ] 

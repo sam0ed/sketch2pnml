@@ -1,7 +1,6 @@
 import gradio as gr
 import os
 from .base import BaseUI
-from .components import create_download_file
 from endpoints.converter import (
     fix_petri_net, render_diagram_to, render_to_graphviz, render_to_json
 )
@@ -9,6 +8,24 @@ from config.path_config import (
     OUTPUT_PNML_PATH, OUTPUT_PETRIOBJ_PATH, OUTPUT_JSON_PATH, 
     OUTPUT_PNG_PATH, OUTPUT_GV_PATH, OUTPUT_DIR, ensure_directories_exist
 )
+
+def create_download_file(content: str, filename: str, file_extension: str, output_dir: str) -> str:
+    """Create a temporary file with the given content for download"""
+    try:
+        # Create filename with proper extension
+        if not filename.endswith(file_extension):
+            filename = f"{filename}{file_extension}"
+        
+        file_path = os.path.join(output_dir, filename)
+        
+        # Write content to file
+        with open(file_path, "w", encoding="utf-8") as f:
+            f.write(content)
+        
+        return file_path
+    except Exception as e:
+        print(f"Error creating download file: {e}")
+        return ""
 
 class PetriConverter(BaseUI):
     """Petri Net Converter UI component"""

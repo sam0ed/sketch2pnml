@@ -19,6 +19,7 @@ PIPELINE_OUTPUT_DIR = os.path.join(OUTPUT_DIR, "pipeline")
 # Working files
 WORKING_IMAGE_PATH = os.path.join(WORKING_DIR, "working_image.png")
 WORKING_CONFIG_PATH = os.path.join(WORKING_DIR, "working_config.yaml")
+CONFIG_DOWNLOAD_PATH = os.path.join(WORKING_DIR, "config_download.yaml")
 
 # Output files
 OUTPUT_PNML_PATH = os.path.join(OUTPUT_DIR, "output.pnml")
@@ -70,3 +71,7 @@ def get_visualization_path(name):
 def get_output_file_path(filename):
     """Get the path for an output file."""
     return os.path.join(OUTPUT_DIR, filename)
+
+def get_config_download_path():
+    """Get the path for config download file."""
+    return CONFIG_DOWNLOAD_PATH

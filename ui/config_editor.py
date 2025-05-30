@@ -1,246 +1,419 @@
 import gradio as gr
+import yaml
 import os
-from typing import Dict, Any, List
-from .base import BaseUI
-from .components import (
-    create_component, get_from_nested_dict, set_in_nested_dict,
-    load_config, save_config
-)
-from config.path_config import SUPPORTED_CONFIG_EXTENSIONS
+from datetime import datetime
+from typing import Dict, Any, Union, List
+from config.path_config import ensure_directories_exist, get_config_download_path, WORKING_DIR
 
-# Define parameter paths and UI components with defaults
-PARAMS = [
-    # Image Processing
-    {"section": "Image Processing", "name": "min_dimension_threshold", "path": "image_processing.min_dimension_threshold", "type": "number", "label": "Minimum Dimension Threshold", "default": 800, "precision": 0},
-    {"section": "Image Processing", "name": "upscale_factor", "path": "image_processing.upscale_factor", "type": "number", "label": "Upscale Factor", "default": 2.0, "precision": 1},
-    
-    # Text Detection
-    {"section": "Text Detection", "name": "bin_thresh", "path": "text_detection.bin_thresh", "type": "slider", "label": "Binary Threshold", "default": 0.3, "min": 0.0, "max": 1.0, "step": 0.05},
-    {"section": "Text Detection", "name": "box_thresh", "path": "text_detection.box_thresh", "type": "slider", "label": "Box Threshold", "default": 0.1, "min": 0.0, "max": 1.0, "step": 0.05},
-    
-    # Shape Detection
-    {"section": "Shape Detection", "name": "fill_circle_thresh", "path": "shape_detection.fill_circle_enclosing_threshold", "type": "slider", "label": "Fill Circle Enclosing Threshold", "default": 0.8, "min": 0.0, "max": 1.0, "step": 0.05},
-    {"section": "Shape Detection", "name": "fill_rect_thresh", "path": "shape_detection.fill_rect_enclosing_threshold", "type": "slider", "label": "Fill Rectangle Enclosing Threshold", "default": 0.95, "min": 0.0, "max": 1.0, "step": 0.05},
-    {"section": "Shape Detection", "name": "erosion_kernel_size", "path": "shape_detection.erosion_kernel_size", "type": "text", "label": "Erosion Kernel Size (format: [w, h])", "default": "[3, 3]", "parse": "list"},
-    {"section": "Shape Detection", "name": "min_stable_length", "path": "shape_detection.min_stable_length", "type": "number", "label": "Minimum Stable Length", "default": 3, "precision": 0},
-    {"section": "Shape Detection", "name": "max_erosion_iter", "path": "shape_detection.max_erosion_iterations", "type": "number", "label": "Maximum Erosion Iterations", "default": 30, "precision": 0},
-    {"section": "Shape Detection", "name": "classify_circle_thresh", "path": "shape_detection.classify_circle_overlap_threshold", "type": "slider", "label": "Circle Classification Threshold", "default": 0.8, "min": 0.0, "max": 1.0, "step": 0.05},
-    {"section": "Shape Detection", "name": "classify_rect_thresh", "path": "shape_detection.classify_rect_overlap_threshold", "type": "slider", "label": "Rectangle Classification Threshold", "default": 0.85, "min": 0.0, "max": 1.0, "step": 0.05},
-    {"section": "Shape Detection", "name": "remove_nodes_kernel", "path": "shape_detection.remove_nodes_dilation_kernel_size", "type": "text", "label": "Remove Nodes Dilation Kernel Size (format: [w, h])", "default": "[3, 3]", "parse": "list"},
-    {"section": "Shape Detection", "name": "remove_nodes_iter", "path": "shape_detection.remove_nodes_dilation_iterations", "type": "number", "label": "Remove Nodes Dilation Iterations", "default": 3, "precision": 0},
-    
-    # Connection Processing - Hough Line Transform
-    {"section": "Connection Processing", "subsection": "Hough Line Transform", "name": "hough_rho", "path": "connection_processing.hough_rho", "type": "number", "label": "Rho", "default": 1, "precision": 0},
-    {"section": "Connection Processing", "subsection": "Hough Line Transform", "name": "hough_theta", "path": "connection_processing.hough_theta_degrees", "type": "number", "label": "Theta (degrees)", "default": 1.0, "precision": 1},
-    {"section": "Connection Processing", "subsection": "Hough Line Transform", "name": "hough_threshold", "path": "connection_processing.hough_threshold", "type": "number", "label": "Threshold", "default": 15, "precision": 0},
-    {"section": "Connection Processing", "subsection": "Hough Line Transform", "name": "hough_min_line_len", "path": "connection_processing.hough_min_line_length", "type": "number", "label": "Minimum Line Length", "default": 10, "precision": 0},
-    {"section": "Connection Processing", "subsection": "Hough Line Transform", "name": "hough_max_line_gap", "path": "connection_processing.hough_max_line_gap", "type": "number", "label": "Maximum Line Gap", "default": 25, "precision": 0},
-    
-    # Connection Processing - Hough Bundler
-    {"section": "Connection Processing", "subsection": "Bundler Settings", "name": "hough_bundler_min_dist", "path": "connection_processing.hough_bundler_min_distance", "type": "number", "label": "Bundler Min Distance", "default": 10.0, "precision": 1},
-    {"section": "Connection Processing", "subsection": "Bundler Settings", "name": "hough_bundler_min_angle", "path": "connection_processing.hough_bundler_min_angle", "type": "number", "label": "Bundler Min Angle", "default": 5.0, "precision": 1},
-    
-    # Connection Processing - Arrowhead Detection
-    {"section": "Connection Processing", "subsection": "Arrowhead Detection", "name": "arrow_conf_threshold", "path": "connection_processing.arrowhead_confidence_threshold_percent", "type": "number", "label": "Confidence Threshold (%)", "default": 10.0, "precision": 1},
-    
-    # Connection Processing - Path Finding
-    {"section": "Connection Processing", "subsection": "Path Finding", "name": "path_proximity_threshold", "path": "connection_processing.path_finding.proximity_threshold", "type": "number", "label": "Proximity Threshold", "default": 30.0, "precision": 1},
-    {"section": "Connection Processing", "subsection": "Path Finding", "name": "path_dot_product_weight", "path": "connection_processing.path_finding.dot_product_weight", "type": "number", "label": "Dot Product Weight", "default": 0.6, "precision": 1},
-    {"section": "Connection Processing", "subsection": "Path Finding", "name": "path_distance_line_weight", "path": "connection_processing.path_finding.distance_to_line_weight", "type": "number", "label": "Distance to Line Weight", "default": 0.2, "precision": 1},
-    {"section": "Connection Processing", "subsection": "Path Finding", "name": "path_endpoint_distance_weight", "path": "connection_processing.path_finding.endpoint_distance_weight", "type": "number", "label": "Endpoint Distance Weight", "default": 0.2, "precision": 1},
-    
-    # Connection Processing - Other thresholds
-    {"section": "Connection Processing", "subsection": "Proximity Settings", "name": "proximity_thres_place", "path": "connection_processing.proximity_thres_place", "type": "number", "label": "Place Proximity Threshold", "default": 1.5, "precision": 1},
-    {"section": "Connection Processing", "subsection": "Proximity Settings", "name": "proximity_thres_trans_height", "path": "connection_processing.proximity_thres_trans_height", "type": "number", "label": "Transition Height Proximity Threshold", "default": 1.4, "precision": 1},
-    {"section": "Connection Processing", "subsection": "Proximity Settings", "name": "proximity_thres_trans_width", "path": "connection_processing.proximity_thres_trans_width", "type": "number", "label": "Transition Width Proximity Threshold", "default": 3.0, "precision": 1},
-    {"section": "Connection Processing", "subsection": "Proximity Settings", "name": "arrowhead_proximity_threshold", "path": "connection_processing.arrowhead_proximity_threshold", "type": "number", "label": "Arrowhead Proximity Threshold", "default": 40, "precision": 0},
-    {"section": "Connection Processing", "subsection": "Proximity Settings", "name": "text_linking_threshold", "path": "connection_processing.text_linking_threshold", "type": "number", "label": "Text Linking Threshold", "default": 25.0, "precision": 1},
-]
 
-class ConfigEditor(BaseUI):
-    """Configuration Editor UI component"""
+class ConfigEditor:
+    """Simplified Configuration Editor for Petri Net Algorithm Parameters"""
     
     def __init__(self):
-        super().__init__()
+        self.config_data = {}
+        self.error_message = ""
+        
+        # Parameter definitions with validation rules
+        self.param_groups = {
+            "Image Processing": {
+                "min_dimension_threshold": {
+                    "type": "number", "default": 800, "min": 100, "max": 2000,
+                    "label": "Min Dimension Threshold", 
+                    "help": "Minimum image dimension before upscaling (pixels)"
+                },
+                "upscale_factor": {
+                    "type": "number", "default": 2.0, "min": 1.0, "max": 5.0, "step": 0.1,
+                    "label": "Upscale Factor",
+                    "help": "Factor to upscale small images"
+                }
+            },
+            
+            "Text Detection": {
+                "bin_thresh": {
+                    "type": "slider", "default": 0.3, "min": 0.0, "max": 1.0, "step": 0.05,
+                    "label": "Binary Threshold",
+                    "help": "Binarization threshold for text detection"
+                },
+                "box_thresh": {
+                    "type": "slider", "default": 0.1, "min": 0.0, "max": 1.0, "step": 0.05,
+                    "label": "Box Threshold",
+                    "help": "Confidence threshold for text box detection"
+                }
+            },
+            
+            "Shape Detection": {
+                "fill_circle_enclosing_threshold": {
+                    "type": "slider", "default": 0.8, "min": 0.0, "max": 1.0, "step": 0.05,
+                    "label": "Circle Fill Threshold",
+                    "help": "Threshold for filling detected circles"
+                },
+                "fill_rect_enclosing_threshold": {
+                    "type": "slider", "default": 0.95, "min": 0.0, "max": 1.0, "step": 0.05,
+                    "label": "Rectangle Fill Threshold", 
+                    "help": "Threshold for filling detected rectangles"
+                },
+                "erosion_kernel_size": {
+                    "type": "text", "default": "[3, 3]",
+                    "label": "Erosion Kernel Size",
+                    "help": "Kernel size for erosion [width, height]"
+                },
+                "min_stable_length": {
+                    "type": "number", "default": 3, "min": 1, "max": 10,
+                    "label": "Min Stable Length",
+                    "help": "Minimum iterations for shape stability"
+                },
+                "max_erosion_iterations": {
+                    "type": "number", "default": 30, "min": 5, "max": 100,
+                    "label": "Max Erosion Iterations",
+                    "help": "Maximum erosion iterations"
+                },
+                "classify_circle_overlap_threshold": {
+                    "type": "slider", "default": 0.8, "min": 0.0, "max": 1.0, "step": 0.05,
+                    "label": "Circle Classification Threshold",
+                    "help": "Overlap threshold for circle classification"
+                },
+                "classify_rect_overlap_threshold": {
+                    "type": "slider", "default": 0.85, "min": 0.0, "max": 1.0, "step": 0.05,
+                    "label": "Rectangle Classification Threshold",
+                    "help": "Overlap threshold for rectangle classification"
+                },
+                "remove_nodes_dilation_kernel_size": {
+                    "type": "text", "default": "[3, 3]",
+                    "label": "Dilation Kernel Size",
+                    "help": "Kernel size for node removal [width, height]"
+                },
+                "remove_nodes_dilation_iterations": {
+                    "type": "number", "default": 3, "min": 1, "max": 10,
+                    "label": "Dilation Iterations",
+                    "help": "Number of dilation iterations for node removal"
+                }
+            },
+            
+            "Connection Processing - Hough Transform": {
+                "hough_rho": {
+                    "type": "number", "default": 1, "min": 1, "max": 5,
+                    "label": "Rho (distance resolution)",
+                    "help": "Distance resolution in pixels"
+                },
+                "hough_theta_degrees": {
+                    "type": "number", "default": 1.0, "min": 0.1, "max": 5.0, "step": 0.1,
+                    "label": "Theta (angle resolution)",
+                    "help": "Angle resolution in degrees"
+                },
+                "hough_threshold": {
+                    "type": "number", "default": 15, "min": 5, "max": 50,
+                    "label": "Threshold",
+                    "help": "Accumulator threshold for line detection"
+                },
+                "hough_min_line_length": {
+                    "type": "number", "default": 10, "min": 1, "max": 50,
+                    "label": "Min Line Length",
+                    "help": "Minimum length of line segments"
+                },
+                "hough_max_line_gap": {
+                    "type": "number", "default": 25, "min": 1, "max": 100,
+                    "label": "Max Line Gap",
+                    "help": "Maximum gap to merge line segments"
+                }
+            },
+            
+            "Connection Processing - Advanced": {
+                "hough_bundler_min_distance": {
+                    "type": "number", "default": 10.0, "min": 1.0, "max": 50.0, "step": 0.5,
+                    "label": "Bundler Min Distance",
+                    "help": "Minimum distance for line bundling"
+                },
+                "hough_bundler_min_angle": {
+                    "type": "number", "default": 3.0, "min": 1.0, "max": 15.0, "step": 0.5,
+                    "label": "Bundler Min Angle",
+                    "help": "Minimum angle for line bundling"
+                },
+                "arrowhead_confidence_threshold_percent": {
+                    "type": "number", "default": 10.0, "min": 1.0, "max": 100.0, "step": 1.0,
+                    "label": "Arrowhead Confidence (%)",
+                    "help": "Confidence threshold for arrowhead detection"
+                },
+                "proximity_thres_place": {
+                    "type": "number", "default": 1.5, "min": 0.5, "max": 5.0, "step": 0.1,
+                    "label": "Place Proximity Threshold",
+                    "help": "Proximity threshold for places (×radius)"
+                },
+                "proximity_thres_trans_height": {
+                    "type": "number", "default": 1.4, "min": 0.5, "max": 5.0, "step": 0.1,
+                    "label": "Transition Height Threshold",
+                    "help": "Height proximity threshold for transitions"
+                },
+                "proximity_thres_trans_width": {
+                    "type": "number", "default": 3.0, "min": 0.5, "max": 10.0, "step": 0.1,
+                    "label": "Transition Width Threshold",
+                    "help": "Width proximity threshold for transitions"
+                },
+                "arrowhead_proximity_threshold": {
+                    "type": "number", "default": 40, "min": 10, "max": 100,
+                    "label": "Arrowhead Proximity",
+                    "help": "Distance threshold for arrowhead linking"
+                },
+                "text_linking_threshold": {
+                    "type": "number", "default": 25.0, "min": 5.0, "max": 100.0, "step": 1.0,
+                    "label": "Text Linking Threshold",
+                    "help": "Distance threshold for text linking"
+                }
+            },
+            
+            "Path Finding": {
+                "proximity_threshold": {
+                    "type": "number", "default": 30.0, "min": 5.0, "max": 100.0, "step": 1.0,
+                    "label": "Proximity Threshold",
+                    "help": "Distance threshold for path segment connection"
+                },
+                "dot_product_weight": {
+                    "type": "slider", "default": 0.6, "min": 0.0, "max": 1.0, "step": 0.05,
+                    "label": "Dot Product Weight",
+                    "help": "Weight for direction similarity in scoring"
+                },
+                "distance_to_line_weight": {
+                    "type": "slider", "default": 0.2, "min": 0.0, "max": 1.0, "step": 0.05,
+                    "label": "Distance to Line Weight",
+                    "help": "Weight for distance to line in scoring"
+                },
+                "endpoint_distance_weight": {
+                    "type": "slider", "default": 0.2, "min": 0.0, "max": 1.0, "step": 0.05,
+                    "label": "Endpoint Distance Weight", 
+                    "help": "Weight for endpoint distance in scoring"
+                }
+            }
+        }
+        
         self.components = {}
-        self.config_data = None
-        self.loaded_path = None
-        self.status = None
-        self.file_info = None
-        self.custom_filename = None
-        self.save_btn = None
-        self.download_file = None
-        self.success_indicator = None
-        self.config_file_upload = None
+        
+    def create_component(self, param_name: str, param_def: Dict) -> Any:
+        """Create appropriate Gradio component for parameter"""
+        if param_def["type"] == "slider":
+            return gr.Slider(
+                minimum=param_def["min"],
+                maximum=param_def["max"], 
+                step=param_def["step"],
+                value=param_def["default"],
+                label=param_def["label"],
+                info=param_def["help"]
+            )
+        elif param_def["type"] == "number":
+            return gr.Number(
+                minimum=param_def.get("min"),
+                maximum=param_def.get("max"),
+                step=param_def.get("step", 1),
+                value=param_def["default"],
+                label=param_def["label"],
+                info=param_def["help"]
+            )
+        elif param_def["type"] == "text":
+            return gr.Textbox(
+                value=param_def["default"],
+                label=param_def["label"],
+                info=param_def["help"]
+            )
+    
+    def validate_parameter(self, param_name: str, value: Any) -> tuple[Any, str]:
+        """Validate parameter value, return (validated_value, error_message)"""
+        # Find parameter definition
+        param_def = None
+        for group_params in self.param_groups.values():
+            if param_name in group_params:
+                param_def = group_params[param_name]
+                break
+        
+        if not param_def:
+            return value, f"Unknown parameter: {param_name}"
+        
+        try:
+            # Handle list parameters (kernel sizes)
+            if param_def["type"] == "text" and "kernel" in param_name.lower():
+                if isinstance(value, str):
+                    # Parse string representation of list
+                    parsed = eval(value.strip())
+                    if not isinstance(parsed, list) or len(parsed) != 2:
+                        return None, f"{param_def['label']}: Must be a list of 2 numbers [w, h]"
+                    if not all(isinstance(x, (int, float)) and x > 0 for x in parsed):
+                        return None, f"{param_def['label']}: Values must be positive numbers"
+                    return parsed, ""
+                return value, ""
+            
+            # Validate numeric ranges
+            if param_def["type"] in ["number", "slider"]:
+                if not isinstance(value, (int, float)):
+                    return None, f"{param_def['label']}: Must be a number"
+                
+                min_val = param_def.get("min")
+                max_val = param_def.get("max")
+                
+                if min_val is not None and value < min_val:
+                    return None, f"{param_def['label']}: Must be ≥ {min_val}"
+                if max_val is not None and value > max_val:
+                    return None, f"{param_def['label']}: Must be ≤ {max_val}"
+            
+            return value, ""
+            
+        except Exception as e:
+            return None, f"{param_def['label']}: {str(e)}"
+    
+    def load_config_file(self, file_obj):
+        """Load configuration from uploaded file"""
+        if file_obj is None:
+            return self._get_current_values() + ("No file selected",)
+        
+        try:
+            with open(file_obj.name, 'r') as f:
+                self.config_data = yaml.safe_load(f)
+            
+            # Update component values
+            values = []
+            for group_name, group_params in self.param_groups.items():
+                for param_name, param_def in group_params.items():
+                    value = self._get_config_value(param_name, param_def["default"])
+                    values.append(value)
+            
+            return tuple(values) + (f"Loaded: {os.path.basename(file_obj.name)}",)
+            
+        except Exception as e:
+            return self._get_current_values() + (f"Error loading file: {str(e)}",)
+    
+    def _get_config_value(self, param_name: str, default: Any) -> Any:
+        """Get parameter value from loaded config with proper path handling"""
+        # Handle path finding parameters specially
+        if param_name in ["proximity_threshold", "dot_product_weight", "distance_to_line_weight", "endpoint_distance_weight"]:
+            return self.config_data.get("connection_processing", {}).get("path_finding", {}).get(param_name, default)
+        
+        # Handle other connection_processing parameters
+        elif param_name.startswith(("hough_", "arrowhead_", "proximity_", "text_")):
+            return self.config_data.get("connection_processing", {}).get(param_name, default)
+        
+        # Handle shape detection parameters
+        elif param_name in ["fill_circle_enclosing_threshold", "fill_rect_enclosing_threshold", "erosion_kernel_size", 
+                           "min_stable_length", "max_erosion_iterations", "classify_circle_overlap_threshold",
+                           "classify_rect_overlap_threshold", "remove_nodes_dilation_kernel_size", "remove_nodes_dilation_iterations"]:
+            value = self.config_data.get("shape_detection", {}).get(param_name, default)
+            # Format lists as strings for text inputs
+            if isinstance(value, list):
+                return str(value)
+            return value
+        
+        # Handle text detection parameters
+        elif param_name in ["bin_thresh", "box_thresh"]:
+            return self.config_data.get("text_detection", {}).get(param_name, default)
+        
+        # Handle image processing parameters
+        elif param_name in ["min_dimension_threshold", "upscale_factor"]:
+            return self.config_data.get("image_processing", {}).get(param_name, default)
+        
+        return default
+    
+    def _get_current_values(self) -> tuple:
+        """Get current values from all components"""
+        values = []
+        for group_params in self.param_groups.values():
+            for param_name, param_def in group_params.items():
+                values.append(param_def["default"])
+        return tuple(values)
+    
+    def save_config(self, *param_values) -> tuple:
+        """Save configuration to temporary file for download"""
+        try:
+            # Validate all parameters
+            config = {
+                "image_processing": {},
+                "text_detection": {},
+                "shape_detection": {},
+                "connection_processing": {"path_finding": {}}
+            }
+            
+            errors = []
+            value_index = 0
+            
+            for group_name, group_params in self.param_groups.items():
+                for param_name, param_def in group_params.items():
+                    value = param_values[value_index]
+                    validated_value, error = self.validate_parameter(param_name, value)
+                    
+                    if error:
+                        errors.append(error)
+                    else:
+                        # Place value in correct config section
+                        if param_name in ["proximity_threshold", "dot_product_weight", "distance_to_line_weight", "endpoint_distance_weight"]:
+                            config["connection_processing"]["path_finding"][param_name] = validated_value
+                        elif param_name.startswith(("hough_", "arrowhead_", "proximity_", "text_")):
+                            config["connection_processing"][param_name] = validated_value
+                        elif param_name in ["fill_circle_enclosing_threshold", "fill_rect_enclosing_threshold", "erosion_kernel_size", 
+                                           "min_stable_length", "max_erosion_iterations", "classify_circle_overlap_threshold",
+                                           "classify_rect_overlap_threshold", "remove_nodes_dilation_kernel_size", "remove_nodes_dilation_iterations"]:
+                            config["shape_detection"][param_name] = validated_value
+                        elif param_name in ["bin_thresh", "box_thresh"]:
+                            config["text_detection"][param_name] = validated_value
+                        elif param_name in ["min_dimension_threshold", "upscale_factor"]:
+                            config["image_processing"][param_name] = validated_value
+                    
+                    value_index += 1
+            
+            if errors:
+                return "Validation errors:\n" + "\n".join(errors), gr.update(visible=False)
+            
+            # Generate filename for display purposes
+
+            
+            # Use centralized path management
+            ensure_directories_exist()
+            temp_filepath = get_config_download_path()
+            
+            # Save file to temporary location in working directory (overwrites previous version)
+            with open(temp_filepath, 'w') as f:
+                yaml.dump(config, f, default_flow_style=False, sort_keys=False)
+            
+            return f"Configuration prepared for download: {temp_filepath.split('/')[-1]}", gr.update(value=temp_filepath, visible=True)
+            
+        except Exception as e:
+            return f"Error saving configuration: {str(e)}", gr.update(visible=False)
     
     def create_interface(self) -> gr.TabItem:
         """Create the Configuration Editor interface"""
-        with gr.TabItem("Configuration Editor") as tab:
-            gr.Markdown("## Petri Net Configuration Editor")
+        with gr.TabItem("Simple Config Editor") as tab:
+            gr.Markdown("## Algorithm Configuration Editor")
+            gr.Markdown("Upload an existing config file or modify parameters below, then save.")
             
-            # File upload for configuration
+            # File upload
             with gr.Row():
-                self.config_file_upload = self.create_file_upload(
-                    "Upload Configuration File", 
-                    list(SUPPORTED_CONFIG_EXTENSIONS)
+                file_upload = gr.File(
+                    label="Upload Configuration File (.yaml/.yml)",
+                    file_types=[".yaml", ".yml"]
                 )
-                self.file_info = gr.Textbox(label="Selected File Path", interactive=False)
-
-            self.status = gr.Textbox(label="Status", interactive=False)
             
-            # Hidden state for the config UI
-            self.config_data = self.create_state_var("config_data", {})
-            self.loaded_path = self.create_state_var("loaded_path", "")
+            status = gr.Textbox(label="Status", interactive=False)
             
             # Create parameter sections
-            self._create_parameter_sections()
+            components_list = []
+            with gr.Accordion("Configuration Parameters", open=True):
+                for group_name, group_params in self.param_groups.items():
+                    with gr.Accordion(group_name, open=False):
+                        for param_name, param_def in group_params.items():
+                            component = self.create_component(param_name, param_def)
+                            self.components[param_name] = component
+                            components_list.append(component)
             
-            # Save controls
+            # Save section
             with gr.Row():
-                self.custom_filename = gr.Textbox(
-                    label="Save as (optional)", 
-                    placeholder="Enter new filename (leave empty for auto timestamp)",
-                    interactive=True
-                )
+                save_btn = gr.Button("Save Configuration", variant="primary")
             
-            self.save_btn = self.create_button("Save Configuration", variant="primary")
-            self.download_file = gr.File(label="Download Configuration", visible=False, interactive=True, type="filepath")
-            self.success_indicator = gr.Markdown("")
+            download_file = gr.File(label="Download", visible=False)
             
-            self.setup_event_handlers()
+            # Event handlers
+            file_upload.upload(
+                fn=self.load_config_file,
+                inputs=[file_upload],
+                outputs=components_list + [status]
+            )
             
-        return tab
-    
-    def _create_parameter_sections(self):
-        """Create the parameter configuration sections"""
-        # Organize sections and subsections
-        sections = {}
-        for param in PARAMS:
-            section = param["section"]
-            if section not in sections:
-                sections[section] = {"subsections": {}, "params": []}
+            save_btn.click(
+                fn=self.save_config,
+                inputs=components_list,
+                outputs=[status, download_file]
+            )
             
-            if "subsection" in param:
-                subsection = param["subsection"]
-                if subsection not in sections[section]["subsections"]:
-                    sections[section]["subsections"][subsection] = []
-                sections[section]["subsections"][subsection].append(param)
-            else:
-                sections[section]["params"].append(param)
-        
-        # Create components
-        with gr.Accordion("Parameter Configuration", open=True):
-            for section_name, section_data in sections.items():
-                with gr.Accordion(section_name, open=False):
-                    # Handle parameters directly in section
-                    for i in range(0, len(section_data["params"]), 2):
-                        with gr.Row():
-                            param = section_data["params"][i]
-                            self.components[param["name"]] = create_component(param)
-                            
-                            if i + 1 < len(section_data["params"]):
-                                param = section_data["params"][i + 1]
-                                self.components[param["name"]] = create_component(param)
-                    
-                    # Handle subsections
-                    for subsec_name, subsec_params in section_data["subsections"].items():
-                        with gr.Accordion(subsec_name, open=False):
-                            for i in range(0, len(subsec_params), 2):
-                                with gr.Row():
-                                    param = subsec_params[i]
-                                    self.components[param["name"]] = create_component(param)
-                                    
-                                    if i + 1 < len(subsec_params):
-                                        param = subsec_params[i + 1]
-                                        self.components[param["name"]] = create_component(param)
-    
-    def setup_event_handlers(self):
-        """Setup event handlers for the Configuration Editor"""
-        # Wire up events for config UI
-        self.config_file_upload.upload(
-            fn=self._browse_and_load,
-            inputs=[self.config_file_upload],
-            outputs=[self.config_data, self.loaded_path, self.status, self.file_info] + list(self.components.values())
-        )
-        
-        # Create a list of inputs in the correct order
-        save_inputs = [self.config_data, self.loaded_path, self.custom_filename] + list(self.components.values())
-        
-        self.save_btn.click(
-            fn=self._handle_save_positional,
-            inputs=save_inputs,
-            outputs=[self.status, self.download_file]
-        ).then(
-            fn=lambda msg: "✅ Success!" if "Error" not in msg else "❌ Error!",
-            inputs=[self.status],
-            outputs=[self.success_indicator]
-        )
-    
-    def _browse_and_load(self, file_obj):
-        """Load selected configuration file from upload"""
-        if file_obj is None:
-            return {}, "", "No file selected", "", *[self.components[param["name"]].value for param in PARAMS]
-
-        file_path = file_obj.name
-        try:
-            # Load the configuration
-            config, success, message = load_config(file_path)
-            
-            if not success:
-                # Keep current values if loading fails, but update status and path
-                current_values = [self.components[param["name"]].value for param in PARAMS]
-                return {}, "", message, file_path, *current_values
-            
-            # Get values for all components based on parameter definitions
-            values = []
-            for param in PARAMS:
-                value = get_from_nested_dict(config, param["path"], param["default"])
-                
-                # Format values for display
-                if param.get("parse") == "list" and isinstance(value, list):
-                    value = str(value)
-                
-                values.append(value)
-            
-            return config, file_path, message, file_path, *values
-        except Exception as e:
-            # Keep current values on error, update status
-            current_values = [self.components[param["name"]].value for param in PARAMS]
-            return {}, "", f"Error loading file: {str(e)}", file_path if file_path else "", *current_values
-    
-    def _handle_save_positional(self, config_data, config_path, custom_filename, *param_values):
-        """A wrapper for handle_save that uses positional arguments instead of keywords"""
-        if not config_path:
-            return "No configuration file loaded. Please load a configuration first.", gr.update(visible=False)
-        
-        try:
-            # Map parameters to values
-            param_dict = {}
-            for i, param in enumerate(PARAMS):
-                param_dict[param["name"]] = param_values[i]
-            
-            # Update config with values from UI
-            for param in PARAMS:
-                value = param_dict[param["name"]]
-                
-                # Parse special types
-                if param.get("parse") == "list" and isinstance(value, str):
-                    try:
-                        value = eval(value)
-                    except:
-                        value = [3, 3]  # Default if parsing fails
-                
-                # Set the value in the config
-                config_data = set_in_nested_dict(config_data, param["path"], value)
-            
-            # Save to file
-            success, message, saved_path = save_config(config_data, config_path, custom_filename)
-            
-            if success and saved_path:
-                filename = os.path.basename(saved_path)
-                return message, gr.update(value=saved_path, visible=True, label=f"Download {filename}")
-            else:
-                return message, gr.update(visible=False)
-                
-        except Exception as e:
-            return f"Error updating configuration: {str(e)}", gr.update(visible=False) 
+        return tab 
