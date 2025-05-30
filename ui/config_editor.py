@@ -19,7 +19,6 @@ PARAMS = [
     {"section": "Text Detection", "name": "box_thresh", "path": "text_detection.box_thresh", "type": "slider", "label": "Box Threshold", "default": 0.1, "min": 0.0, "max": 1.0, "step": 0.05},
     
     # Shape Detection
-    {"section": "Shape Detection", "name": "verbose", "path": "shape_detection.verbose", "type": "checkbox", "label": "Verbose", "default": True},
     {"section": "Shape Detection", "name": "fill_circle_thresh", "path": "shape_detection.fill_circle_enclosing_threshold", "type": "slider", "label": "Fill Circle Enclosing Threshold", "default": 0.8, "min": 0.0, "max": 1.0, "step": 0.05},
     {"section": "Shape Detection", "name": "fill_rect_thresh", "path": "shape_detection.fill_rect_enclosing_threshold", "type": "slider", "label": "Fill Rectangle Enclosing Threshold", "default": 0.95, "min": 0.0, "max": 1.0, "step": 0.05},
     {"section": "Shape Detection", "name": "erosion_kernel_size", "path": "shape_detection.erosion_kernel_size", "type": "text", "label": "Erosion Kernel Size (format: [w, h])", "default": "[3, 3]", "parse": "list"},

@@ -47,12 +47,22 @@ def get_nodes_mask(img_empty_nodes_filled, config):
     erosion_kernel_size = tuple(config.get('shape_detection', {}).get('erosion_kernel_size', [3, 3]))
     min_stable_length = config.get('shape_detection', {}).get('min_stable_length', 3)
     max_erosion_iterations = config.get('shape_detection', {}).get('max_erosion_iterations', 30)
-    verbose = config.get('shape_detection', {}).get('verbose', True) # Control printing
 
     erosion_kernel = np.ones(erosion_kernel_size, np.uint8)
     contour_counts_history = []
     optimal_erosion_iterations = 0  # Default if loop doesn't run or no erosions found necessary
     optimal_condition_found = False # Flag to indicate if stability or zero contours was met
+    
+    # Debug information collection
+    debug_info = {
+        'stability_detected': False,
+        'stable_count': None,
+        'zero_contours_at': None,
+        'max_iterations_reached': False,
+        'erosions_applied': 0,
+        'dilations_applied': 0,
+        'reason': 'No processing needed'
+    }
 
     # This image is progressively eroded to find the optimal number of iterations
     image_for_iterative_erosion = img_empty_nodes_filled.copy()
@@ -74,9 +84,9 @@ def get_nodes_mask(img_empty_nodes_filled, config):
             if all(c == last_n_counts[0] for c in last_n_counts):
                 # Optimal iterations = iteration count at the start of the stable sequence
                 optimal_erosion_iterations = current_iteration - min_stable_length + 1
-                if verbose:
-                    print(f"Stability detected: Contour count {last_n_counts[0]} stable for {min_stable_length} iterations.")
-                    print(f"Optimal number of erosions determined as: {optimal_erosion_iterations}.")
+                debug_info['stability_detected'] = True
+                debug_info['stable_count'] = last_n_counts[0]
+                debug_info['reason'] = f'Stability detected: count {last_n_counts[0]} stable for {min_stable_length} iterations'
                 optimal_condition_found = True
                 break 
 
@@ -84,9 +94,8 @@ def get_nodes_mask(img_empty_nodes_filled, config):
         if num_contours_at_step == 0:
             if not optimal_condition_found: # Only set if stability wasn't the primary reason
                 optimal_erosion_iterations = current_iteration # All contours gone after this many erosions
-                if verbose:
-                    print(f"All contours disappeared after {current_iteration} erosions.")
-                    print(f"Optimal number of erosions determined as: {optimal_erosion_iterations}.")
+                debug_info['zero_contours_at'] = current_iteration
+                debug_info['reason'] = f'All contours disappeared after {current_iteration} erosions'
             optimal_condition_found = True # This is a definitive condition to stop
             break
     # Loop ends
@@ -94,35 +103,35 @@ def get_nodes_mask(img_empty_nodes_filled, config):
     # If the loop completed fully (max_erosion_iterations reached) without finding stability or zero contours
     if not optimal_condition_found and max_erosion_iterations > 0:
         optimal_erosion_iterations = max_erosion_iterations
-        if verbose:
-            print(f"Max erosions ({max_erosion_iterations}) reached without specific stability/zero-contour condition. "
-                  f"Using {optimal_erosion_iterations} erosions.")
+        debug_info['max_iterations_reached'] = True
+        debug_info['reason'] = f'Max erosions ({max_erosion_iterations}) reached without stability/zero-contour condition'
 
     # Obtain the node mask by applying the optimal number of erosions to the original filled image
     if optimal_erosion_iterations > 0:
         node_mask_eroded = cv2.erode(img_empty_nodes_filled, erosion_kernel, iterations=optimal_erosion_iterations)
-        if verbose:
-            print(f"Applied {optimal_erosion_iterations} erosions to input image to get the node mask.")
+        debug_info['erosions_applied'] = optimal_erosion_iterations
     else:
         # If no erosions are optimal, return a copy of the input to maintain consistency (always a new image object)
         node_mask_eroded = img_empty_nodes_filled.copy()
-        if verbose:
-            print("No erosions applied for node mask (0 optimal erosions). Using a copy of input.")
+        debug_info['reason'] = 'No erosions needed (0 optimal erosions)'
 
     # Dilate the eroded node mask to recover node sizes
     if optimal_erosion_iterations > 0:
         # Dilate by the same number of steps and with the same kernel
         dilated_node_mask = cv2.dilate(node_mask_eroded, erosion_kernel, iterations=optimal_erosion_iterations)
-        if verbose:
-            print(f"Applied {optimal_erosion_iterations} dilations to recover node sizes.")
+        debug_info['dilations_applied'] = optimal_erosion_iterations
     else:
         # If no erosions were done, no dilations are needed either.
         # node_mask_eroded is already a copy of the original (or the optimally eroded one if erosions > 0).
         dilated_node_mask = node_mask_eroded 
-        if verbose:
-            print("No dilations applied (0 optimal erosions).")
 
-    if verbose: # Print history only if verbose mode is on
-        print(f"Contour counts per erosion iteration: {contour_counts_history}")
+    # Print organized debug information
+    print("=== Node Mask Generation Debug Info ===")
+    print(f"Reason: {debug_info['reason']}")
+    print(f"Optimal erosions determined: {optimal_erosion_iterations}")
+    print(f"Erosions applied: {debug_info['erosions_applied']}")
+    print(f"Dilations applied: {debug_info['dilations_applied']}")
+    print(f"Contour count history: {contour_counts_history}")
+    print("=" * 40)
 
     return dilated_node_mask

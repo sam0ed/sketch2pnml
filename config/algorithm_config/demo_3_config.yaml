@@ -9,7 +9,6 @@ text_detection:
 
 # --- Shape Detection (Nodes) ---
 shape_detection:
-  verbose: true # Controls print statements in recognize_node functions
   # Parameters for fill_empty_nodes
   fill_circle_enclosing_threshold: 0.8
   fill_rect_enclosing_threshold: 0.9 ### CHANGED 0.95 ##0.78 #### 0.7 was here
