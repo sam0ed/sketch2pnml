@@ -3,9 +3,8 @@ title: Petri Net Converter Suite
 emoji: 🔄
 colorFrom: blue
 colorTo: purple
-sdk: gradio
-sdk_version: 5.0.0
-app_file: app.py
+sdk: docker
+app_port: 7860
 pinned: false
 license: mit
 ---

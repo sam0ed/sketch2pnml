@@ -2,6 +2,10 @@
 gradio>=5.0.0
 python-dotenv>=1.0.0
 
+# Machine Learning Framework (required by python-doctr)
+torch>=2.5.0
+torchvision>=0.20.0
+
 # Computer Vision and Image Processing
 opencv-python>=4.8.0
 numpy>=1.24.0
@@ -21,7 +25,7 @@ supervision>=0.20.0
 requests>=2.31.0
 
 # Petri Net Processing
-pm4py>=2.7.0
+pm4py==2.7.15.1
 
 # Template Engine
 Jinja2>=3.1.0

@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  petri-net-converter:
+    build: .
+    ports:
+      - "7860:7860"
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - ROBOFLOW_API_KEY=${ROBOFLOW_API_KEY}
+    volumes:
+      # Optional: Mount data directory to persist outputs
+      - ./data/output:/app/data/output
+      - ./data/demos:/app/data/demos
+    restart: unless-stopped 
