@@ -38,7 +38,12 @@ def create_app():
 def main():
     """Main entry point for the application"""
     app = create_app()
-    app.launch()
+    # For Hugging Face Spaces, we want to launch with share=False and server_name="0.0.0.0"
+    app.launch(
+        server_name="0.0.0.0",
+        server_port=7860,
+        share=False
+    )
 
 if __name__ == "__main__":
     main() 

@@ -1,0 +1,35 @@
+# Core Dependencies
+gradio>=5.0.0
+python-dotenv>=1.0.0
+
+# Computer Vision and Image Processing
+opencv-python>=4.8.0
+numpy>=1.24.0
+Pillow>=10.0.0
+scikit-image>=0.21.0
+
+# Data Processing and Configuration
+PyYAML>=6.0.0
+
+# Text Recognition (OCR)
+python-doctr>=0.7.0
+
+# Object Detection and Visualization
+supervision>=0.20.0
+
+# Network Requests
+requests>=2.31.0
+
+# Petri Net Processing
+pm4py>=2.7.0
+
+# Template Engine
+Jinja2>=3.1.0
+
+# AI Integration
+groq>=0.4.0
+
+# Utility Libraries (likely used by dependencies above)
+# These may be automatically installed but listing for clarity
+matplotlib>=3.7.0  # Used by various CV libraries
+scipy>=1.11.0     # Used by scikit-image and other scientific packages
